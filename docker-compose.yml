@@ -8,7 +8,7 @@ services:
       - "8081:8080"
     
 #  baseline-architecture:
-#    container_name: baseline-architecture
+#    container_name: masad-baseline-architecture
 #    image: structurizr/lite
 #    volumes:
 #      - ./workspace:/usr/local/structurizr
