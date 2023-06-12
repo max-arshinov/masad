@@ -5,7 +5,7 @@ An example of the approach [proposed by Simon Brown](https://dev.to/simonbrown/a
 
 ## How to run
 - `docker compose up -d`
-- Open web browser and go to`http://localhost:8081/`
+- Open web browser and go to `http://localhost:8081/`
 
 ##
 - [Arc42](https://arc42.org/overview) docs are in `internet-banking-system/docs`
