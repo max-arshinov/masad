@@ -1,0 +1,29 @@
+ifndef::imagesdir[:imagesdir: ../images]
+
+[[section-system-scope-and-context]]
+== System Scope and Context
+
+
+
+
+=== Business Context
+
+image::embed:InternetBankingSystem-SystemContext[]
+
+
+
+**<Diagram or Table>**
+
+**<optionally: Explanation of external domain interfaces>**
+
+=== Technical Context
+
+image::embed:InternetBankingSystem-Container[]
+
+
+
+**<Diagram or Table>**
+
+**<optionally: Explanation of technical interfaces>**
+
+**<Mapping Input/Output to Channels>**
