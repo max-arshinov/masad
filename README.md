@@ -5,7 +5,12 @@ An example of the approach [proposed by Simon Brown](https://dev.to/simonbrown/a
 
 ## How to run
 - `docker compose up -d`
-- Open web browser and go to `http://localhost:8081/`
+- Open web browser and go to [`http://localhost:8081/`](http://localhost:8081/)
+
+## How to use Structurizr Lite
+- Check [`http://localhost:8081/workspace/diagrams`](http://localhost:8081/workspace/diagrams) for diagrams
+- Check [`http://localhost:8081/workspace/documentation/Internet%20Banking%20System`](http://localhost:8081/workspace/documentation/Internet%20Banking%20System) for documentation
+- Check [`http://localhost:8081/workspace/decisions/Internet%20Banking%20System`](`http://localhost:8081/workspace/decisions/Internet%20Banking%20System`) for [ADRs](https://github.com/npryce/adr-tools)
 
 ##
 - [Arc42](https://arc42.org/overview) docs are in `internet-banking-system/docs`
