@@ -3,6 +3,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-quality-scenarios]]
 == Quality Requirements
 
+See https://re-magazine.ireb.org/articles/discover-quality-requirements-with-the-mini-qaw[Mini-QAW] for a short and fun elicitation workshop for Agile teams and architects.
 
 
 
