@@ -2,7 +2,7 @@
   "id" : 1,
   "name" : "A minimal approach to software architecture documentation",
   "description" : "Description",
-  "lastModifiedDate" : "2023-06-12T21:44:34Z",
+  "lastModifiedDate" : "2023-06-12T21:47:04Z",
   "properties" : {
     "structurizr.dsl" : "d29ya3NwYWNlICJBIG1pbmltYWwgYXBwcm9hY2ggdG8gc29mdHdhcmUgYXJjaGl0ZWN0dXJlIGRvY3VtZW50YXRpb24iIHsKICAgICFpZGVudGlmaWVycyBoaWVyYXJjaGljYWwKCiAgICBtb2RlbCB7CnN1cHBvcnRTdGFmZiA9IHBlcnNvbiAiQ3VzdG9tZXIgU2VydmljZSBTdGFmZiIgIkN1c3RvbWVyIHNlcnZpY2Ugc3RhZmYgd2l0aGluIHRoZSBiYW5rLiIgIkJhbmsgU3RhZmYiCmN1c3RvbWVyID0gcGVyc29uICJQZXJzb25hbCBCYW5raW5nIEN1c3RvbWVyIiAiQSBjdXN0b21lciBvZiB0aGUgYmFuaywgd2l0aCBwZXJzb25hbCBiYW5rIGFjY291bnRzLiIgIkN1c3RvbWVyIgpjdXN0b21lciAtPiBzdXBwb3J0U3RhZmYgIkFza3MgcXVlc3Rpb25zIHRvIiAiVGVsZXBob25lIgoKZ3JvdXAgIkJpZyBCYW5rIHBsYyIgewogICAgbWFpbmZyYW1lID0gc29mdHdhcmVzeXN0ZW0gIk1haW5mcmFtZSBCYW5raW5nIFN5c3RlbSIgIlN0b3JlcyBhbGwgb2YgdGhlIGNvcmUgYmFua2luZyBpbmZvcm1hdGlvbiBhYm91dCBjdXN0b21lcnMsIGFjY291bnRzLCB0cmFuc2FjdGlvbnMsIGV0Yy4iICJFeGlzdGluZyIKICAgIHN1cHBvcnRTdGFmZiAtPiBtYWluZnJhbWUgIlVzZXMiCgogICAgZW1haWwgPSBzb2Z0d2FyZXN5c3RlbSAiRS1tYWlsIFN5c3RlbSIgIlRoZSBpbnRlcm5hbCBNaWNyb3NvZnQgRXhjaGFuZ2UgZS1tYWlsIHN5c3RlbS4iICJFeGlzdGluZyIKICAgIGVtYWlsIC0+IGN1c3RvbWVyICJTZW5kcyBlLW1haWxzIHRvIgoKICAgIGF0bSA9IHNvZnR3YXJlc3lzdGVtICJBVE0iICJBbGxvd3MgY3VzdG9tZXJzIHRvIHdpdGhkcmF3IGNhc2guIiAiRXhpc3RpbmciCiAgICBhdG0gLT4gbWFpbmZyYW1lICJVc2VzIgoKICAgIGN1c3RvbWVyIC0+IGF0bSAiV2l0aGRyYXdzIGNhc2ggdXNpbmciCgogICAgaW50ZXJuZXRCYW5raW5nU3lzdGVtID0gc29mdHdhcmVzeXN0ZW0gIkludGVybmV0IEJhbmtpbmcgU3lzdGVtIiAiQWxsb3dzIGN1c3RvbWVycyB0byB2aWV3IGluZm9ybWF0aW9uIGFib3V0IHRoZWlyIGJhbmsgYWNjb3VudHMsIGFuZCBtYWtlIHBheW1lbnRzLiIgewohZG9jcyBkb2NzL3NyYwohYWRycyBhZHJzCgpkYXRhYmFzZSA9IGNvbnRhaW5lciAiRGF0YWJhc2UiICJTdG9yZXMgdXNlciByZWdpc3RyYXRpb24gaW5mb3JtYXRpb24sIGhhc2hlZCBhdXRoZW50aWNhdGlvbiBjcmVkZW50aWFscywgYWNjZXNzIGxvZ3MsIGV0Yy4iICJPcmFjbGUgRGF0YWJhc2UgU2NoZW1hIiAiRGF0YWJhc2UiCgphcGkgPSBjb250YWluZXIgIkFQSSBBcHBsaWNhdGlvbiIgIlByb3ZpZGVzIEludGVybmV0IGJhbmtpbmcgZnVuY3Rpb25hbGl0eSB2aWEgYSBKU09OL0hUVFBTIEFQSS4iICJKYXZhIGFuZCBTcHJpbmcgTVZDIiB7CiAgICBlbWFpbENvbXBvbmVudCA9IGNvbXBvbmVudCAiRS1tYWlsIENvbXBvbmVudCIgIlNlbmRzIGUtbWFpbHMgdG8gdXNlcnMuIiAiU3ByaW5nIEJlYW4iCiAgICBlbWFpbENvbXBvbmVudCAtPiBlbWFpbCAiU2VuZHMgZS1tYWlsIHVzaW5nIgoKICAgIG1haW5mcmFtZUJhbmtpbmdTeXN0ZW1GYWNhZGUgPSBjb21wb25lbnQgIk1haW5mcmFtZSBCYW5raW5nIFN5c3RlbSBGYWNhZGUiICJBIGZhY2FkZSBvbnRvIHRoZSBtYWluZnJhbWUgYmFua2luZyBzeXN0ZW0uIiAiU3ByaW5nIEJlYW4iCiAgICBtYWluZnJhbWVCYW5raW5nU3lzdGVtRmFjYWRlIC0+IG1haW5mcmFtZSAiTWFrZXMgQVBJIGNhbGxzIHRvIiAiWE1ML0hUVFBTIgoKICAgIGFjY291bnRzU3VtbWFyeUNvbnRyb2xsZXIgPSBjb21wb25lbnQgIkFjY291bnRzIFN1bW1hcnkgQ29udHJvbGxlciIgIlByb3ZpZGVzIGN1c3RvbWVycyB3aXRoIGEgc3VtbWFyeSBvZiB0aGVpciBiYW5rIGFjY291bnRzLiIgIlNwcmluZyBNVkMgUmVzdCBDb250cm9sbGVyIgogICAgYWNjb3VudHNTdW1tYXJ5Q29udHJvbGxlciAtPiBtYWluZnJhbWVCYW5raW5nU3lzdGVtRmFjYWRlICJVc2VzIgogICAgICAgIAogICAgc2VjdXJpdHlDb21wb25lbnQgPSBjb21wb25lbnQgIlNlY3VyaXR5IENvbXBvbmVudCIgIlByb3ZpZGVzIGZ1bmN0aW9uYWxpdHkgcmVsYXRlZCB0byBzaWduaW5nIGluLCBjaGFuZ2luZyBwYXNzd29yZHMsIGV0Yy4iICJTcHJpbmcgQmVhbiIKICAgIHNlY3VyaXR5Q29tcG9uZW50IC0+IGRhdGFiYXNlICJSZWFkcyBmcm9tIGFuZCB3cml0ZXMgdG8iICJTUUwvVENQIgogICAgICAgIAogICAgc2lnbmluQ29udHJvbGxlciA9IGNvbXBvbmVudCAiU2lnbiBJbiBDb250cm9sbGVyIiAiQWxsb3dzIHVzZXJzIHRvIHNpZ24gaW4gdG8gdGhlIEludGVybmV0IEJhbmtpbmcgU3lzdGVtLiIgIlNwcmluZyBNVkMgUmVzdCBDb250cm9sbGVyIgogICAgc2lnbmluQ29udHJvbGxlciAtPiBzZWN1cml0eUNvbXBvbmVudCAiVXNlcyIKICAgICAgICAKICAgIHJlc2V0UGFzc3dvcmRDb250cm9sbGVyID0gY29tcG9uZW50ICJSZXNldCBQYXNzd29yZCBDb250cm9sbGVyIiAiQWxsb3dzIHVzZXJzIHRvIHJlc2V0IHRoZWlyIHBhc3N3b3JkcyB3aXRoIGEgc2luZ2xlIHVzZSBVUkwuIiAiU3ByaW5nIE1WQyBSZXN0IENvbnRyb2xsZXIiCiAgICByZXNldFBhc3N3b3JkQ29udHJvbGxlciAtPiBzZWN1cml0eUNvbXBvbmVudCAiVXNlcyIKICAgIHJlc2V0UGFzc3dvcmRDb250cm9sbGVyIC0+IGVtYWlsQ29tcG9uZW50ICJVc2VzIgp9Cgptb2JpbGUgPSBjb250YWluZXIgIk1vYmlsZSIgIlByb3ZpZGVzIGEgbGltaXRlZCBzdWJzZXQgb2YgdGhlIEludGVybmV0IGJhbmtpbmcgZnVuY3Rpb25hbGl0eSB0byBjdXN0b21lcnMgdmlhIHRoZWlyIG1vYmlsZSBkZXZpY2UuIiAiWGFtYXJpbiIgIk1vYmlsZSIKbW9iaWxlIC0+IGFwaS5zaWduaW5Db250cm9sbGVyICJNYWtlcyBBUEkgY2FsbHMgdG8iICJKU09OL0hUVFBTIgptb2JpbGUgLT4gYXBpLmFjY291bnRzU3VtbWFyeUNvbnRyb2xsZXIgIk1ha2VzIEFQSSBjYWxscyB0byIgIkpTT04vSFRUUFMiCm1vYmlsZSAtPiBhcGkucmVzZXRQYXNzd29yZENvbnRyb2xsZXIgIk1ha2VzIEFQSSBjYWxscyB0byIgIkpTT04vSFRUUFMiCmN1c3RvbWVyIC0+IG1vYmlsZSAiVmlld3MgYWNjb3VudCBiYWxhbmNlcywgYW5kIG1ha2VzIHBheW1lbnRzIHVzaW5nIgoKc3BhID0gY29udGFpbmVyICJTaW5nbGUtUGFnZSBBcHBsaWNhdGlvbiIgIlByb3ZpZGVzIGFsbCBvZiB0aGUgSW50ZXJuZXQgYmFua2luZyBmdW5jdGlvbmFsaXR5IHRvIGN1c3RvbWVycyB2aWEgdGhlaXIgd2ViIGJyb3dzZXIuIiAiSmF2YVNjcmlwdCBhbmQgQW5ndWxhciIgIldlYiIKc3BhIC0+IGFwaS5zaWduaW5Db250cm9sbGVyICJNYWtlcyBBUEkgY2FsbHMgdG8iICJKU09OL0hUVFBTIgpzcGEgLT4gIGFwaS5hY2NvdW50c1N1bW1hcnlDb250cm9sbGVyICJNYWtlcyBBUEkgY2FsbHMgdG8iICJKU09OL0hUVFBTIgpzcGEgLT4gIGFwaS5yZXNldFBhc3N3b3JkQ29udHJvbGxlciAiTWFrZXMgQVBJIGNhbGxzIHRvIiAiSlNPTi9IVFRQUyIKY3VzdG9tZXIgLT4gc3BhICAiVmlld3MgYWNjb3VudCBiYWxhbmNlcywgYW5kIG1ha2VzIHBheW1lbnRzIHVzaW5nIgoKd2ViID0gY29udGFpbmVyICJXZWIgQXBwbGljYXRpb24iICJEZWxpdmVycyB0aGUgc3RhdGljIGNvbnRlbnQgYW5kIHRoZSBJbnRlcm5ldCBiYW5raW5nIHNpbmdsZSBwYWdlIGFwcGxpY2F0aW9uLiIgIkphdmEgYW5kIFNwcmluZyBNVkMiCndlYiAtPiBzcGEgIkRlbGl2ZXJzIHRvIHRoZSBjdXN0b21lcidzIHdlYiBicm93c2VyIgpjdXN0b21lciAtPiB3ZWIgIlZpc2l0cyBiaWdiYW5rLmNvbS9pYiB1c2luZyIgIkhUVFBTIgogICAgfQogICAgaW50ZXJuZXRCYW5raW5nU3lzdGVtIC0+IG1haW5mcmFtZSAiR2V0cyBhY2NvdW50IGluZm9ybWF0aW9uIGZyb20sIGFuZCBtYWtlcyBwYXltZW50cyB1c2luZyIKICAgIGludGVybmV0QmFua2luZ1N5c3RlbSAtPiBlbWFpbCAiU2VuZHMgZS1tYWlsIHVzaW5nIgogICAgY3VzdG9tZXIgLT4gaW50ZXJuZXRCYW5raW5nU3lzdGVtICJWaWV3cyBhY2NvdW50IGJhbGFuY2VzLCBhbmQgbWFrZXMgcGF5bWVudHMgdXNpbmciCn0KCgpiYWNrb2ZmaWNlID0gcGVyc29uICJCYWNrIE9mZmljZSBTdGFmZiIgIkFkbWluaXN0cmF0aW9uIGFuZCBzdXBwb3J0IHN0YWZmIHdpdGhpbiB0aGUgYmFuay4iICJCYW5rIFN0YWZmIgpiYWNrb2ZmaWNlIC0+IG1haW5mcmFtZSAiVXNlcyIKZGVwbG95bWVudEVudmlyb25tZW50ICJEZXZlbG9wbWVudCIgewpkZXBsb3ltZW50Tm9kZSAiRGV2ZWxvcGVyIExhcHRvcCIgIiIgIk1pY3Jvc29mdCBXaW5kb3dzIDEwIG9yIEFwcGxlIG1hY09TIiB7CiAgICBkZXBsb3ltZW50Tm9kZSAiV2ViIiAiIiAiQ2hyb21lLCBGaXJlZm94LCBTYWZhcmksIG9yIEVkZ2UiIHsKICAgICAgICBkZXZlbG9wZXJTaW5nbGVQYWdlQXBwbGljYXRpb25JbnN0YW5jZSA9IGNvbnRhaW5lckluc3RhbmNlIGludGVybmV0QmFua2luZ1N5c3RlbS5zcGEKICAgIH0KICAgIAogICAgZGVwbG95bWVudE5vZGUgIkRvY2tlciBDb250YWluZXIgLSBXZWIgU2VydmVyIiAiIiAiRG9ja2VyIiB7CiAgICAgICAgZGVwbG95bWVudE5vZGUgIkFwYWNoZSBUb21jYXQiICIiICJBcGFjaGUgVG9tY2F0IDgueCIgewogICAgICAgICAgICBkZXZlbG9wZXJXZWJBcHBsaWNhdGlvbkluc3RhbmNlID0gY29udGFpbmVySW5zdGFuY2UgaW50ZXJuZXRCYW5raW5nU3lzdGVtLndlYgogICAgICAgICAgICBkZXZlbG9wZXJBcGlBcHBsaWNhdGlvbkluc3RhbmNlID0gY29udGFpbmVySW5zdGFuY2UgaW50ZXJuZXRCYW5raW5nU3lzdGVtLmFwaQogICAgICAgIH0KICAgIH0KICAgIAogICAgZGVwbG95bWVudE5vZGUgIkRvY2tlciBDb250YWluZXIgLSBEYXRhYmFzZSBTZXJ2ZXIiICIiICJEb2NrZXIiIHsKICAgICAgICBkZXBsb3ltZW50Tm9kZSAiRGF0YWJhc2UgU2VydmVyIiAiIiAiT3JhY2xlIDEyYyIgewogICAgICAgICAgICBkZXZlbG9wZXJEYXRhYmFzZUluc3RhbmNlID0gY29udGFpbmVySW5zdGFuY2UgaW50ZXJuZXRCYW5raW5nU3lzdGVtLmRhdGFiYXNlCiAgICAgICAgfQogICAgfQp9CgpkZXBsb3ltZW50Tm9kZSAiQmlnIEJhbmsgcGxjIiAiIiAiQmlnIEJhbmsgcGxjIGRhdGEgY2VudGVyIiAiIiB7CiAgICBkZXBsb3ltZW50Tm9kZSAiYmlnYmFuay1kZXYwMDEiICIiICIiICIiIHsKICAgICAgICBzb2Z0d2FyZVN5c3RlbUluc3RhbmNlIG1haW5mcmFtZQogICAgfQp9Cn0KCmRlcGxveW1lbnRFbnZpcm9ubWVudCAiTGl2ZSIgewpkZXBsb3ltZW50Tm9kZSAiQ3VzdG9tZXIncyBtb2JpbGUgZGV2aWNlIiAiIiAiQXBwbGUgaU9TIG9yIEFuZHJvaWQiIHsKICAgIGxpdmVNb2JpbGVBcHBJbnN0YW5jZSA9IGNvbnRhaW5lckluc3RhbmNlIGludGVybmV0QmFua2luZ1N5c3RlbS5tb2JpbGUKfQoKZGVwbG95bWVudE5vZGUgIkN1c3RvbWVyJ3MgY29tcHV0ZXIiICIiICJNaWNyb3NvZnQgV2luZG93cyBvciBBcHBsZSBtYWNPUyIgewogICAgZGVwbG95bWVudE5vZGUgIldlYiIgIiIgIkNocm9tZSwgRmlyZWZveCwgU2FmYXJpLCBvciBFZGdlIiB7CiAgICAgICAgbGl2ZVNpbmdsZVBhZ2VBcHBsaWNhdGlvbkluc3RhbmNlID0gY29udGFpbmVySW5zdGFuY2UgaW50ZXJuZXRCYW5raW5nU3lzdGVtLnNwYQogICAgfQp9CgpkZXBsb3ltZW50Tm9kZSAiQmlnIEJhbmsgcGxjIiAiIiAiQmlnIEJhbmsgcGxjIGRhdGEgY2VudGVyIiB7CiAgICBkZXBsb3ltZW50Tm9kZSAiYmlnYmFuay13ZWIqKioiICIiICJVYnVudHUgMTYuMDQgTFRTIiAiIiA0IHsKICAgICAgICBkZXBsb3ltZW50Tm9kZSAiQXBhY2hlIFRvbWNhdCIgIiIgIkFwYWNoZSBUb21jYXQgOC54IiB7CiAgICAgICAgICAgIGxpdmVXZWJBcHBsaWNhdGlvbkluc3RhbmNlID0gY29udGFpbmVySW5zdGFuY2UgaW50ZXJuZXRCYW5raW5nU3lzdGVtLndlYgogICAgICAgIH0KICAgIH0KICAgIAogICAgZGVwbG95bWVudE5vZGUgImJpZ2JhbmstYXBpKioqIiAiIiAiVWJ1bnR1IDE2LjA0IExUUyIgIiIgOCB7CiAgICAgICAgZGVwbG95bWVudE5vZGUgIkFwYWNoZSBUb21jYXQiICIiICJBcGFjaGUgVG9tY2F0IDgueCIgewogICAgICAgICAgICBsaXZlQXBpQXBwbGljYXRpb25JbnN0YW5jZSA9IGNvbnRhaW5lckluc3RhbmNlIGludGVybmV0QmFua2luZ1N5c3RlbS5hcGkKICAgICAgICB9CiAgICB9CgogICAgYmlnYmFua2RiMDEgPSBkZXBsb3ltZW50Tm9kZSAiYmlnYmFuay1kYjAxIiAiIiAiVWJ1bnR1IDE2LjA0IExUUyIgewogICAgICAgIHByaW1hcnlEYXRhYmFzZVNlcnZlciA9IGRlcGxveW1lbnROb2RlICJPcmFjbGUgLSBQcmltYXJ5IiAiIiAiT3JhY2xlIDEyYyIgewogICAgICAgICAgICBsaXZlUHJpbWFyeURhdGFiYXNlSW5zdGFuY2UgPSBjb250YWluZXJJbnN0YW5jZSBpbnRlcm5ldEJhbmtpbmdTeXN0ZW0uZGF0YWJhc2UKICAgICAgICB9CiAgICB9CiAgICAKICAgIGRlcGxveW1lbnROb2RlICJiaWdiYW5rLWRiMDIiICIiICJVYnVudHUgMTYuMDQgTFRTIiAiRmFpbG92ZXIiIHsKICAgICAgICBzZWNvbmRhcnlEYXRhYmFzZVNlcnZlciA9IGRlcGxveW1lbnROb2RlICJPcmFjbGUgLSBTZWNvbmRhcnkiICIiICJPcmFjbGUgMTJjIiAiRmFpbG92ZXIiIHsKICAgICAgICAgICAgbGl2ZVNlY29uZGFyeURhdGFiYXNlSW5zdGFuY2UgPSBjb250YWluZXJJbnN0YW5jZSBpbnRlcm5ldEJhbmtpbmdTeXN0ZW0uZGF0YWJhc2UgIkZhaWxvdmVyIgogICAgICAgIH0KICAgICAgICAKICAgICAgICBiaWdiYW5rZGIwMS5wcmltYXJ5RGF0YWJhc2VTZXJ2ZXIgLT4gc2Vjb25kYXJ5RGF0YWJhc2VTZXJ2ZXIgIlJlcGxpY2F0ZXMgZGF0YSB0byIKICAgIH0KICAgIAogICAgZGVwbG95bWVudE5vZGUgImJpZ2JhbmstcHJvZDAwMSIgIiIgIiIgIiIgewogICAgICAgIHNvZnR3YXJlU3lzdGVtSW5zdGFuY2UgbWFpbmZyYW1lCiAgICB9Cn0KfQogICAgfQoKICAgIHZpZXdzIHsKICAgICAgICB0aGVtZSBkZWZhdWx0CiAgICAgICAgc3R5bGVzIHsKZWxlbWVudCAiRXhpc3RpbmciIHsKICAgIGJhY2tncm91bmQgIzk5OTk5OQogICAgY29sb3IgI2ZmZmZmZgp9CgplbGVtZW50ICJDb250YWluZXIiIHsKICAgIGJhY2tncm91bmQgIzQzOGRkNQogICAgY29sb3IgI2ZmZmZmZgp9CgplbGVtZW50ICJXZWIiIHsKICAgIHNoYXBlIFdlYkJyb3dzZXIKfQoKZWxlbWVudCAiTW9iaWxlIiB7CiAgICBzaGFwZSBNb2JpbGVEZXZpY2VMYW5kc2NhcGUKfQoKZWxlbWVudCAiRGF0YWJhc2UiIHsKICAgIHNoYXBlIEN5bGluZGVyCn0KCmVsZW1lbnQgIkNvbXBvbmVudCIgewogICAgYmFja2dyb3VuZCAjODViYmYwCiAgICBjb2xvciAjMDAwMDAwCn0KCmVsZW1lbnQgIkZhaWxvdmVyIiB7CiAgICBvcGFjaXR5IDI1Cn0KCnJlbGF0aW9uc2hpcCAiUmVsYXRpb25zaGlwIiB7CiAgICBzdHlsZSBzb2xpZAogICAgY29sb3IgIzc3Nzc3Nwp9CgpyZWxhdGlvbnNoaXAgIkFzeW5jIiB7CiAgICBzdHlsZSBkYXNoZWQKfQogICAgICAgIH0KICAgIH0KfQo="
   },
@@ -146,41 +146,6 @@
       "group" : "Big Bank plc",
       "location" : "Unspecified",
       "containers" : [ {
-        "id" : "39",
-        "tags" : "Element,Container,Web",
-        "name" : "Single-Page Application",
-        "description" : "Provides all of the Internet banking functionality to customers via their web browser.",
-        "relationships" : [ {
-          "id" : "40",
-          "tags" : "Relationship",
-          "sourceId" : "39",
-          "destinationId" : "27",
-          "description" : "Makes API calls to",
-          "technology" : "JSON/HTTPS"
-        }, {
-          "id" : "41",
-          "sourceId" : "39",
-          "destinationId" : "13",
-          "description" : "Makes API calls to",
-          "technology" : "JSON/HTTPS",
-          "linkedRelationshipId" : "40"
-        }, {
-          "id" : "42",
-          "tags" : "Relationship",
-          "sourceId" : "39",
-          "destinationId" : "22",
-          "description" : "Makes API calls to",
-          "technology" : "JSON/HTTPS"
-        }, {
-          "id" : "43",
-          "tags" : "Relationship",
-          "sourceId" : "39",
-          "destinationId" : "29",
-          "description" : "Makes API calls to",
-          "technology" : "JSON/HTTPS"
-        } ],
-        "technology" : "JavaScript and Angular"
-      }, {
         "id" : "12",
         "tags" : "Element,Container,Database",
         "name" : "Database",
@@ -222,6 +187,54 @@
         } ],
         "technology" : "Xamarin"
       }, {
+        "id" : "45",
+        "tags" : "Element,Container",
+        "name" : "Web Application",
+        "description" : "Delivers the static content and the Internet banking single page application.",
+        "relationships" : [ {
+          "id" : "46",
+          "tags" : "Relationship",
+          "sourceId" : "45",
+          "destinationId" : "39",
+          "description" : "Delivers to the customer's web browser"
+        } ],
+        "technology" : "Java and Spring MVC"
+      }, {
+        "id" : "39",
+        "tags" : "Element,Container,Web",
+        "name" : "Single-Page Application",
+        "description" : "Provides all of the Internet banking functionality to customers via their web browser.",
+        "relationships" : [ {
+          "id" : "40",
+          "tags" : "Relationship",
+          "sourceId" : "39",
+          "destinationId" : "27",
+          "description" : "Makes API calls to",
+          "technology" : "JSON/HTTPS"
+        }, {
+          "id" : "41",
+          "sourceId" : "39",
+          "destinationId" : "13",
+          "description" : "Makes API calls to",
+          "technology" : "JSON/HTTPS",
+          "linkedRelationshipId" : "40"
+        }, {
+          "id" : "42",
+          "tags" : "Relationship",
+          "sourceId" : "39",
+          "destinationId" : "22",
+          "description" : "Makes API calls to",
+          "technology" : "JSON/HTTPS"
+        }, {
+          "id" : "43",
+          "tags" : "Relationship",
+          "sourceId" : "39",
+          "destinationId" : "29",
+          "description" : "Makes API calls to",
+          "technology" : "JSON/HTTPS"
+        } ],
+        "technology" : "JavaScript and Angular"
+      }, {
         "id" : "13",
         "tags" : "Element,Container",
         "name" : "API Application",
@@ -249,21 +262,15 @@
         } ],
         "technology" : "Java and Spring MVC",
         "components" : [ {
-          "id" : "29",
+          "id" : "27",
           "tags" : "Element,Component",
-          "name" : "Reset Password Controller",
-          "description" : "Allows users to reset their passwords with a single use URL.",
+          "name" : "Sign In Controller",
+          "description" : "Allows users to sign in to the Internet Banking System.",
           "relationships" : [ {
-            "id" : "30",
+            "id" : "28",
             "tags" : "Relationship",
-            "sourceId" : "29",
+            "sourceId" : "27",
             "destinationId" : "24",
-            "description" : "Uses"
-          }, {
-            "id" : "31",
-            "tags" : "Relationship",
-            "sourceId" : "29",
-            "destinationId" : "14",
             "description" : "Uses"
           } ],
           "technology" : "Spring MVC Rest Controller",
@@ -283,15 +290,15 @@
           "technology" : "Spring Bean",
           "size" : 0
         }, {
-          "id" : "27",
+          "id" : "22",
           "tags" : "Element,Component",
-          "name" : "Sign In Controller",
-          "description" : "Allows users to sign in to the Internet Banking System.",
+          "name" : "Accounts Summary Controller",
+          "description" : "Provides customers with a summary of their bank accounts.",
           "relationships" : [ {
-            "id" : "28",
+            "id" : "23",
             "tags" : "Relationship",
-            "sourceId" : "27",
-            "destinationId" : "24",
+            "sourceId" : "22",
+            "destinationId" : "18",
             "description" : "Uses"
           } ],
           "technology" : "Spring MVC Rest Controller",
@@ -312,20 +319,6 @@
           "technology" : "Spring Bean",
           "size" : 0
         }, {
-          "id" : "22",
-          "tags" : "Element,Component",
-          "name" : "Accounts Summary Controller",
-          "description" : "Provides customers with a summary of their bank accounts.",
-          "relationships" : [ {
-            "id" : "23",
-            "tags" : "Relationship",
-            "sourceId" : "22",
-            "destinationId" : "18",
-            "description" : "Uses"
-          } ],
-          "technology" : "Spring MVC Rest Controller",
-          "size" : 0
-        }, {
           "id" : "24",
           "tags" : "Element,Component",
           "name" : "Security Component",
@@ -340,20 +333,27 @@
           } ],
           "technology" : "Spring Bean",
           "size" : 0
+        }, {
+          "id" : "29",
+          "tags" : "Element,Component",
+          "name" : "Reset Password Controller",
+          "description" : "Allows users to reset their passwords with a single use URL.",
+          "relationships" : [ {
+            "id" : "30",
+            "tags" : "Relationship",
+            "sourceId" : "29",
+            "destinationId" : "24",
+            "description" : "Uses"
+          }, {
+            "id" : "31",
+            "tags" : "Relationship",
+            "sourceId" : "29",
+            "destinationId" : "14",
+            "description" : "Uses"
+          } ],
+          "technology" : "Spring MVC Rest Controller",
+          "size" : 0
         } ]
-      }, {
-        "id" : "45",
-        "tags" : "Element,Container",
-        "name" : "Web Application",
-        "description" : "Delivers the static content and the Internet banking single page application.",
-        "relationships" : [ {
-          "id" : "46",
-          "tags" : "Relationship",
-          "sourceId" : "45",
-          "destinationId" : "39",
-          "description" : "Delivers to the customer's web browser"
-        } ],
-        "technology" : "Java and Spring MVC"
       } ],
       "documentation" : {
         "sections" : [ {
@@ -447,29 +447,6 @@
       "technology" : "Microsoft Windows 10 or Apple macOS",
       "instances" : 1,
       "children" : [ {
-        "id" : "60",
-        "tags" : "Element,Deployment Node",
-        "name" : "Docker Container - Database Server",
-        "environment" : "Development",
-        "technology" : "Docker",
-        "instances" : 1,
-        "children" : [ {
-          "id" : "61",
-          "tags" : "Element,Deployment Node",
-          "name" : "Database Server",
-          "environment" : "Development",
-          "technology" : "Oracle 12c",
-          "instances" : 1,
-          "containerInstances" : [ {
-            "id" : "62",
-            "tags" : "Container Instance",
-            "environment" : "Development",
-            "deploymentGroups" : [ "Default" ],
-            "instanceId" : 1,
-            "containerId" : "12"
-          } ]
-        } ]
-      }, {
         "id" : "54",
         "tags" : "Element,Deployment Node",
         "name" : "Docker Container - Web Server",
@@ -484,6 +461,20 @@
           "technology" : "Apache Tomcat 8.x",
           "instances" : 1,
           "containerInstances" : [ {
+            "id" : "56",
+            "tags" : "Container Instance",
+            "relationships" : [ {
+              "id" : "57",
+              "sourceId" : "56",
+              "destinationId" : "53",
+              "description" : "Delivers to the customer's web browser",
+              "linkedRelationshipId" : "46"
+            } ],
+            "environment" : "Development",
+            "deploymentGroups" : [ "Default" ],
+            "instanceId" : 1,
+            "containerId" : "45"
+          }, {
             "id" : "58",
             "tags" : "Container Instance",
             "relationships" : [ {
@@ -505,20 +496,29 @@
             "deploymentGroups" : [ "Default" ],
             "instanceId" : 1,
             "containerId" : "13"
-          }, {
-            "id" : "56",
+          } ]
+        } ]
+      }, {
+        "id" : "60",
+        "tags" : "Element,Deployment Node",
+        "name" : "Docker Container - Database Server",
+        "environment" : "Development",
+        "technology" : "Docker",
+        "instances" : 1,
+        "children" : [ {
+          "id" : "61",
+          "tags" : "Element,Deployment Node",
+          "name" : "Database Server",
+          "environment" : "Development",
+          "technology" : "Oracle 12c",
+          "instances" : 1,
+          "containerInstances" : [ {
+            "id" : "62",
             "tags" : "Container Instance",
-            "relationships" : [ {
-              "id" : "57",
-              "sourceId" : "56",
-              "destinationId" : "53",
-              "description" : "Delivers to the customer's web browser",
-              "linkedRelationshipId" : "46"
-            } ],
             "environment" : "Development",
             "deploymentGroups" : [ "Default" ],
             "instanceId" : 1,
-            "containerId" : "45"
+            "containerId" : "12"
           } ]
         } ]
       }, {
@@ -578,7 +578,7 @@
         "id" : "69",
         "tags" : "Container Instance",
         "relationships" : [ {
-          "id" : "81",
+          "id" : "82",
           "sourceId" : "69",
           "destinationId" : "80",
           "description" : "Makes API calls to",
@@ -608,7 +608,7 @@
           "id" : "72",
           "tags" : "Container Instance",
           "relationships" : [ {
-            "id" : "82",
+            "id" : "81",
             "sourceId" : "72",
             "destinationId" : "80",
             "description" : "Makes API calls to",
@@ -629,6 +629,51 @@
       "technology" : "Big Bank plc data center",
       "instances" : 1,
       "children" : [ {
+        "id" : "78",
+        "tags" : "Element,Deployment Node,",
+        "name" : "bigbank-api***",
+        "environment" : "Live",
+        "technology" : "Ubuntu 16.04 LTS",
+        "instances" : 8,
+        "children" : [ {
+          "id" : "79",
+          "tags" : "Element,Deployment Node",
+          "name" : "Apache Tomcat",
+          "environment" : "Live",
+          "technology" : "Apache Tomcat 8.x",
+          "instances" : 1,
+          "containerInstances" : [ {
+            "id" : "80",
+            "tags" : "Container Instance",
+            "relationships" : [ {
+              "id" : "86",
+              "sourceId" : "80",
+              "destinationId" : "85",
+              "description" : "Reads from and writes to",
+              "technology" : "SQL/TCP",
+              "linkedRelationshipId" : "26"
+            }, {
+              "id" : "90",
+              "sourceId" : "80",
+              "destinationId" : "89",
+              "description" : "Reads from and writes to",
+              "technology" : "SQL/TCP",
+              "linkedRelationshipId" : "26"
+            }, {
+              "id" : "94",
+              "sourceId" : "80",
+              "destinationId" : "93",
+              "description" : "Makes API calls to",
+              "technology" : "XML/HTTPS",
+              "linkedRelationshipId" : "20"
+            } ],
+            "environment" : "Live",
+            "deploymentGroups" : [ "Default" ],
+            "instanceId" : 1,
+            "containerId" : "13"
+          } ]
+        } ]
+      }, {
         "id" : "92",
         "tags" : "Element,Deployment Node,",
         "name" : "bigbank-prod001",
@@ -641,6 +686,36 @@
           "deploymentGroups" : [ "Default" ],
           "instanceId" : 1,
           "softwareSystemId" : "4"
+        } ]
+      }, {
+        "id" : "74",
+        "tags" : "Element,Deployment Node,",
+        "name" : "bigbank-web***",
+        "environment" : "Live",
+        "technology" : "Ubuntu 16.04 LTS",
+        "instances" : 4,
+        "children" : [ {
+          "id" : "75",
+          "tags" : "Element,Deployment Node",
+          "name" : "Apache Tomcat",
+          "environment" : "Live",
+          "technology" : "Apache Tomcat 8.x",
+          "instances" : 1,
+          "containerInstances" : [ {
+            "id" : "76",
+            "tags" : "Container Instance",
+            "relationships" : [ {
+              "id" : "77",
+              "sourceId" : "76",
+              "destinationId" : "72",
+              "description" : "Delivers to the customer's web browser",
+              "linkedRelationshipId" : "46"
+            } ],
+            "environment" : "Live",
+            "deploymentGroups" : [ "Default" ],
+            "instanceId" : 1,
+            "containerId" : "45"
+          } ]
         } ]
       }, {
         "id" : "83",
@@ -693,81 +768,6 @@
             "deploymentGroups" : [ "Default" ],
             "instanceId" : 1,
             "containerId" : "12"
-          } ]
-        } ]
-      }, {
-        "id" : "74",
-        "tags" : "Element,Deployment Node,",
-        "name" : "bigbank-web***",
-        "environment" : "Live",
-        "technology" : "Ubuntu 16.04 LTS",
-        "instances" : 4,
-        "children" : [ {
-          "id" : "75",
-          "tags" : "Element,Deployment Node",
-          "name" : "Apache Tomcat",
-          "environment" : "Live",
-          "technology" : "Apache Tomcat 8.x",
-          "instances" : 1,
-          "containerInstances" : [ {
-            "id" : "76",
-            "tags" : "Container Instance",
-            "relationships" : [ {
-              "id" : "77",
-              "sourceId" : "76",
-              "destinationId" : "72",
-              "description" : "Delivers to the customer's web browser",
-              "linkedRelationshipId" : "46"
-            } ],
-            "environment" : "Live",
-            "deploymentGroups" : [ "Default" ],
-            "instanceId" : 1,
-            "containerId" : "45"
-          } ]
-        } ]
-      }, {
-        "id" : "78",
-        "tags" : "Element,Deployment Node,",
-        "name" : "bigbank-api***",
-        "environment" : "Live",
-        "technology" : "Ubuntu 16.04 LTS",
-        "instances" : 8,
-        "children" : [ {
-          "id" : "79",
-          "tags" : "Element,Deployment Node",
-          "name" : "Apache Tomcat",
-          "environment" : "Live",
-          "technology" : "Apache Tomcat 8.x",
-          "instances" : 1,
-          "containerInstances" : [ {
-            "id" : "80",
-            "tags" : "Container Instance",
-            "relationships" : [ {
-              "id" : "86",
-              "sourceId" : "80",
-              "destinationId" : "85",
-              "description" : "Reads from and writes to",
-              "technology" : "SQL/TCP",
-              "linkedRelationshipId" : "26"
-            }, {
-              "id" : "90",
-              "sourceId" : "80",
-              "destinationId" : "89",
-              "description" : "Reads from and writes to",
-              "technology" : "SQL/TCP",
-              "linkedRelationshipId" : "26"
-            }, {
-              "id" : "94",
-              "sourceId" : "80",
-              "destinationId" : "93",
-              "description" : "Makes API calls to",
-              "technology" : "XML/HTTPS",
-              "linkedRelationshipId" : "20"
-            } ],
-            "environment" : "Live",
-            "deploymentGroups" : [ "Default" ],
-            "instanceId" : 1,
-            "containerId" : "13"
           } ]
         } ]
       } ]
@@ -839,6 +839,78 @@
       } ]
     } ],
     "systemContextViews" : [ {
+      "softwareSystemId" : "8",
+      "key" : "ATM-SystemContext",
+      "order" : 2,
+      "automaticLayout" : {
+        "implementation" : "Graphviz",
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "nodeSeparation" : 300,
+        "edgeSeparation" : 0,
+        "vertices" : false
+      },
+      "enterpriseBoundaryVisible" : true,
+      "relationships" : [ {
+        "id" : "10"
+      }, {
+        "id" : "9"
+      } ],
+      "elements" : [ {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "4",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "8",
+        "x" : 0,
+        "y" : 0
+      } ]
+    }, {
+      "softwareSystemId" : "11",
+      "key" : "InternetBankingSystem-SystemContext",
+      "order" : 4,
+      "automaticLayout" : {
+        "implementation" : "Graphviz",
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "nodeSeparation" : 300,
+        "edgeSeparation" : 0,
+        "vertices" : false
+      },
+      "enterpriseBoundaryVisible" : true,
+      "relationships" : [ {
+        "id" : "17"
+      }, {
+        "id" : "7"
+      }, {
+        "id" : "21"
+      }, {
+        "id" : "48"
+      }, {
+        "id" : "38"
+      } ],
+      "elements" : [ {
+        "id" : "11",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "4",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "6",
+        "x" : 0,
+        "y" : 0
+      } ]
+    }, {
       "softwareSystemId" : "4",
       "key" : "MainframeBankingSystem-SystemContext",
       "order" : 7,
@@ -884,37 +956,6 @@
         "y" : 0
       } ]
     }, {
-      "softwareSystemId" : "8",
-      "key" : "ATM-SystemContext",
-      "order" : 2,
-      "automaticLayout" : {
-        "implementation" : "Graphviz",
-        "rankDirection" : "TopBottom",
-        "rankSeparation" : 300,
-        "nodeSeparation" : 300,
-        "edgeSeparation" : 0,
-        "vertices" : false
-      },
-      "enterpriseBoundaryVisible" : true,
-      "relationships" : [ {
-        "id" : "10"
-      }, {
-        "id" : "9"
-      } ],
-      "elements" : [ {
-        "id" : "2",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "4",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "8",
-        "x" : 0,
-        "y" : 0
-      } ]
-    }, {
       "softwareSystemId" : "6",
       "key" : "EmailSystem-SystemContext",
       "order" : 3,
@@ -940,47 +981,6 @@
         "y" : 0
       }, {
         "id" : "2",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "6",
-        "x" : 0,
-        "y" : 0
-      } ]
-    }, {
-      "softwareSystemId" : "11",
-      "key" : "InternetBankingSystem-SystemContext",
-      "order" : 4,
-      "automaticLayout" : {
-        "implementation" : "Graphviz",
-        "rankDirection" : "TopBottom",
-        "rankSeparation" : 300,
-        "nodeSeparation" : 300,
-        "edgeSeparation" : 0,
-        "vertices" : false
-      },
-      "enterpriseBoundaryVisible" : true,
-      "relationships" : [ {
-        "id" : "17"
-      }, {
-        "id" : "7"
-      }, {
-        "id" : "21"
-      }, {
-        "id" : "48"
-      }, {
-        "id" : "38"
-      } ],
-      "elements" : [ {
-        "id" : "11",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "2",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "4",
         "x" : 0,
         "y" : 0
       }, {
@@ -1085,9 +1085,9 @@
       }, {
         "id" : "15"
       }, {
-        "id" : "36"
-      }, {
         "id" : "25"
+      }, {
+        "id" : "36"
       }, {
         "id" : "35"
       }, {
@@ -1130,11 +1130,11 @@
         "x" : 0,
         "y" : 0
       }, {
-        "id" : "29",
+        "id" : "18",
         "x" : 0,
         "y" : 0
       }, {
-        "id" : "18",
+        "id" : "29",
         "x" : 0,
         "y" : 0
       }, {
@@ -1144,118 +1144,9 @@
       } ]
     } ],
     "deploymentViews" : [ {
-      "softwareSystemId" : "11",
-      "key" : "InternetBankingSystem-Live-Deployment",
-      "order" : 10,
-      "automaticLayout" : {
-        "implementation" : "Graphviz",
-        "rankDirection" : "TopBottom",
-        "rankSeparation" : 300,
-        "nodeSeparation" : 300,
-        "edgeSeparation" : 0,
-        "vertices" : false
-      },
-      "environment" : "Live",
-      "relationships" : [ {
-        "id" : "82"
-      }, {
-        "id" : "94"
-      }, {
-        "id" : "91"
-      }, {
-        "id" : "81"
-      }, {
-        "id" : "86"
-      }, {
-        "id" : "77"
-      }, {
-        "id" : "90"
-      } ],
-      "elements" : [ {
-        "id" : "88",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "89",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "78",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "68",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "79",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "69",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "80",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "70",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "92",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "71",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "93",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "72",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "83",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "84",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "73",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "85",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "74",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "75",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "87",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "76",
-        "x" : 0,
-        "y" : 0
-      } ]
-    }, {
       "softwareSystemId" : "4",
-      "key" : "MainframeBankingSystem-Live-Deployment",
-      "order" : 11,
+      "key" : "MainframeBankingSystem-Development-Deployment",
+      "order" : 9,
       "automaticLayout" : {
         "implementation" : "Graphviz",
         "rankDirection" : "TopBottom",
@@ -1264,7 +1155,7 @@
         "edgeSeparation" : 0,
         "vertices" : false
       },
-      "environment" : "Live"
+      "environment" : "Development"
     }, {
       "softwareSystemId" : "11",
       "key" : "InternetBankingSystem-Development-Deployment",
@@ -1342,8 +1233,8 @@
       } ]
     }, {
       "softwareSystemId" : "4",
-      "key" : "MainframeBankingSystem-Development-Deployment",
-      "order" : 9,
+      "key" : "MainframeBankingSystem-Live-Deployment",
+      "order" : 11,
       "automaticLayout" : {
         "implementation" : "Graphviz",
         "rankDirection" : "TopBottom",
@@ -1352,7 +1243,116 @@
         "edgeSeparation" : 0,
         "vertices" : false
       },
-      "environment" : "Development"
+      "environment" : "Live"
+    }, {
+      "softwareSystemId" : "11",
+      "key" : "InternetBankingSystem-Live-Deployment",
+      "order" : 10,
+      "automaticLayout" : {
+        "implementation" : "Graphviz",
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "nodeSeparation" : 300,
+        "edgeSeparation" : 0,
+        "vertices" : false
+      },
+      "environment" : "Live",
+      "relationships" : [ {
+        "id" : "82"
+      }, {
+        "id" : "94"
+      }, {
+        "id" : "91"
+      }, {
+        "id" : "81"
+      }, {
+        "id" : "86"
+      }, {
+        "id" : "77"
+      }, {
+        "id" : "90"
+      } ],
+      "elements" : [ {
+        "id" : "88",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "78",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "89",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "68",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "79",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "69",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "80",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "70",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "92",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "71",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "93",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "72",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "83",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "84",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "73",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "74",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "85",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "75",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "76",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "87",
+        "x" : 0,
+        "y" : 0
+      } ]
     } ],
     "configuration" : {
       "branding" : { },
