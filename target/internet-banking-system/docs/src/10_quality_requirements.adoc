@@ -3,15 +3,15 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-quality-scenarios]]
 == Quality Requirements
 
-See https://re-magazine.ireb.org/articles/discover-quality-requirements-with-the-mini-qaw[Mini-QAW] for a short and fun elicitation workshop for Agile teams and architects.
+- _See https://re-magazine.ireb.org/articles/discover-quality-requirements-with-the-mini-qaw[Mini-QAW] for a short and fun elicitation workshop for Agile teams and architects._
 
 
 
 === Quality Tree
 
-See an example quality tree in the https://docs.arc42.org/examples/quality-tpu-1/#101-quality-tree[arc42 documentation].
+- _See an example quality tree in the https://docs.arc42.org/examples/quality-tpu-1/#101-quality-tree[arc42 documentation]._
 
 === Quality Scenarios
 
-See example quality scenarios in the
-https://docs.arc42.org/examples/quality-tpu-1/#102-quality-scenarios[arc42 documentation].
+- _See example quality scenarios in the
+https://docs.arc42.org/examples/quality-tpu-1/#102-quality-scenarios[arc42 documentation]._
