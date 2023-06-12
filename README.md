@@ -4,7 +4,7 @@ An example of the approach [proposed by Simon Brown](https://dev.to/simonbrown/a
 
 
 ## How to run
-- `docker compose up -D`
+- `docker compose up -d`
 - Open web browser and go to`http://localhost:8081/`
 
 ##
