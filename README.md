@@ -14,6 +14,7 @@ An example of the approach [proposed by Simon Brown](https://dev.to/simonbrown/a
 ## docToolChain
 
 [docToolChain](https://github.com/docToolchain/docToolchain) is an implementation of the docs-as-code approach for software architecture. The basis of docToolchain is the philosophy that software documentation should be treated in the same way as code together with the arc42 template for software architecture.
+
 ![docToolChain](https://camo.githubusercontent.com/51aa243c71a36dba275cd24060ed053d882260104832c10a88279641c5c10e23/68747470733a2f2f646f63746f6f6c636861696e2e6769746875622e696f2f646f63546f6f6c636861696e2f76322e302e782f696d616765732f65612f4d616e75616c2f4f76657276696577322e706e67)
 
 ## Notes for Confluence users
