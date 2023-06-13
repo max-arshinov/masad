@@ -1,6 +1,6 @@
 # A minimal approach to software architecture documentation
 
-An example of the approach [proposed by Simon Brown](https://dev.to/simonbrown/a-minimal-approach-to-software-architecture-documentation-4k6k) built with [Structurizr Lite](https://github.com/structurizr/lite), [Arc42](https://arc42.org/overview), and [ADR Tools](https://github.com/npryce/adr-tools).
+An example of the approach [proposed by Simon Brown](https://dev.to/simonbrown/a-minimal-approach-to-software-architecture-documentation-4k6k), built with [Structurizr Lite](https://github.com/structurizr/lite), [Arc42](https://arc42.org/overview), and [ADR Tools](https://github.com/npryce/adr-tools).
 
 
 ## How to run
