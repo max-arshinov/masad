@@ -15,7 +15,7 @@ group "Big Bank plc" {
     customer -> atm "Withdraws cash using"
 
     internetBankingSystem = softwaresystem "Internet Banking System" "Allows customers to view information about their bank accounts, and make payments." {
-        !include internet-banking-system/system.dsl
+        !include internet-banking-system/ibs.dsl
     }
     internetBankingSystem -> mainframe "Gets account information from, and makes payments using"
     internetBankingSystem -> email "Sends e-mail using"
