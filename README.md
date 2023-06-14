@@ -16,6 +16,9 @@ It's intended to store this documentation in a repository and treat it the same 
 
 ### 1. Software architecture models as code
 
+
+#### [Live Demo](https://structurizr.com/share/36141/diagrams#SystemContext)
+
 [Structurizr](https://structurizr.com/) builds upon "diagrams as code", allowing you to create *multiple software
 architecture diagrams* from a *single model*.
 There are a number of tools for creating Structurizr compatible workspaces, with
@@ -65,6 +68,9 @@ workspace {
 
 ### 2. Documentation
 
+#### [Live Demo](https://structurizr.com/share/31/documentation/Financial%20Risk%20System#context)
+
+
 Because the code doesn't tell the whole story, Structurizr provides support for lightweight supplementary technical
 documentation. The documentation is a collection of Markdown or AsciiDoc files, one per section, which are rendered in
 the web browser. [Arc42](https://arc42.org/overview) template is used for the documentation.
@@ -72,6 +78,8 @@ the web browser. [Arc42](https://arc42.org/overview) template is used for the do
 ![](https://arc42.org/images/arc42-overview-V8.png)
 
 ### 3. Decision log
+
+#### [Live Demo](https://structurizr.com/share/31/decisions/Financial%20Risk%20System)
 
 Because diagrams alone can't express the decisions that led to a solution, Structurizr allows you to supplement your
 software architecture model with a decision log,
