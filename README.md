@@ -10,7 +10,7 @@ The approach has 3 parts available in a web browser application that runs in doc
 
 ### 1. Software architecture models as code
 
-Structurizr builds upon "diagrams as code", allowing you to create *multiple software architecture diagrams* from a *single model*.
+[Structurizr](https://structurizr.com/) builds upon "diagrams as code", allowing you to create *multiple software architecture diagrams* from a *single model*.
 There are a number of tools for creating Structurizr compatible workspaces, with the [Structurizr DSL](https://github.com/structurizr/dsl)
 being the recommended option for most teams.
 This Structurizr DSL example creates two diagrams, based upon a single set of elements and relationships.
