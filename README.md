@@ -1,7 +1,7 @@
 # A minimal approach to software architecture documentation
 
 An example of the approach [proposed by Simon Brown](https://dev.to/simonbrown/a-minimal-approach-to-software-architecture-documentation-4k6k).
-The approach has 3 parts available in a web browser application that runs in docker:
+The approach has 3 parts (all stored as text files) available in a web browser application that runs on Docker:
 1. Software architecture models as code built with [Structurizr Lite](https://github.com/structurizr/lite)
 2. Documentation built with [Arc42 template](https://arc42.org/overview)
 3. Decision log built with [ADR Tools](https://github.com/npryce/adr-tools)
