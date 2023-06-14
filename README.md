@@ -1,7 +1,65 @@
 # A minimal approach to software architecture documentation
 
-An example of the approach [proposed by Simon Brown](https://dev.to/simonbrown/a-minimal-approach-to-software-architecture-documentation-4k6k), built with [Structurizr Lite](https://github.com/structurizr/lite), [Arc42](https://arc42.org/overview), and [ADR Tools](https://github.com/npryce/adr-tools).
+An example of the approach [proposed by Simon Brown](https://dev.to/simonbrown/a-minimal-approach-to-software-architecture-documentation-4k6k).
+The approach has 3 parts available in a web browser application that runs in docker:
+1. Software architecture models as code built with [Structurizr Lite](https://github.com/structurizr/lite)
+2. Documentation built with [Arc42 template](https://arc42.org/overview)
+3. Decision log built with [ADR Tools](https://github.com/npryce/adr-tools)
 
+![](img/structurizr.png)
+
+### 1. Software architecture models as code
+
+Structurizr builds upon "diagrams as code", allowing you to create *multiple software architecture diagrams* from a *single model*.
+There are a number of tools for creating Structurizr compatible workspaces, with the [Structurizr DSL](https://github.com/structurizr/dsl)
+being the recommended option for most teams.
+This Structurizr DSL example creates two diagrams, based upon a single set of elements and relationships.
+
+```
+workspace {
+
+    model {
+        user = person "User"
+        softwareSystem = softwareSystem "Software System" {
+            webapp = container "Web Application" {
+                user -> this "Uses"
+            }
+            container "Database" {
+                webapp -> this "Reads from and writes to"
+            }
+        }
+    }
+
+    views {
+        systemContext softwareSystem {
+            include *
+            autolayout lr
+        }
+
+        container softwareSystem {
+            include *
+            autolayout lr
+        }
+
+        theme default
+    }
+```
+
+![Context](https://static.structurizr.com/img/help/multiple-diagrams-1.png)
+![Container](https://static.structurizr.com/img/help/multiple-diagrams-2.png)
+
+### 2. Documentation
+
+Because the code doesn't tell the whole story, Structurizr provides support for lightweight supplementary technical documentation. The documentation is a collection of Markdown or AsciiDoc files, one per section, which are rendered in the web browser. [Arc42](https://arc42.org/overview) template is used for the documentation.
+
+![](https://arc42.org/images/arc42-overview-V8.png)
+
+### 3. Decision log
+Because diagrams alone can't express the decisions that led to a solution, Structurizr allows you to supplement your software architecture model with a decision log,
+captured as a collection of lightweight Architecture Decision Records (ADRs)
+[as described by Michael Nygard](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions),
+and featured on the [ThoughtWorks Technology Radar](https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records).
+Structurizr allows you to publish your ADRs to allow team members get an "at a glance" view of the current set of ADRs, along with facilities to make navigating them easier.
 
 ## How to run
 - `docker compose up -d`

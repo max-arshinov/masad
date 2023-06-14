@@ -30,7 +30,7 @@ element "Failover" {
 }
 
 relationship "Relationship" {
-    style solid
+    style dotted
     color #777777
 }
 
