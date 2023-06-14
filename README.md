@@ -47,8 +47,12 @@ workspace {
     }
 ```
 ---
+
+
 ![Context](https://static.structurizr.com/img/help/multiple-diagrams-1.png)
+
 ---
+
 ![Container](https://static.structurizr.com/img/help/multiple-diagrams-2.png)
 
 ### 2. Documentation
