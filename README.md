@@ -15,6 +15,7 @@ There are a number of tools for creating Structurizr compatible workspaces, with
 being the recommended option for most teams.
 This Structurizr DSL example creates two diagrams, based upon a single set of elements and relationships.
 
+#### DSL
 ```
 workspace {
 
@@ -46,6 +47,7 @@ workspace {
 ```
 
 ![Context](https://static.structurizr.com/img/help/multiple-diagrams-1.png)
+---
 ![Container](https://static.structurizr.com/img/help/multiple-diagrams-2.png)
 
 ### 2. Documentation
