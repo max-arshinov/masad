@@ -45,6 +45,7 @@ workspace {
         theme default
     }
 ```
+#### Diagrams
 
 ![Context](https://static.structurizr.com/img/help/multiple-diagrams-1.png)
 ---
