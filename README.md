@@ -109,6 +109,11 @@ for [ADRs](https://github.com/npryce/adr-tools)
 - [Arc42](https://arc42.org/overview) docs are in `internet-banking-system/docs`
 - [ADRs](https://github.com/npryce/adr-tools) are in `internet-banking-system/adrs`
 
+## What can I use this template for?
+- Presale
+- Project discovery
+- Ongoing architecture documentation for your system
+
 ## docToolChain
 
 [docToolChain](https://github.com/docToolchain/docToolchain) is an implementation of the docs-as-code approach for
