@@ -5,7 +5,7 @@ at their business continuity plans, and the increase in remote working.
 
 This is an implementation example of the
 approach [proposed by Simon Brown](https://dev.to/simonbrown/a-minimal-approach-to-software-architecture-documentation-4k6k). Remembering that time is precious, the
-approach has 3 parts:
+approach has only three parts:
 1. Software architecture models as code built with [Structurizr Lite](https://github.com/structurizr/lite)
 2. Documentation built with [Arc42 template](https://arc42.org/overview)
 3. Decision log built with [ADR Tools](https://github.com/npryce/adr-tools)
