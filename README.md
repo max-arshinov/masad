@@ -57,7 +57,6 @@ workspace {
 
 ---
 
-
 ![Context](https://static.structurizr.com/img/help/multiple-diagrams-1.png)
 
 ---
@@ -99,9 +98,6 @@ for [ADRs](https://github.com/npryce/adr-tools)
 - Check [Getting started with Structurizr Lite](https://dev.to/simonbrown/getting-started-with-structurizr-lite-27d0)
   for more details
 - Watch two talks at the bottom of the [C4 FAQ](https://c4model.com/#FAQ)
-
-##
-
 - [Arc42](https://arc42.org/overview) docs are in `internet-banking-system/docs`
 - [ADRs](https://github.com/npryce/adr-tools) are in `internet-banking-system/adrs`
 
