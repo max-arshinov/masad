@@ -14,11 +14,11 @@ _**<Overview Diagram>**_
 
 ==== Development
 
-image::embed:InternetBankingSystem-Development-Deployment[]
+image::embed:DevelopmentDeployment[]
 
 ==== Live
 
-image::embed:InternetBankingSystem-Live-Deployment[]
+image::embed:LiveDeployment[]
 
 Motivation::
 

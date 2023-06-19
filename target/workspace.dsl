@@ -8,6 +8,7 @@ workspace "A minimal approach to software architecture documentation" {
 
     views {
         theme default
+        !include views.dsl
         styles {
             !include styles.dsl
         }

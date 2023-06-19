@@ -3,7 +3,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-runtime-view]]
 == Runtime View
 
-
+image::embed:SignIn[]
 
 
 === <Runtime Scenario 1>
