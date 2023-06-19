@@ -1,6 +1,6 @@
 services:
   target-architecture:
-    container_name: masad-target-architecture
+    container_name: software-architecture-documentation-target
     image: structurizr/lite
     volumes:
       - ./target:/usr/local/structurizr
@@ -8,7 +8,7 @@ services:
       - "8081:8080"
     
 #  baseline-architecture:
-#    container_name: masad-baseline-architecture
+#    container_name: software-architecture-documentation-baselin
 #    image: structurizr/lite
 #    volumes:
 #      - ./workspace:/usr/local/structurizr
