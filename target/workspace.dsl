@@ -13,4 +13,4 @@ workspace "A minimal approach to software architecture documentation" {
             !include styles.dsl
         }
     }
-}
+}  
