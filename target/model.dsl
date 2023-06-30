@@ -18,8 +18,8 @@ group "Big Bank plc" {
         !include internet-banking-system/ibs.dsl
     }
     internetBankingSystem -> mainframe "Gets account information from, and makes payments using"
-    internetBankingSystem -> email "Sends e-mail using"
-    customer -> internetBankingSystem "Views account balances, and makes payments using"
+    internetBankingSystem -> email "Sends email using" 
+    customer -> internetBankingSystem "Views account balances and makes payments using"
 }
 
 
