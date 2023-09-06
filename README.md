@@ -8,9 +8,9 @@ If you've read [Simon Brown's take on a minimal approach to software architectur
 
 This repo fills that gap by presenting a concrete implementation template of Simon Brown's approach, which consists of:
 
-1. Software architecture models as code built with [Structurizr Lite](https://github.com/structurizr/lite)
-2. Documentation built with [Arc42 template](https://arc42.org/overview)
-3. Decision log built with [ADR Tools](https://github.com/npryce/adr-tools)
+1. [Software architecture models as code built with Structurizr Lite](#1-software-architecture-models-as-code)
+2. [Documentation built with Arc42 template](#2-documentation)
+3. [Decision log built with ADR Tools](#3-decision-log)
 
 It's intended to store this documentation in a repository and treat it the same as code.
 
@@ -22,8 +22,29 @@ It's intended to store this documentation in a repository and treat it the same 
 - [Solution Architecture Document (SAD)](https://almbok.com/method/sad#:~:text=A%20solution%20architecture%20document%20is,principles%20that%20guide%20its%20design.)
 - Ongoing architecture documentation for your system
 
-### 1. Software architecture models as code
+## How to run
 
+- `docker compose up -d`
+- Open web browser and go to [`http://localhost:8081/`](http://localhost:8081/)
+- Happy documenting! 📚
+
+## How to use Structurizr Lite
+
+- Check [`http://localhost:8081/workspace/diagrams`](http://localhost:8081/workspace/diagrams) for diagrams
+- Check [`http://localhost:8081/workspace/documentation/Internet%20Banking%20System`](http://localhost:8081/workspace/documentation/Internet%20Banking%20System)
+  for documentation
+- Check [`http://localhost:8081/workspace/decisions/Internet%20Banking%20System`](http://localhost:8081/workspace/decisions/Internet%20Banking%20System)
+  for [ADRs](https://github.com/npryce/adr-tools)
+- Check [language reference](https://github.com/structurizr/dsl/blob/master/docs/language-reference.md) for dsl syntax
+- Check [Getting started with Structurizr Lite](https://dev.to/simonbrown/getting-started-with-structurizr-lite-27d0)
+  for more details
+- Watch two talks at the bottom of the [C4 FAQ](https://c4model.com/#FAQ)
+- [Arc42](https://arc42.org/overview) docs are in `internet-banking-system/docs`
+- [ADRs](https://github.com/npryce/adr-tools) are in `internet-banking-system/adrs`
+
+## What's inside?
+
+### 1. Software architecture models as code
 
 #### [Live Demo](https://structurizr.com/share/83822/diagrams#SystemLandscape)
 
@@ -97,26 +118,6 @@ and featured on
 the [ThoughtWorks Technology Radar](https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records).
 Structurizr allows you to publish your ADRs to allow team members get an "at a glance" view of the current set of ADRs,
 along with facilities to make navigating them easier.
-
-## How to run
-
-- `docker compose up -d`
-- Open web browser and go to [`http://localhost:8081/`](http://localhost:8081/)
-- Happy documenting! 📚
-
-## How to use Structurizr Lite
-
-- Check [`http://localhost:8081/workspace/diagrams`](http://localhost:8081/workspace/diagrams) for diagrams
-- Check [`http://localhost:8081/workspace/documentation/Internet%20Banking%20System`](http://localhost:8081/workspace/documentation/Internet%20Banking%20System)
-for documentation
-- Check [`http://localhost:8081/workspace/decisions/Internet%20Banking%20System`](http://localhost:8081/workspace/decisions/Internet%20Banking%20System)
-for [ADRs](https://github.com/npryce/adr-tools)
-- Check [language reference](https://github.com/structurizr/dsl/blob/master/docs/language-reference.md) for dsl syntax
-- Check [Getting started with Structurizr Lite](https://dev.to/simonbrown/getting-started-with-structurizr-lite-27d0)
-  for more details
-- Watch two talks at the bottom of the [C4 FAQ](https://c4model.com/#FAQ)
-- [Arc42](https://arc42.org/overview) docs are in `internet-banking-system/docs`
-- [ADRs](https://github.com/npryce/adr-tools) are in `internet-banking-system/adrs`
 
 ## Export & Integrations
 
