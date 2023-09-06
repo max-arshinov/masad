@@ -1,4 +1,4 @@
-# A minimal approach to software architecture documentation
+# Architecture as Code <small>a minimal approach to software architecture documentation</small>
 
 > The question of "how much documentation should we write?" is popping up a lot recently, probably driven by teams looking
 at their business continuity plans, and the increase in remote working.
@@ -17,7 +17,7 @@ It's intended to store this documentation in a repository and treat it the same 
 ### 1. Software architecture models as code
 
 
-#### [Live Demo](https://structurizr.com/share/36141/diagrams#SystemContext)
+#### [Live Demo](https://structurizr.com/share/83822/diagrams#SystemLandscape)
 
 [Structurizr](https://structurizr.com/) builds upon "diagrams as code", allowing you to create *multiple software
 architecture diagrams* from a *single model*.
@@ -68,7 +68,7 @@ workspace {
 
 ### 2. Documentation
 
-#### [Live Demo](https://structurizr.com/share/31/documentation/Financial%20Risk%20System#context)
+#### [Live Demo](https://structurizr.com/share/83822/documentation/Internet%20Banking%20System)
 
 
 Because the code doesn't tell the whole story, Structurizr provides support for lightweight supplementary technical
@@ -79,7 +79,7 @@ the web browser. [Arc42](https://arc42.org/overview) template is used for the do
 
 ### 3. Decision log
 
-#### [Live Demo](https://structurizr.com/share/31/decisions/Financial%20Risk%20System)
+#### [Live Demo](https://structurizr.com/share/83822/decisions)
 
 Because diagrams alone can't express the decisions that led to a solution, Structurizr allows you to supplement your
 software architecture model with a decision log,
