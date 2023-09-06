@@ -4,9 +4,9 @@
 > The question of "how much documentation should we write?" is popping up a lot recently, probably driven by teams looking
 at their business continuity plans, and the increase in remote working.
 
-If you've read [Simon Brown's take on a minimal approach to software architecture documentation](https://dev.to/simonbrown/a-minimal-approach-to-software-architecture-documentation-4k6k), you may have been intrigued by the philosophy but perhaps left wondering about its implementation. Although Simon Brown proposes a minimalist, three-part approach, he doesn't provide an example of it in practice. 
+If you've read [Simon Brown's take on a minimal approach to software architecture documentation](https://dev.to/simonbrown/a-minimal-approach-to-software-architecture-documentation-4k6k), you may have been intrigued by the approach but perhaps left wondering about its implementation. Although Simon Brown proposes a minimalist, three-part approach, he doesn't provide an example of it in practice. 
 
-This repo fills that gap by presenting a concrete implementation of Simon Brown's approach, which consists of:
+This repo fills that gap by presenting a concrete implementation template of Simon Brown's approach, which consists of:
 
 1. Software architecture models as code built with [Structurizr Lite](https://github.com/structurizr/lite)
 2. Documentation built with [Arc42 template](https://arc42.org/overview)
