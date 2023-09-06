@@ -1,18 +1,26 @@
-# Architecture as Code <small>a minimal approach to software architecture documentation</small>
+# A Minimal Approach to Architecture as Code: Documenting the Modern Way
+
 
 > The question of "how much documentation should we write?" is popping up a lot recently, probably driven by teams looking
 at their business continuity plans, and the increase in remote working.
 
-This is an implementation example of the
-approach [proposed by Simon Brown](https://dev.to/simonbrown/a-minimal-approach-to-software-architecture-documentation-4k6k). Remembering that time is precious, the
-approach has only three parts:
+If you've read [Simon Brown's take on a minimal approach to software architecture documentation](https://dev.to/simonbrown/a-minimal-approach-to-software-architecture-documentation-4k6k), you may have been intrigued by the philosophy but perhaps left wondering about its implementation. Although Simon Brown proposes a minimalist, three-part approach, he doesn't provide an example of it in practice. 
+
+This repo fills that gap by presenting a concrete implementation of Simon Brown's approach, which consists of:
+
 1. Software architecture models as code built with [Structurizr Lite](https://github.com/structurizr/lite)
 2. Documentation built with [Arc42 template](https://arc42.org/overview)
 3. Decision log built with [ADR Tools](https://github.com/npryce/adr-tools)
 
 It's intended to store this documentation in a repository and treat it the same as code.
 
-![](img/structurizr.png)
+[![](img/structurizr.png)](https://structurizr.com/share/83822/)
+
+## What can I use this template for?
+- Presale
+- Project discovery
+- [Solution Architecture Document (SAD)](https://almbok.com/method/sad#:~:text=A%20solution%20architecture%20document%20is,principles%20that%20guide%20its%20design.)
+- Ongoing architecture documentation for your system
 
 ### 1. Software architecture models as code
 
@@ -94,6 +102,7 @@ along with facilities to make navigating them easier.
 
 - `docker compose up -d`
 - Open web browser and go to [`http://localhost:8081/`](http://localhost:8081/)
+- Happy documenting! 📚
 
 ## How to use Structurizr Lite
 
@@ -108,11 +117,6 @@ for [ADRs](https://github.com/npryce/adr-tools)
 - Watch two talks at the bottom of the [C4 FAQ](https://c4model.com/#FAQ)
 - [Arc42](https://arc42.org/overview) docs are in `internet-banking-system/docs`
 - [ADRs](https://github.com/npryce/adr-tools) are in `internet-banking-system/adrs`
-
-## What can I use this template for?
-- Presale
-- Project discovery
-- Ongoing architecture documentation for your system
 
 ## Export & Integrations
 
