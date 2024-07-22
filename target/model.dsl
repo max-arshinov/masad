@@ -1,4 +1,7 @@
 ticketingWebsite = softwaresystem "A Concert ticketing website"{
+    !docs concert-comparison/docs/src
+    !adrs concert-comparison/adrs
+
     spa = container "Single Page Application" "React"
     web = container "Web Server" "Node.js"
     webSocketServer = container "Web Socket Server" "Node.js" {
