@@ -1,0 +1,57 @@
+- _See https://docs.arc42.org/home/[arc42 documentation]_.
+- _See https://github.com/arc42/arc42-template/blob/master/EN/asciidoc/src/01_introduction_and_goals.adoc[arc42 template with help] for a version of the template that contains some help and explanations._ 
+
+ifndef::imagesdir[:imagesdir: ../images]
+
+[[section-introduction-and-goals]]
+
+== Introduction and Goals
+
+The objectives of this architectural kata are to design a solution for a concert ticketing site that is:
+
+- **Robust**: Capable of handling failures gracefully.
+- **Scalable**: Able to manage high volumes of traffic, particularly during peak periods when tickets go on sale.
+- **Secure**: Protects user data and prevents unauthorized access.
+
+The system must meet the following goals:
+
+- Buy tickets for a concert.
+- Prevent the double-selling of seats.
+- Provide a real-time overview of remaining seats to users.
+
+=== Requirements Overview
+
+- **Concurrent Ticket Buying**: Support for thousands of concurrent users with bursts up to 10,000/second, ensuring seamless transactions.
+- **Ensure not Double selling**: Guarantee that no seat is sold more than once, even under high load conditions.
+- **Real-Time Seat Overview**: Offer shoppers a real-time view of available seats, updating dynamically as seats are purchased.
+- **Elastic Scalability**: Enable the system to scale up or down automatically based on traffic demand, ensuring optimal resource utilization.
+
+=== Quality Goals
+
+- **Scalability**: 
+- **Performance**: 
+- **Reliability**: 
+- **Maintainability**: 
+- **Flexibility**: 
+
+=== Stakeholders
+
+[options="header",cols="1,2,2"]
+|===
+|Role/Name |Contact |Expectations
+| **End Users** |  | Individuals purchasing tickets who require a smooth, fast, and reliable experience.
+| **Business Owners** |  | Concert organizers and ticketing companies who need to maximize sales and ensure customer satisfaction.
+| **Developers** |  | Teams responsible for building, maintaining, and scaling the ticketing system.
+| **Operations Team** |  | Personnel managing the deployment, monitoring, and troubleshooting of the system.
+| **Product Managers** |  | Individuals defining the requirements and ensuring the alignment of the system with business goals.
+|===
+
+
+
+
+
+
+Notes:
+[Spanish]
+escenario de Pista de baile
+Limite de tickets pero no lugar fisico para cada asiento
