@@ -1,86 +1,51 @@
-systemlandscape "SystemLandscape" {
-    include *
-    autoLayout
-}
+dynamic ticketingWebsite "BuyTicket" "" {
+    user -> ticketingWebsite.spa "View available seats"
+    ticketingWebsite.spa -> ticketingWebsite.web "HTTP request for available seats"
+    ticketingWebsite.web -> ticketingWebsite.database "Request available seats (Not bought seats)"
+    ticketingWebsite.database -> ticketingWebsite.web "Send available seats"
+    ticketingWebsite.web -> ticketingWebsite.webSocketServer "Request soft locked seats and locked(for payment) seats"
+    ticketingWebsite.webSocketServer -> ticketingWebsite.web "Send available seats"
+    ticketingWebsite.web -> ticketingWebsite.spa "Send available seats"
+    ticketingWebsite.spa -> user "Display available seats"
 
-systemcontext internetBankingSystem "SystemContext" {
-    include *
-    animation {
-        internetBankingSystem
-        customer
-        mainframe
-        email
-    }
-    autoLayout
-    description "The system context diagram for the Internet Banking System."
-    properties {
-        structurizr.groups false
-    }
-}
+    user -> ticketingWebsite.spa "Select the seat(s)"
+    ticketingWebsite.spa -> ticketingWebsite.webSocketServer "Open WebSocket connection"
+    ticketingWebsite.spa -> ticketingWebsite.web "Request to select seats"
+    ticketingWebsite.web -> ticketingWebsite.webSocketServer "Send selected seats" 
+    // {
+    //     description  "webSocketServer save the seats of every user has selected for notify them if one of them is bought by another user in their session."
+    // }
+    ticketingWebsite.webSocketServer -> ticketingWebsite.spa "Notify other users about seat selection"
+    ticketingWebsite.spa -> user "Confirm seat soft lock"
 
-container internetBankingSystem "Containers" {
-    include *
-    animation {
-        customer mainframe email
-        internetBankingSystem.web
-        internetBankingSystem.spa
-        internetBankingSystem.mobile
-        internetBankingSystem.api
-        internetBankingSystem.database
-    }
-    autoLayout
-    description "The container diagram for the Internet Banking System."
-}
+    user -> ticketingWebsite.spa "Go to payment step"
+    ticketingWebsite.spa -> ticketingWebsite.web "HTTP request to lock selected seats"
+    ticketingWebsite.web -> ticketingWebsite.webSocketServer "Lock selected seats"
+    ticketingWebsite.webSocketServer -> ticketingWebsite.web "Confirm seat lock"
+    ticketingWebsite.webSocketServer -> ticketingWebsite.spa "Notify user with seat lock"
+    // {
+    //     description = "using the WebSocket connection notify the users that has selected the seat(s) that the seat(s) is locked for payment by other user."
+    // }
+    ticketingWebsite.spa -> user "Notify user with seat locks and ask for change the selected seats"
+    ticketingWebsite.web -> ticketingWebsite.spa "Confirm seat lock"
+    ticketingWebsite.spa -> user "Confirm seat lock"
 
-component internetBankingSystem.api "Components" {
-    include *
-    animation {
-        internetBankingSystem.spa internetBankingSystem.mobile internetBankingSystem.database email mainframe
-        internetBankingSystem.api.signinController internetBankingSystem.api.securityComponent
-        internetBankingSystem.api.accountsSummaryController internetBankingSystem.api.mainframeBankingSystemFacade
-        internetBankingSystem.api.resetPasswordController internetBankingSystem.api.emailComponent
-    }
-    autoLayout
-    description "The component diagram for the API Application."
-}
+    user -> ticketingWebsite.spa "Enter payment information and confirm purchase"
+    ticketingWebsite.spa -> ticketingWebsite.web "HTTP request to payment service"
+    ticketingWebsite.web -> paymentService "Request payment"
+    paymentService -> ticketingWebsite.web "Payment confirmation"
+    ticketingWebsite.web -> ticketingWebsite.webSocketServer "Send payment confirmation"
+    // {
+    //     description = "Send the payment confirmation to the webSocketServer to notify the users that the seat(s) is bought by another user."
+    // }
+    ticketingWebsite.web -> ticketingWebsite.database "Create purchase record"
+    // {
+    //     description = "Create a record in the database for the purchase, update the seat status to sold."
+    // }
+    ticketingWebsite.database -> ticketingWebsite.web "Confirm purchase record creation"
 
-#this is only available on the Structurizr cloud service/on-premises installation/Lite
-#image mainframe "MainframeBankingSystemFacade" {
-#    image https://raw.githubusercontent.com/structurizr/examples/main/dsl/big-bank-plc/internet-banking-system/mainframe-banking-system-facade.png
-#    title "[Code] Mainframe Banking System Facade"
-#}
+    ticketingWebsite.web -> ticketingWebsite.spa "Send Buy Ticket Response"
+    ticketingWebsite.spa -> user "Send Buy Ticket Response"
 
-dynamic internetBankingSystem.api "SignIn" "Summarises how the sign in feature works in the single-page application." {
-    internetBankingSystem.spa -> internetBankingSystem.api.signinController "Submits credentials to"
-    internetBankingSystem.api.signinController -> internetBankingSystem.api.securityComponent "Validates credentials using"
-    internetBankingSystem.api.securityComponent -> internetBankingSystem.database "select * from users where username = ?"
-    internetBankingSystem.database -> internetBankingSystem.api.securityComponent "Returns user data to"
-    internetBankingSystem.api.securityComponent -> internetBankingSystem.api.signinController "Returns true if the hashed password matches"
-    internetBankingSystem.api.signinController -> internetBankingSystem.spa "Sends back an authentication token to"
     autoLayout
-    description "Summarises how the sign in feature works in the single-page application."
-}
-
-deployment internetBankingSystem "Development" "DevelopmentDeployment" {
-    include *
-    animation {
-        devEnv.devLaptop.devBrowser.developerSinglePageApplicationInstance
-        devEnv.devLaptop.devDocker.devTomcat.developerWebApplicationInstance devEnv.devLaptop.devDocker.devTomcat.developerApiApplicationInstance
-        devEnv.devLaptop.devDbDocker.devDbServer.developerDatabaseInstance
-    }
-    autoLayout
-    description "An example development deployment scenario for the Internet Banking System."
-}
-
-deployment internetBankingSystem "Live" "LiveDeployment" {
-    include *
-    animation {
-        liveEnv.liveCustomerComputer.liveWebBrowser.liveSinglePageApplicationInstance
-        liveEnv.liveCustomerDevice.liveMobileAppInstance
-        liveEnv.liveDc.liveApiNode.liveWebServer.liveApiApplicationInstance
-        liveEnv.liveDc.liveDbNode.primaryDatabaseServer.livePrimaryDatabaseInstance
-        liveEnv.liveDc.liveFailover.secondaryDatabaseServer.liveSecondaryDatabaseInstance
-    }
-    autoLayout
-    description "An example live deployment scenario for the Internet Banking System."
 }

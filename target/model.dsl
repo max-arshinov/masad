@@ -1,25 +1,33 @@
-supportStaff = person "Customer Service Staff" "Customer service staff within the bank." "Bank Staff"
-customer = person "Personal Banking Customer" "A customer of the bank, with personal bank accounts." "Customer"
-customer -> supportStaff "Asks questions to" "Telephone"
+ticketingWebsite = softwaresystem "A Concert ticketing website"{
+    !docs concert-comparison/docs/src
+    !adrs concert-comparison/adrs
 
-group "Big Bank plc" {
-    mainframe = softwaresystem "Mainframe Banking System" "Stores all of the core banking information about customers, accounts, transactions, etc." "Existing"
-    supportStaff -> mainframe "Uses"
-
-    email = softwaresystem "E-mail System" "The internal Microsoft Exchange e-mail system." "Existing"
-    email -> customer "Sends e-mails to"
-
-    atm = softwaresystem "ATM" "Allows customers to withdraw cash." "Existing"
-    atm -> mainframe "Uses"
-    customer -> atm "Withdraws cash using"
-
-    internetBankingSystem = softwaresystem "Internet Banking System" "Allows customers to view information about their bank accounts, and make payments." {
-        !include internet-banking-system/ibs.dsl
+    spa = container "Single Page Application" "React"
+    web = container "Web Server" "Node.js"
+    webSocketServer = container "Web Socket Server" "Node.js" {
+        description "A server that allows users to see the availability of seats in real time. Sends updates to the SPA when a seat is taken and when a seat is released."
     }
-    internetBankingSystem -> mainframe "Gets account information from, and makes payments using"   
-    customer -> internetBankingSystem "Views account balances and makes payments using"
+    database = container "Database" "PostgreSQL"
+    spa -> web "HTTP"
+    web -> database 
+    web -> webSocketServer
+    spa -> webSocketServer "web socket"
 }
 
+user = person "User"{
+    description  "A user of the ticketing website"
+}
+businessOwner = person "Business Owner"{
+    description  "Concert organizers and ticketing companies."
+}
 
-backoffice = person "Back Office Staff" "Administration and support staff within the bank." "Bank Staff"
-backoffice -> mainframe "Uses"
+paymentService = softwaresystem "Payment Service"{
+    description  "A payment service that allows users to pay for tickets."
+}
+
+user -> ticketingWebsite.spa "Buy Ticket" "https"
+user -> ticketingWebsite.webSocketServer "See Seat Availability" "https"
+ticketingWebsite.web -> paymentService "Pay for Ticket" "https"
+
+
+
