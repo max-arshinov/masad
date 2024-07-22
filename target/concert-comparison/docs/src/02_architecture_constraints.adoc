@@ -2,6 +2,9 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-architecture-constraints]]
 == Architecture Constraints
+The system has the following constraints:
+* The system has to be able to handle up to  up to 10,000/second requests for the most popular concerts.
+* Allow concurrent ticketing buying for the same concert.
 
 
 

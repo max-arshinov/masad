@@ -21,18 +21,18 @@ The system must meet the following goals:
 
 === Requirements Overview
 
-- **Concurrent Ticket Buying**: Support for thousands of concurrent users with bursts up to 10,000/second, ensuring seamless transactions.
+- **Buy Tickets**: Allow users to purchase tickets for a concert.
 - **Ensure not Double selling**: Guarantee that no seat is sold more than once, even under high load conditions.
 - **Real-Time Seat Overview**: Offer shoppers a real-time view of available seats, updating dynamically as seats are purchased.
-- **Elastic Scalability**: Enable the system to scale up or down automatically based on traffic demand, ensuring optimal resource utilization.
+- **Secure Transactions**: Protect user data and ensure that transactions are secure.
+
 
 === Quality Goals
 
-- **Scalability**: 
-- **Performance**: 
-- **Reliability**: 
-- **Maintainability**: 
-- **Flexibility**: 
+- **Scalability**: The system must be able to handle high volumes of traffic, particularly during peak periods when tickets go on sale.
+- **Performance**: The system must be fast and responsive, providing a smooth user experience.
+- **Maintainability**: The system must be easy to maintain and update.
+- **Flexibility**: The system must be able to adapt to changing requirements and business needs.
 
 === Stakeholders
 
@@ -45,13 +45,3 @@ The system must meet the following goals:
 | **Operations Team** |  | Personnel managing the deployment, monitoring, and troubleshooting of the system.
 | **Product Managers** |  | Individuals defining the requirements and ensuring the alignment of the system with business goals.
 |===
-
-
-
-
-
-
-Notes:
-[Spanish]
-escenario de Pista de baile
-Limite de tickets pero no lugar fisico para cada asiento
