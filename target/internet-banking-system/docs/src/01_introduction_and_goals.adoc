@@ -7,23 +7,64 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 == Introduction and Goals
 
+{
 
+  "title" : "Where's Fluffy?",
+  "description" : [
+    "People who lose their pets often post on Craigslist or post fliers around the neighborhood. Local business folks want to go one better, a service describing missing pets, pet rewards (brokered/managed by the service), and location data points (GPS) of pet sightings",
+    "Requirements: users interested in finding pets register on the site; anyone can see a list of pets missing near to their location; pet finders can post \"pet found\" messages (with mandatory photo proof) and collect rewards on confirmation from pet owners; users can comment on pet missing entries, offering data points (sighted, area checked with no results, etc); local scalability (per-city), but possibly scaling out to other cities; mobile device accessibility"
+  ]
+
+}
 
 === Requirements Overview
-
-
+1. User Registration:Users interested in finding pets need to register on the site.
+2. Viewing Missing Pets:Anyone (including non-registered users) can see a list of missing pets near their location.
+3. Posting Pet Found Messages:Pet finders can post "pet found" messages with mandatory photo proof. Pet finders can collect rewards upon confirmation from pet owners.
+4. Commenting on Missing Pets:sers can comment on pet missing entries, offering data points such as sightings or areas checked with no results.
+5. Scalability: The system should support local scalability (per-city) and have the potential to scale out to other cities.
+6. Mobile Accessibility: The service should be accessible from mobile devices, ensuring a responsive design and/or dedicated mobile application.
 
 === Quality Goals
 
+Usability:
 
+The system should be user-friendly and intuitive, especially for non-technical users.
+
+Reliability:
+
+The service should be highly reliable with minimal downtime.
+
+Scalability:
+
+Efficiently handle increasing numbers of users, pets, and location data points.
+
+Performance:
+
+Quick response times for search queries and data submissions.
+Efficient handling of image uploads and GPS data.
+
+Security:
+
+Protect user data and personal information.
+Secure photo proof uploads and location data.
+
+Accessibility:
+
+Ensure accessibility for users with disabilities.
+Compliance with relevant accessibility standards.
 
 === Stakeholders
-
-
 
 [options="header",cols="1,2,2"]
 |===
 |Role/Name|Contact|Expectations
-| _<Role-1>_ | _<Contact-1>_ | _<Expectation-1>_
-| _<Role-2>_ | _<Contact-2>_ | _<Expectation-2>_
+| _Pet Owners_ | _<Contact-1>_ | _Individuals who have lost their pets and are using the service to find them_
+| _Pet Finders_ | _<Contact-2>_ | _Individuals who find lost pets and report sightings or found pets through the service_
+| _General Public_ | _<Contact-1>_ | _People who use the platform to view missing pets in their area and potentially provide helpful information_
+| _Local Businesses_ | _<Contact-2>_ | _Businesses interested in supporting the platform, possibly offering rewards or other incentives_
+| _System Administrators_ | _<Contact-1>_ | _Individuals responsible for maintaining the system, ensuring uptime, and managing data integrity and security_
+| _Developers_ | _<Contact-2>_ | _Individuals or teams tasked with building, updating, and improving the system_
+| _Investors_ | _<Contact-1>_ | _providing funding and support for the development and expansion of the service_
+| _City Authorities_ | _<Contact-2>_ | _Local authorities who might collaborate with the service for community support and engagement_
 |===
