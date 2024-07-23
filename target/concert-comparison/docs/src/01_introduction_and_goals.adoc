@@ -30,9 +30,52 @@ The system must meet the following goals:
 === Quality Goals
 
 - **Scalability**: The system must be able to handle high volumes of traffic, particularly during peak periods when tickets go on sale.
+- **Integrity**: The system must maintain a valid state, considering that multiple users may try to purchase the same seat at the same time.
 - **Performance**: The system must be fast and responsive, providing a smooth user experience.
 - **Maintainability**: The system must be easy to maintain and update.
 - **Flexibility**: The system must be able to adapt to changing requirements and business needs.
+
+=== Quality Scenarios
+
+==== Scalability
+
+- **Source**: User
+- **Stimulus**: Attempts to purchase tickets when a popular concert's tickets go on sale.
+- **Environment**: During peak load times.
+- **Response**: The user is available to navigate flawlessly through the purchase flow.
+- **Response Measure**: The system handles the high volume of traffic without significant degradation in performance.
+
+==== Integrity
+
+- **Source**: Multiple users
+- **Stimulus**: Simultaneously attempt to purchase the same seat for a concert.
+- **Environment**: During high load conditions when tickets for a popular event are selling fast.
+- **Response**: The system ensures that no seat is double-sold, maintaining a consistent and valid state.
+- **Response Measure**: 100% accuracy in seat allocation with no instances of double-selling.
+
+==== Performance
+
+- **Source**: User
+- **Stimulus**: Requests the real-time overview of available seats.
+- **Environment**: Under normal and peak load conditions.
+- **Response**: The system provides a real-time and accurate view of available seats.
+- **Response Measure**: The overview is updated and displayed to the user quickly.
+
+==== Maintainability
+
+- **Source**: Developer
+- **Stimulus**: Needs to deploy an update or fix a bug.
+- **Environment**: During regular maintenance windows and emergency situations.
+- **Response**: The change is sucessfully deployed.
+- **Response Measure**: The system allows for updates and bug fixes without significant downtime or disruption to users.
+
+==== Flexibility
+
+- **Source**: Product Manager
+- **Stimulus**: Requests a new feature or change in functionality.
+- **Environment**: During regular development cycles.
+- **Response**: The system is able to adapt to the new requirements.
+- **Response Measure**: The change is implemented without significant rework or disruption to existing functionality.
 
 === Stakeholders
 
