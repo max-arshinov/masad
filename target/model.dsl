@@ -11,7 +11,7 @@ ticketingWebsite = softwaresystem "Cosmic Master Ticket" {
     spa -> web "HTTP"
     web -> database 
     web -> webSocketServer
-    spa -> webSocketServer "web socket"
+    spa -> webSocketServer "Web Socket"
 }
 
 user = person "User"{
@@ -25,9 +25,7 @@ paymentService = softwaresystem "Payment Service"{
     description  "A payment service that allows users to pay for tickets."
 }
 
-user -> ticketingWebsite.spa "Buy Ticket" "https"
-user -> ticketingWebsite.webSocketServer "See Seat Availability" "https"
-ticketingWebsite.web -> paymentService "Pay for Ticket" "https"
+user -> ticketingWebsite.spa "Interact with the website" "https"
+ticketingWebsite.web -> paymentService "Interact with payment service" "https"
 
-
-
+businessOwner -> ticketingWebsite.web "Manage Concerts" "https"
