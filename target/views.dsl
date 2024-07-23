@@ -1,51 +1,42 @@
-dynamic ticketingWebsite "BuyTicket" "" {
+dynamic ticketingWebsite "ViewSeatsState" "Seats state are:\n- Available\n- Soft locked\n- Locked" {
     user -> ticketingWebsite.spa "View available seats"
     ticketingWebsite.spa -> ticketingWebsite.web "HTTP request for available seats"
     ticketingWebsite.web -> ticketingWebsite.database "Request available seats (Not bought seats)"
     ticketingWebsite.database -> ticketingWebsite.web "Send available seats"
-    ticketingWebsite.web -> ticketingWebsite.webSocketServer "Request soft locked seats and locked(for payment) seats"
-    ticketingWebsite.webSocketServer -> ticketingWebsite.web "Send available seats"
-    ticketingWebsite.web -> ticketingWebsite.spa "Send available seats"
-    ticketingWebsite.spa -> user "Display available seats"
+    ticketingWebsite.spa -> ticketingWebsite.webSocketServer "Open web socket connection"
+    ticketingWebsite.spa -> ticketingWebsite.webSocketServer "Request soft locked seats and locked (for payment) seats"
+    ticketingWebsite.webSocketServer -> ticketingWebsite.spa "Send available seats"
+    ticketingWebsite.spa -> user "Display state of seats"
 
+    autoLayout
+}
+
+dynamic ticketingWebsite "SelectSeats" "" {
     user -> ticketingWebsite.spa "Select the seat(s)"
     ticketingWebsite.spa -> ticketingWebsite.webSocketServer "Open WebSocket connection"
     ticketingWebsite.spa -> ticketingWebsite.web "Request to select seats"
-    ticketingWebsite.web -> ticketingWebsite.webSocketServer "Send selected seats" 
-    // {
-    //     description  "webSocketServer save the seats of every user has selected for notify them if one of them is bought by another user in their session."
-    // }
-    ticketingWebsite.webSocketServer -> ticketingWebsite.spa "Notify other users about seat selection"
-    ticketingWebsite.spa -> user "Confirm seat soft lock"
+    ticketingWebsite.web -> ticketingWebsite.webSocketServer "Send selected seats"
+    // ticketingWebsite.webSocketServer -> ticketingWebsite.spa "Notify other users about seat selection"
+    // ticketingWebsite.spa -> user "Confirm seat soft lock"
 
+    autoLayout
+}
+
+dynamic ticketingWebsite "PayTicket" "" {
     user -> ticketingWebsite.spa "Go to payment step"
-    ticketingWebsite.spa -> ticketingWebsite.web "HTTP request to lock selected seats"
-    ticketingWebsite.web -> ticketingWebsite.webSocketServer "Lock selected seats"
-    ticketingWebsite.webSocketServer -> ticketingWebsite.web "Confirm seat lock"
-    ticketingWebsite.webSocketServer -> ticketingWebsite.spa "Notify user with seat lock"
-    // {
-    //     description = "using the WebSocket connection notify the users that has selected the seat(s) that the seat(s) is locked for payment by other user."
-    // }
+    ticketingWebsite.spa -> ticketingWebsite.webSocketServer "Hard lock selected seats"
+    ticketingWebsite.webSocketServer -> ticketingWebsite.spa "Notify all users with those selected seats"
     ticketingWebsite.spa -> user "Notify user with seat locks and ask for change the selected seats"
-    ticketingWebsite.web -> ticketingWebsite.spa "Confirm seat lock"
-    ticketingWebsite.spa -> user "Confirm seat lock"
 
     user -> ticketingWebsite.spa "Enter payment information and confirm purchase"
-    ticketingWebsite.spa -> ticketingWebsite.web "HTTP request to payment service"
+    ticketingWebsite.spa -> ticketingWebsite.web "Request payment"
     ticketingWebsite.web -> paymentService "Request payment"
     paymentService -> ticketingWebsite.web "Payment confirmation"
-    ticketingWebsite.web -> ticketingWebsite.webSocketServer "Send payment confirmation"
-    // {
-    //     description = "Send the payment confirmation to the webSocketServer to notify the users that the seat(s) is bought by another user."
-    // }
     ticketingWebsite.web -> ticketingWebsite.database "Create purchase record"
-    // {
-    //     description = "Create a record in the database for the purchase, update the seat status to sold."
-    // }
-    ticketingWebsite.database -> ticketingWebsite.web "Confirm purchase record creation"
+    ticketingWebsite.web -> ticketingWebsite.webSocketServer "Send payment confirmation to unlock seats"
 
-    ticketingWebsite.web -> ticketingWebsite.spa "Send Buy Ticket Response"
-    ticketingWebsite.spa -> user "Send Buy Ticket Response"
+    ticketingWebsite.web -> ticketingWebsite.spa "Success payment response"
+    ticketingWebsite.spa -> user "Notify user with success payment"
 
     autoLayout
 }
