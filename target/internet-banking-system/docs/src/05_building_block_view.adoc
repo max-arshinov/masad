@@ -13,7 +13,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 _**<Overview Diagram>**_
 
-image::embed:Components[./target/internet-banking-system/docs/images/structurizr-1-SystemLandscape-001.png]
+image::target/internet-banking-system/docs/images/structurizr-1-SystemLandscape-001.png[]
 
 Motivation::
 
