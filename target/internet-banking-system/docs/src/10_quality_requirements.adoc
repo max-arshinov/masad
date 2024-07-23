@@ -14,4 +14,9 @@ ifndef::imagesdir[:imagesdir: ../images]
 === Quality Scenarios
 
 - _See example quality scenarios in the
-https://docs.arc42.org/examples/quality-tpu-1/#102-quality-scenarios[arc42 documentation]._
+
+https://docs.arc42.org/examples/quality-tpu-1/#102-quality-scenarios[arc42 documentation].
+Usability: Should be easy to use, intuitive design as described by APple Guidelines
+Perfmonace: Should be able to run it on 88%+ systems
+Legal: Should follow GDPR Guidelines
+
