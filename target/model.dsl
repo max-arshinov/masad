@@ -1,4 +1,4 @@
-ticketingWebsite = softwaresystem "A Concert ticketing website"{
+ticketingWebsite = softwaresystem "Cosmic Master Ticket" {
     !docs concert-comparison/docs/src
     !adrs concert-comparison/adrs
 
