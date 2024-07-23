@@ -1,7 +1,11 @@
 ifndef::imagesdir[:imagesdir: ../images]
-
 [[section-design-decisions]]
 == Architecture Decisions
 
 See link:../decisions/Internet%20Banking%20System[Architecture Decision Records].
+TITLE: REWARDS ONLY FOR IN-PERSON PET HANDOFF SCENARIO
+CONTEXT: Reward(bounties) can be created by the owner of missing pet, we need to make sure that person that found the pet and owner are both satisfied. 
+Solution: User(searcher role) gets rewards only if he/she handsoff pet in-person to the owner.
+Status: Accepted
+Consequences: Users who only spot pets wont be able to receive any rewards.
 
