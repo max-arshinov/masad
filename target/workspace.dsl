@@ -3,12 +3,12 @@ workspace "A minimal approach to software architecture documentation" {
 
     model {
         !include model.dsl
-        !include deployment.dsl
+        # !include deployment.dsl
     }
 
     views {
         theme default
-        !include views.dsl
+        # !include views.dsl
         styles {
             !include styles.dsl
         }

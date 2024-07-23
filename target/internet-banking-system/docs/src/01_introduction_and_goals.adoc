@@ -21,9 +21,10 @@ ifndef::imagesdir[:imagesdir: ../images]
 1. User Registration:Users interested in finding pets need to register on the site.
 2. Viewing Missing Pets:Anyone (including non-registered users) can see a list of missing pets near their location.
 3. Posting Pet Found Messages:Pet finders can post "pet found" messages with mandatory photo proof. Pet finders can collect rewards upon confirmation from pet owners.
-4. Commenting on Missing Pets:sers can comment on pet missing entries, offering data points such as sightings or areas checked with no results.
-5. Scalability: The system should support local scalability (per-city) and have the potential to scale out to other cities.
-6. Mobile Accessibility: The service should be accessible from mobile devices, ensuring a responsive design and/or dedicated mobile application.
+4. Communication: Pet finders can communicate with Pet owner through Phone and Email (For personal Communication)
+5. Commenting on Missing Pets:Users can comment on pet missing entries, offering data points such as sightings or areas checked with no results.
+6. Scalability: The system should support local scalability (per-city) and have the potential to scale out to other cities.
+7. Mobile Accessibility: The service should be accessible from mobile devices, ensuring a responsive design and/or dedicated mobile application.
 
 === Quality Goals
 
