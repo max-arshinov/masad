@@ -13,7 +13,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 _**<Overview Diagram>**_
 
-image::embed:Components[]
+image::embed:Components[./target/internet-banking-system/docs/src/05_building_block_view.adoc]
 
 Motivation::
 
