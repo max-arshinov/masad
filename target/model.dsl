@@ -27,6 +27,10 @@ paymentService = softwaresystem "Payment Service"{
 
 user -> ticketingWebsite.spa "Interact with the website" "https"
 user -> paymentService "Pay for the ticket" "https"
+
+businessOwner -> ticketingWebsite.spa "Interact with the website" "https"
+
 paymentService -> ticketingWebsite.web "Interact with payment service" "https"
 
-businessOwner -> ticketingWebsite.web "Manage Concerts" "https"
+ticketingWebsite.web -> user "Send Emails" "email"
+ticketingWebsite.web -> businessOwner "Send Emails" "email"

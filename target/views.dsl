@@ -39,3 +39,48 @@ dynamic ticketingWebsite "PayTicket" "" {
 
     autoLayout
 }
+
+dynamic ticketingWebsite "CancelTicket" "" {
+    user -> ticketingWebsite.spa "Go to cancel ticket step"
+    ticketingWebsite.spa -> ticketingWebsite.web "Request to cancel ticket"
+    ticketingWebsite.web -> ticketingWebsite.database "Cancel ticket and unlock seats"
+    ticketingWebsite.web -> ticketingWebsite.spa "Notify user with success cancel ticket"
+    autoLayout
+}
+
+dynamic ticketingWebsite "ViewTickets" "" {
+    user -> ticketingWebsite.spa "Go to view tickets step"
+    ticketingWebsite.spa -> ticketingWebsite.web "Request to view tickets"
+    ticketingWebsite.web -> ticketingWebsite.database "Get tickets"
+    ticketingWebsite.web -> ticketingWebsite.spa "Display tickets"
+    ticketingWebsite.spa -> user "Display tickets"
+    autoLayout
+}
+
+dynamic ticketingWebsite "AddConcert" "" {
+    businessOwner -> ticketingWebsite.spa "Go to add concert step"
+    ticketingWebsite.spa -> ticketingWebsite.web "Request to add concert"
+    ticketingWebsite.web -> ticketingWebsite.database "Add concert"
+    ticketingWebsite.web -> ticketingWebsite.spa "Notify business owner with success add concert"
+    autoLayout
+}
+
+dynamic ticketingWebsite "CancelConcert" "" {
+    businessOwner -> ticketingWebsite.spa "Go to cancel concert step"
+    ticketingWebsite.spa -> ticketingWebsite.web "Request to cancel concert"
+    ticketingWebsite.web -> ticketingWebsite.database "Get all tickets for the concert"
+    ticketingWebsite.web -> user "Notify user with all tickets for the concert of canceling" "email"
+    ticketingWebsite.web -> ticketingWebsite.database "Cancel all tickets for the concert"
+    ticketingWebsite.web -> ticketingWebsite.database "Cancel concert"
+    ticketingWebsite.web -> ticketingWebsite.spa "Notify business owner with success cancel concert"
+    autoLayout
+}
+
+dynamic ticketingWebsite "ViewConcerts" "" {
+    user -> ticketingWebsite.spa "Go to view concerts step"
+    ticketingWebsite.spa -> ticketingWebsite.web "Request to view concerts"
+    ticketingWebsite.web -> ticketingWebsite.database "Get concerts"
+    ticketingWebsite.web -> ticketingWebsite.spa "Display concerts with seats state"
+    ticketingWebsite.spa -> user "Display concerts"
+    autoLayout
+}
