@@ -1,4 +1,4 @@
-ticketingWebsite = softwaresystem "A Concert ticketing website"{
+ticketingWebsite = softwaresystem "Cosmic Master Ticket" {
     !docs concert-comparison/docs/src
     !adrs concert-comparison/adrs
 
@@ -11,7 +11,7 @@ ticketingWebsite = softwaresystem "A Concert ticketing website"{
     spa -> web "HTTP"
     web -> database 
     web -> webSocketServer
-    spa -> webSocketServer "web socket"
+    spa -> webSocketServer "Web Socket"
 }
 
 user = person "User"{
@@ -25,9 +25,8 @@ paymentService = softwaresystem "Payment Service"{
     description  "A payment service that allows users to pay for tickets."
 }
 
-user -> ticketingWebsite.spa "Buy Ticket" "https"
-user -> ticketingWebsite.webSocketServer "See Seat Availability" "https"
-ticketingWebsite.web -> paymentService "Pay for Ticket" "https"
+user -> ticketingWebsite.spa "Interact with the website" "https"
+user -> paymentService "Pay for the ticket" "https"
+paymentService -> ticketingWebsite.web "Interact with payment service" "https"
 
-
-
+businessOwner -> ticketingWebsite.web "Manage Concerts" "https"
