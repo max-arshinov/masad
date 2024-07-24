@@ -7,7 +7,7 @@ ticketingWebsite = softwaresystem "Cosmic Master Ticket" {
     webSocketServer = container "Web Socket Server" "Node.js" {
         description "A server that allows users to see the availability of seats in real time. Sends updates to the SPA when a seat is taken and when a seat is released."
     }
-    database = container "Database" "PostgreSQL"
+    database = container "Database" "PostgreSQL" "" "Database"
     spa -> web "HTTP"
     web -> database 
     web -> webSocketServer
