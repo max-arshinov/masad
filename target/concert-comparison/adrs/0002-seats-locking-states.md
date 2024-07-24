@@ -1,4 +1,4 @@
-# 1. Seats Locking States
+# 2. Seats Locking States
 
 Date: 2024-07-22
 
