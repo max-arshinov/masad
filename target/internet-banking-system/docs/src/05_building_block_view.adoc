@@ -13,18 +13,21 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 _**<Overview Diagram>**_
 
-image::embed:Components[]
+The Building Block View provides a static decomposition of the "Where's Fluffy?" system into its fundamental building blocks, detailing modules, components, subsystems, tiers, operations, and their interdependencies. This view acts like the floor plan of a house, providing a clear and organized structure.
+
+image::../images/structurizr-1-SystemLandscape-001.png[]
 
 Motivation::
 
-_<text explanation>_
+The Building Block View helps maintain an overview of the source code by abstracting its structure. This allows for effective communication with stakeholders without delving into implementation details, making the system's architecture more accessible and comprehensible.
 
 
 Contained Building Blocks::
-_<Description of contained building block (black boxes)>_
+This is the main system that users interact with for posting and finding lost pets.
 
 Important Interfaces::
-_<Description of important interfaces>_
+- User Interface: Web and mobile applications.
+- Database: Central MongoDB database for storing user, and pet data.
 
 
 
