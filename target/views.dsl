@@ -27,10 +27,9 @@ dynamic ticketingWebsite "PayTicket" "" {
     ticketingWebsite.spa -> ticketingWebsite.webSocketServer "Hard lock selected seats"
     ticketingWebsite.webSocketServer -> ticketingWebsite.spa "Notify all users with those selected seats"
     ticketingWebsite.spa -> user "Notify user with seat locks and ask for change the selected seats"
+    ticketingWebsite.spa -> user "Redirect to payment gateway for payment"
 
-    user -> ticketingWebsite.spa "Enter payment information and confirm purchase"
-    ticketingWebsite.spa -> ticketingWebsite.web "Request payment"
-    ticketingWebsite.web -> paymentService "Request payment"
+    user -> paymentService "Pay for the ticket"    
     paymentService -> ticketingWebsite.web "Payment confirmation"
     ticketingWebsite.web -> ticketingWebsite.database "Create purchase record"
     ticketingWebsite.web -> ticketingWebsite.webSocketServer "Send payment confirmation to unlock seats"
