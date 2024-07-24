@@ -3,5 +3,20 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-solution-strategy]]
 == Solution Strategy
 
+=== View Available Seats
 
+The first interaction of the user with the system is to view the available seats. The user can see the available seats, the soft locked seats, and the locked seats.
 
+image::embed:ViewSeatsState[]
+
+=== Select Seats
+
+After viewing the available seats, the user can select the seats they want to buy. A web socket connection is opened to obtain real time updates on the seat selection status and to notify other users about the seat selection.
+
+image::embed:SelectSeats[]
+
+=== Pay Ticket
+
+Once the user has selected the seats, they can proceed to the payment step. The selected seats are hard locked, and the user is notified about the seat locks. The user is then redirected to the payment gateway to pay for the ticket. The payment service confirms the payment, and the purchase record is created in the database.
+
+image::embed:PayTicket[]
