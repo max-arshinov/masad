@@ -22,242 +22,98 @@ Motivation::
 The Building Block View helps maintain an overview of the source code by abstracting its structure. This allows for effective communication with stakeholders without delving into implementation details, making the system's architecture more accessible and comprehensible.
 
 
+==== Level 1: System Context
+
 Contained Building Blocks::
 This is the main system that users interact with for posting and finding lost pets.
 
 Important Interfaces::
-- User Interface: Web and mobile applications.
-- External Services: Payment gateways for reward transactions, GPS services for location data.
-- Database: Central MongoDB database for storing user, pet, and transaction data.
+- User Interface (Web and Mobile): Facilitates interaction between the users and the system. Ensures that users can register, log in, view pets, and communicate effectively.
+- API Gateway: Acts as an entry point for all API requests, ensuring secure and efficient communication between clients and the backend services.
+- Database Interface (MongoDB): Manages data storage and retrieval for user information, pet data, and transaction records. Ensures data integrity and security.
 
 
+=== Level 2: Main Components (Blue Box)
 
-==== Blue Box: Registration of Users
+The decomposition of the "Where's Fluffy?" system into its main components ensures clarity and manageability. By breaking down the system into distinct modules, each with a specific responsibility, we can facilitate development, maintenance, and scalability. This approach allows each component to be developed and tested independently, promoting modularity and reusability.
 
-_<Purpose/Responsibility>_
+Contained Building Blocks
 
-Registers all users, pet owners, pet finders, and the general public.
-Interface(s): Web Interface, API
 
-_<Interface(s)>_
+[options="header",cols="1,2,1"]
+|===
+|Building Block | Description|Interface(s)
+|_User Management Module_|Handles user registration, authentication, and profile management|Web Interface, API
+|_Pet Management Module_|Manages pet data, including adding, updating, and viewing missing pets|Web Interface, Mobile Interface, API
+|_Communication Module_|Facilitates communication between pet finders and pet owners|Email, Phone
+|_Reward Management Module_|Manages rewards for found pets, including reward postings and transactions|Web Interface, API
+|_Scalability and Performance Module_|Ensures the system can handle increasing loads and maintain performance|Load Balancer, Database, Caching Service
+|_Mobile Accessibility Module_|Ensures the service is accessible on mobile devices|Mobile Framework, API Gateway
+|_MongoDB Database_|Stores user, pet, and transaction data|Database Interface
+|===
 
-Web Interface, API
 
-_<(Optional) Quality/Performance Characteristics>_
+=== Detailed Blue Box Descriptions
 
-High reliability, quick response time
+==== User Management Module
 
-_<(Optional) Fulfilled Requirements>_
+- **Purpose/Responsibility**: Handles user registration, authentication, and profile management.
+- **Interface(s)**: Web Interface, API
+- **(Optional) Quality/Performance Characteristics**: High reliability, secure user data
+- **(Optional) Fulfilled Requirements**: User Registration, User Authentication
+- **(Optional) Open Issues/Problems/Risks**: None identified
 
-User Registration, Data Storage
+==== Pet Management Module
 
-_<(optional) Open Issues/Problems/Risks>_
+- **Purpose/Responsibility**: Manages pet data, including adding, updating, and viewing missing pets.
+- **Interface(s)**: Web Interface, Mobile Interface, API
+- **(Optional) Quality/Performance Characteristics**: High reliability, efficient data handling
+- **(Optional) Fulfilled Requirements**: Pet Listing, Photo Proof
+- **(Optional) Open Issues/Problems/Risks**: None identified
 
-None identified
+==== Communication Module
 
+- **Purpose/Responsibility**: Facilitates communication between pet finders and pet owners.
+- **Interface(s)**: Email, Phone
+- **(Optional) Quality/Performance Characteristics**: High availability, secure communication
+- **(Optional) Fulfilled Requirements**: User Communication
+- **(Optional) Open Issues/Problems/Risks**: None identified
 
-==== Blue box: Have You Lost/Find Pet?
+==== MongoDB Database
 
-_<Purpose/Responsibility>_
+- **Purpose/Responsibility**: Stores user, pet, and transaction data.
+- **Interface(s)**: Database Interface
+- **(Optional) Quality/Performance Characteristics**: High availability, scalability, flexible schema design
+- **(Optional) Fulfilled Requirements**: Data Storage, Data Retrieval
+- **(Optional) Open Issues/Problems/Risks**: Data consistency, Backup and recovery processes
 
-Allows users to post the photo and location of Fluffy.
 
-_<Interface(s)>_
+=== Level 3: Detailed White Box Descriptions
 
-Web Interface, Mobile Interface, API
+==== Registration Service
 
-_<(Optional) Quality/Performance Characteristics>_
+- **Purpose/Responsibility**: Handles new user registrations.
+- **Interface(s)**: Web Interface, API
+- **(Optional) Quality/Performance Characteristics**: High reliability, quick response time
+- **(Optional) Fulfilled Requirements**: User Registration
 
-Secure photo upload, fast data processing
+==== Authentication Service
 
-_<(Optional) Fulfilled Requirements>_
+- **Purpose/Responsibility**: Manages user logins and authentication tokens.
+- **Interface(s)**: Web Interface, API
+- **(Optional) Quality/Performance Characteristics**: High security, quick response time
+- **(Optional) Fulfilled Requirements**: User Authentication
 
-Pet Listing, Photo Proof
+==== Pet Registration Service
 
-_<(optional) Open Issues/Problems/Risks>_
+- **Purpose/Responsibility**: Allows users to register a missing pet.
+- **Interface(s)**: Web Interface, API
+- **(Optional) Quality/Performance Characteristics**: Secure photo upload, fast data processing
+- **(Optional) Fulfilled Requirements**: Pet Listing, Photo Proof
 
-None identified
+==== Messaging Service
 
-
-==== Blue box: Communication
-
-_<Purpose/Responsibility>_
-
-Facilitates communication between pet finders and pet owners.
-
-_<Interface(s)>_
-
-Email, Phone
-
-_<(Optional) Quality/Performance Characteristics>_
-
-High availability, secure communication
-
-_<(Optional) Fulfilled Requirements>_
-
-User Communication
-
-_<(optional) Open Issues/Problems/Risks>_
-
-None identified
-
-==== Interface: E-Mail
-
-_<Purpose/Responsibility>_
-
-Allows pet finders and pet owners to communicate.
-
-_<Interface(s)>_
-
-Email Service
-
-_<(Optional) Quality/Performance Characteristics>_
-
-High reliability, secure transmission
-
-==== Interface: Phone
-
-_<Purpose/Responsibility>_
-
-Allows pet finders and pet owners to communicate.
-
-_<Interface(s)>_
-
-Phone Service
-
-_<(Optional) Quality/Performance Characteristics>_
-
-High reliability, secure transmission
-
-
-=== Level 2
-
-
-==== White Box: User Management Module
-
-_<Purpose/Responsibility>_
-
-Handles user registration, authentication, and profile management.
-
-_<Interface(s)>_
-
-Web Interface, API
-
-_<(Optional) Quality/Performance Characteristics>_
-
-High reliability, secure user data
-
-_<(Optional) Fulfilled Requirements>_
-
-User Registration, User Authentication
-
-==== White Box: Pet Management Module
-
-_<Purpose/Responsibility>_
-
-Manages pet data, including adding, updating, and viewing missing pets.
-
-_<Interface(s)>_
-
-Web Interface, Mobile Interface, API
-
-_<(Optional) Quality/Performance Characteristics>_
-
-High reliability, efficient data handling
-
-_<(Optional) Fulfilled Requirements>_
-
-Pet Listing, Photo Proof
-
-==== White Box: Communication Module
-
-_<Purpose/Responsibility>_
-
-Facilitates communication between pet finders and pet owners.
-
-_<Interface(s)>_
-
-Email, Phone
-
-_<(Optional) Quality/Performance Characteristics>_
-
-High availability, secure communication
-
-_<(Optional) Fulfilled Requirements>_
-
-User Communication
-
-
-=== Level 3
-
-==== White Box: Registration Service
-
-_<Purpose/Responsibility>_
-
-Handles new user registrations.
-
-_<Interface(s)>_
-
-Web Interface, API
-
-_<(Optional) Quality/Performance Characteristics>_
-
-High reliability, quick response time
-
-_<(Optional) Fulfilled Requirements>_
-
-User Registration
-
-==== White Box: Authentication Service
-
-_<Purpose/Responsibility>_
-
-Manages user logins and authentication tokens.
-
-_<Interface(s)>_
-
-Web Interface, API
-
-_<(Optional) Quality/Performance Characteristics>_
-
-High security, quick response time
-
-_<(Optional) Fulfilled Requirements>_
-
-User Authentication
-
-==== White Box: Pet Registration Service
-
-_<Purpose/Responsibility>_
-
-Allows users to register a missing pet.
-
-_<Interface(s)>_
-
-Web Interface, API
-
-_<(Optional) Quality/Performance Characteristics>_
-
-Secure photo upload, fast data processing
-
-_<(Optional) Fulfilled Requirements>_
-
-Pet Listing, Photo Proof
-
-==== White Box: Messaging Service
-
-_<Purpose/Responsibility>_
-
-Manages messages between pet finders and pet owners.
-
-_<Interface(s)>_
-
-Email, API
-
-_<(Optional) Quality/Performance Characteristics>_
-
-High reliability, secure communication
-
-_<(Optional) Fulfilled Requirements>_
-
-User Communication
+- **Purpose/Responsibility**: Manages messages between pet finders and pet owners.
+- **Interface(s)**: Email, API
+- **(Optional) Quality/Performance Characteristics**: High reliability, secure communication
+- **(Optional) Fulfilled Requirements**: User Communication
