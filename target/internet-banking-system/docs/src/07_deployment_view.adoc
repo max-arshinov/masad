@@ -14,38 +14,74 @@ _**<Overview Diagram>**_
 
 ==== Development
 
-image::embed:DevelopmentDeployment[]
+image::embed:DevelopmentDeployment[Deployment diagram]
 
-==== Live
+**Description**
 
-image::embed:LiveDeployment[]
+The "Where's Fluffy?" system is deployed across multiple environments to ensure efficient development, testing, and production operations. It includes the following key infrastructure elements:
+
+1. Development Environment: Used by developers to write and test code. Contains local instances of the web server, user management module, pet management module, and MongoDB database.
+2. Testing Environment: Used for integration and user acceptance testing. Mirrors the production environment to catch any potential issues before deployment.
+3. Production Environment: The live environment where the actual system runs, accessible to end users. It includes a load balancer, web server instances, application servers for user and pet management modules, and a MongoDB cluster for high availability and performance.
 
 Motivation::
 
-_<explanation in text form>_
+The deployment structure ensures
+
+- Separation of Concerns: Development, testing, and production environments are isolated to prevent interference and ensure stability.
+- Scalability: The production environment is designed to handle increasing loads with multiple web servers and a clustered MongoDB database.
+- Reliability: High availability is achieved through clustering and load balancing in the production environment.
+- Security: Sensitive data is protected through secure communication channels and isolated environments.
 
 Quality and/or Performance Features::
 
-_<explanation in text form>_
+- High Availability: MongoDB cluster and load balancers ensure the system remains available even if some components fail.
+- Performance: Distributed architecture allows horizontal scaling of web and application servers.
+- Security: Environments are isolated, and secure communication channels are used to protect data in transit.
 
 Mapping of Building Blocks to Infrastructure::
-_<description of the mapping>_
+
+[options="header",cols="1,2"]
+|===
+|Software Artifact|Infrastructure Element
+|Web Interface|Web Server (Development, Testing, Production)
+|User Management Module|Application Server (Development, Testing, Production)
+|Pet Management Module|Application Server (Development, Testing, Production)
+|MongoDB Database|Local DB (Development), MongoDB Cluster (Testing, Production)
+|===
 
 
 === Infrastructure Level 2
 
+==== Development Environment
+
+:development environment diagram:
+
+Description
+
+- Web Server: Hosts the web interface for development purposes.
+- Application Server: Runs instances of the user management and pet management modules.
+- Local MongoDB: Used for storing user and pet data during development.
 
 
-==== _<Infrastructure Element 1>_
+==== Testing Environment
 
-_<diagram + explanation>_
+:testing environment diagram:
 
-==== _<Infrastructure Element 2>_
+Description
 
-_<diagram + explanation>_
+- Web Server: Hosts the web interface for testing purposes.
+- Application Server: Runs instances of the user management and pet management modules.
+- MongoDB Cluster: Mirrors the production environment for realistic testing.
 
-...
 
-==== _<Infrastructure Element n>_
+==== Production Environment
 
-_<diagram + explanation>_
+:production environment diagram:
+
+Description
+
+- Load Balancer: Distributes incoming requests across multiple web servers.
+- Web Servers: Hosts the web interface for end users.
+- Application Servers: Runs instances of the user management and pet management modules.
+- MongoDB Cluster: Ensures high availability and performance for data storage.
