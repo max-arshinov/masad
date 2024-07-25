@@ -19,4 +19,4 @@ https://docs.arc42.org/examples/quality-tpu-1/#102-quality-scenarios[arc42 docum
 Usability: Should be easy to use, intuitive design as described by APple Guidelines
 Perfmonace: Should be able to run it on 88%+ systems
 Legal: Should follow GDPR Guidelines
-
+INFRA: NEED TO STORE A LOT OF PICTURES

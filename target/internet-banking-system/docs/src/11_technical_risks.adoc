@@ -5,4 +5,5 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 - _See https://riskstorming.com/[Risk Storming] for a visual and collaborative risk identification technique_.
 
+Scaling is costly;
 
