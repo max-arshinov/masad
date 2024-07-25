@@ -1,0 +1,31 @@
+ifndef::imagesdir[:imagesdir: ../images]
+
+[[section-deployment-view]]
+
+
+== Deployment View
+
+=== Infrastructure Level 1
+
+==== Development
+
+Docker-compose setup for simulating the production environment.
+
+==== Staging
+
+Mirror of production for testing new features.
+
+==== Production
+
+Deployed on AWS with auto-scaling groups, RDS for databases, S3 for storage.
+
+Motivation::
+
+_<explanation in text form>_
+
+Quality and/or Performance Features::
+
+_<explanation in text form>_
+
+Mapping of Building Blocks to Infrastructure::
+_<description of the mapping>_

@@ -1,0 +1,16 @@
+ifndef::imagesdir[:imagesdir: ../images]
+
+[[section-concepts]]
+== Cross-cutting Concepts
+
+=== _Modular Monolithic Architecture_
+
+_Single application where modules are clearly separated but still part of one executable._
+
+=== _Role-Based Access Control (RBAC)_
+
+_Ensures that users have access only to the data and actions relevant to their role._
+
+=== _Local Deployment_
+
+_Application and data hosted on local machines and college network to minimize costs and ensure performance._

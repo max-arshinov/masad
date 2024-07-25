@@ -1,0 +1,39 @@
+ifndef::imagesdir[:imagesdir: ../images]
+
+[[section-system-scope-and-context]]
+== System Scope and Context
+
+
+
+
+=== Business Context
+
+**Scope**
+
+The system is an accounting platform for the college, aimed at improving financial management and record-keeping.
+
+**Stakeholders**
+
+[options="header",cols="1,2"]
+|===
+|Name|Context
+| _Decision-maker/College President_ | _Ensures cost-effective implementation without a web app._
+| _Primary Users/Finance Departement_ | _Requires accurate and reliable financial management._
+| _IT Departement_ | _Focuses on low maintenance and operational costs, secure and stable system._
+| _External Auditors_ | _Needs comprehensive and tamper-proof audit trails._
+| _Other Faculty and Staff Members_ | _Requires an intuitive and easy-to-use interface._
+|===
+
+=== Technical Context
+
+**Scope**
+
+The system will be a desktop application due to the restriction against web apps.
+
+**Environment**
+
+Local deployment on college-provided machines and network infrastructure.
+
+**Technologies**
+
+Desktop-based solution using cross-platform technologies (e.g., JavaFX, .NET) to ensure compatibility and minimal cost.

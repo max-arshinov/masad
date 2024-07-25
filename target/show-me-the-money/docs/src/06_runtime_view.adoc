@@ -1,0 +1,16 @@
+ifndef::imagesdir[:imagesdir: ../images]
+
+[[section-runtime-view]]
+== Runtime View
+
+=== User Authentication
+
+Users log in via a local authentication mechanism tied to the college's existing user database.
+
+=== Financial Transactions
+
+Transactions are processed in real-time, with data persistence handled by a local database.
+
+=== Data Flow
+
+User actions trigger appropriate workflows, with all actions logged for auditing purposes.

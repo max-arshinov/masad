@@ -1,0 +1,61 @@
+ifndef::imagesdir[:imagesdir: ../images]
+
+[[section-quality-scenarios]]
+== Quality Requirements
+
+
+=== Quality Tree
+
+[options="header",cols="1,2,3,4"]
+|===
+|Quality Category|Quality|Description|Scenario
+
+| Scalability
+| Growth
+| Ensure the system can grow with the college’s needs.
+| SC1
+
+| Usability
+| UX
+| Ensure the system is intuitive and easy to use for staff and faculty, requiring minimal training.
+| SC2
+
+| Security
+| Integrity
+| Protect sensitive financial data from unauthorized access and breaches.
+| SC3
+
+| Cost-Effectiveness
+| Costs Minimizing
+| Minimize software and operational costs while meeting all functional and non-functional requirements.
+| SC4
+
+| Compliance
+| Legal Compiance
+| Ensure the system adheres to relevant financial regulations and standards.
+| SC5
+
+|===
+
+=== Quality Scenarios
+
+[options="header",cols="1,2"]
+|===
+|Id|Scenario
+
+| SC1
+| The system should handle 1000+ concurrent users without performance degradation.
+
+| SC2
+| The system should allow a new user to perform basic tasks with minimal training.
+
+| SC3
+| The system should prevent unauthorized access and ensure data integrity.
+
+| SC4
+| The system should minimize software and operational costs.
+
+| SC5
+| The system should maintain comprehensive audit trails and comply with financial regulations.
+
+|===

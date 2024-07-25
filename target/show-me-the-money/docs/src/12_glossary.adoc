@@ -1,0 +1,23 @@
+ifndef::imagesdir[:imagesdir: ../images]
+
+[[section-glossary]]
+== Glossary
+
+
+
+[cols="e,2e" options="header"]
+|===
+|Term |Definition
+
+|JavaFX
+|A software platform for creating and delivering desktop applications.
+
+|.NET
+|A free, cross-platform, open-source developer platform for building many different types of applications.
+|SQLite
+|A C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine.
+|PostgreSQL
+|An open-source relational database management system emphasizing extensibility and SQL compliance.
+|RBAC (Role-Based Access Control)
+|A method of regulating access to computer or network resources based on the roles of individual users within an enterprise.
+|===
