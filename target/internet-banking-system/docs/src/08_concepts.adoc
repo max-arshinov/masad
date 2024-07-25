@@ -24,7 +24,7 @@ Includes attributes like ID, Name, Email, Phone Number, Role (Pet Owner, Finder,
 
 Links Pet and User entities, with attributes like Status (Missing, Found), Report Date, Reward, etc.
 
-Implementation":
+Implementation::
 
 Utilize a domain model to structure these entities, ensuring consistency in how data is managed and referenced across the system.
 
