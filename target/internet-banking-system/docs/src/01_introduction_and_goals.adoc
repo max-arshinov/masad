@@ -6,24 +6,78 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-introduction-and-goals]]
 
 == Introduction and Goals
+**Show Me The Money!**
 
+A local community college wants 
+a new accounting system, because the old one sucks pretty badly
 
 
 === Requirements Overview
 
-
+Requirements: enforce the college's accounting workflow but still 
+allow for individual departments to amend that workflow to suit their 
+own needs; keep complete audit trail records
 
 === Quality Goals
 
+Scalability
 
+* **Description:** Design the system to scale seamlessly with 1000+ users.
+* **Rationale:** Ensures the system can grow with the college’s 
+needs without significant rework.
+* **Metrics:** 
+    Ability to add more users without performance degradation.
+    Successful results from load testing.
+
+Usability
+
+* **Description:** Ensure the system is intuitive and easy to use for staff and faculty, requiring minimal training.
+* **Rationale:** Enhances user adoption and reduces the learning curve.
+* **Metrics:** 
+    User satisfaction survey scores.
+    Time taken to complete common tasks.
+    Number of support requests and help desk tickets.
+  
+Security
+
+* **Description:** Protect sensitive financial data from unauthorized access and breaches.
+* **Rationale:** Maintains the integrity and confidentiality of financial information.
+* **Metrics:**  
+    Number of security incidents.
+    Compliance with security standards and regulations.
+    Results of security audits.
+
+Cost-Effectiveness
+
+* **Description:** Minimize software and operational costs while meeting 
+all functional and non-functional requirements.
+* **Rationale:** Ensures the project stays within budget and delivers value.
+* **Metrics:** 
+    Adherence to budget constraints.
+
+Compliance
+
+* **Description:** Ensure the system adheres to relevant financial regulations 
+and standards.
+* **Rationale:** Avoids legal penalties and ensures smooth audits.
+* **Metrics:** 
+    Results of compliance audits.
+    Number of compliance issues found.
+    Audit trail records.
 
 === Stakeholders
 
 
 
-[options="header",cols="1,2,2"]
+[options="header",cols="1,2"]
 |===
-|Role/Name|Contact|Expectations
-| _<Role-1>_ | _<Contact-1>_ | _<Expectation-1>_
-| _<Role-2>_ | _<Contact-2>_ | _<Expectation-2>_
+|Role/Name|Expectations
+| _Decision-maker/College President_ | _It won't be web app. Cost-effective implementation_
+| _Primary Users/Finance Departement_ | _Accurate and reliable financial management. Better than the old one_
+| _Implementing & Maintaining system/IT Departement_ | _Low maintance and operational costs. Secure and stable system_
+| _External Auditors_ | _Comprehensive and tamper-proof audit trails. 
+Easy access to necessary financial records. Compliance with auditing standards. 
+Detailed logs of all financial transactions and modifications._
+| _Other Faculty and Staff Members_ | _Intuitive and easy-to-use interface. Efficient processing of expense reports and reimbursements. Minimal training required._
+  
 |===

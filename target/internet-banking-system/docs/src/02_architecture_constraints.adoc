@@ -2,6 +2,13 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-architecture-constraints]]
 == Architecture Constraints
+**No web app**
+
+**Minimal software costs**
+
+**Cloud-native solution with a cloud-exit strategy**
+
+**Cost-effective solution** 
 
 
 
