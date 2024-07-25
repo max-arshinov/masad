@@ -5,16 +5,152 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 image::embed:SignIn[]
 
+The runtime view describes the concrete behavior and interactions of the system's building blocks in the form of scenarios. These scenarios cover:
 
-=== <Runtime Scenario 1>
+1. Important use cases or features: how do building blocks execute them?
+2. Interactions at critical external interfaces: how do building blocks cooperate with users and neighboring systems?
+3. Operation and administration: launch, start-up, stop
+4. Error and exception scenarios
 
 
-* _<insert runtime diagram or textual description of the scenario>_
-* _<insert description of the notable aspects of the interactions between the
-building block instances depicted in this diagram.>_
+Motivation::
 
-=== <Runtime Scenario 2>
+Understanding how instances of building blocks perform their job and communicate at runtime is crucial for ensuring the system operates as intended. This view helps communicate the architecture to stakeholders who may not delve into the static models but need to grasp how the system functions dynamically.
 
-=== ...
+Form::
 
-=== <Runtime Scenario n>
+Scenarios will be documented using a combination of numbered lists of steps (in natural language) and sequence diagrams for visual clarity.
+
+=== Runtime Scenario 1: User Registration and Pet Listing
+
+Scenario: A user registers on the platform and posts a missing pet.
+
+==== Steps:
+
+1. User Registration:
+
+    1. User accesses the registration page via the Web Interface.
+    2. User submits registration details (name, email, password).
+    3. The Web Interface sends the registration details to the User Management Module.
+    4. The User Management Module interacts with the MongoDB Database to store the new user information.
+    5. The MongoDB Database confirms the storage of user information.
+    6. The User Management Module sends a confirmation message back to the Web Interface.
+    7. The Web Interface displays a registration success message to the user.
+
+2. Posting a Missing Pet:
+
+    1. Registered user navigates to the pet listing page.
+    2. User submits details of the missing pet (name, photo, last seen location, description).
+    3. The Web Interface sends the pet details to the Pet Management Module.
+    4. The Pet Management Module interacts with the MongoDB Database to store the pet information.
+    5. The MongoDB Database confirms the storage of pet information.
+    6. The Pet Management Module sends a confirmation message back to the Web Interface.
+    7. The Web Interface displays a listing success message to the user.
+
+**Sequence Diagram**
+
+```
+User -> Web Interface: Access registration page
+User -> Web Interface: Submit registration details
+Web Interface -> User Management Module: Send registration details
+User Management Module -> MongoDB Database: Store user information
+MongoDB Database -> User Management Module: Confirm storage
+User Management Module -> Web Interface: Send confirmation message
+Web Interface -> User: Display registration success message
+
+User -> Web Interface: Navigate to pet listing page
+User -> Web Interface: Submit missing pet details
+Web Interface -> Pet Management Module: Send pet details
+Pet Management Module -> MongoDB Database: Store pet information
+MongoDB Database -> Pet Management Module: Confirm storage
+Pet Management Module -> Web Interface: Send confirmation message
+Web Interface -> User: Display listing success message
+```
+
+**Notable Aspects**
+
+- User Registration: Interaction between the Web Interface, User Management Module, and MongoDB Database ensures secure storage of user information.
+- Pet Listing: Interaction between the Web Interface, Pet Management Module, and MongoDB Database ensures that pet details are stored and retrieved efficiently.
+
+=== Runtime Scenario 2: Finding a Missing Pet and Communicating
+
+Scenario: A user searches for a missing pet and communicates with the pet owner.
+
+==== Steps:
+
+1. Searching for a Missing Pet:
+
+    1. User accesses the search page via the Web Interface.
+    2. User submits search criteria (location, pet type).
+    3. The Web Interface sends the search criteria to the Pet Management Module.
+    4. The Pet Management Module queries the MongoDB Database for matching pets.
+    5. The MongoDB Database returns the search results to the Pet Management Module.
+    6. The Pet Management Module sends the results back to the Web Interface.
+    7. The Web Interface displays the search results to the user.
+
+2. Communicating with the Pet Owner:
+
+    1. User selects a pet from the search results.
+    2. User sends a message to the pet owner via the Web Interface.
+    3. The Web Interface sends the message to the Communication Module.
+    4. The Communication Module sends the message via Email or Phone to the pet owner.
+    5. Pet owner receives the message and responds.
+    6. The response is sent back to the user via the Web Interface.
+
+**Sequence Diagram**
+
+```
+User -> Web Interface: Access search page
+User -> Web Interface: Submit search criteria
+Web Interface -> Pet Management Module: Send search criteria
+Pet Management Module -> MongoDB Database: Query for matching pets
+MongoDB Database -> Pet Management Module: Return search results
+Pet Management Module -> Web Interface: Send results
+Web Interface -> User: Display search results
+
+User -> Web Interface: Select a pet from results
+User -> Web Interface: Send message to pet owner
+Web Interface -> Communication Module: Send message
+Communication Module -> Email/Phone: Send message to pet owner
+Pet Owner -> Email/Phone: Respond to message
+Email/Phone -> Communication Module: Forward response
+Communication Module -> Web Interface: Send response
+Web Interface -> User: Display response
+```
+
+**Notable Aspects**
+
+- Searching for a Missing Pet: The efficient querying of the MongoDB Database ensures quick search results.
+- Communicating with the Pet Owner: The Communication Module handles secure and reliable communication between users and pet owners via email or phone.
+
+=== Runtime Scenario 3: Error Handling in Pet Listing
+
+Scenario: An error occurs while posting a missing pet.
+
+==== Steps:
+
+1. Posting a Missing Pet:
+
+    1. User submits missing pet details via the Web Interface.
+    2. The Web Interface sends the pet details to the Pet Management Module.
+    3. The Pet Management Module attempts to store the pet information in the MongoDB Database.
+    4. An error occurs in the MongoDB Database (e.g., connection issue).
+    5. The MongoDB Database returns an error message to the Pet Management Module.
+    6. The Pet Management Module sends an error message back to the Web Interface.
+    7. The Web Interface displays an error message to the user and suggests retrying later.
+
+
+**Sequence Diagram**
+
+```
+User -> Web Interface: Submit missing pet details
+Web Interface -> Pet Management Module: Send pet details
+Pet Management Module -> MongoDB Database: Attempt to store pet information
+MongoDB Database -> Pet Management Module: Return error message
+Pet Management Module -> Web Interface: Send error message
+Web Interface -> User: Display error message and retry suggestion
+```
+
+**Notable Aspects**
+
+- Error Handling: The Pet Management Module and Web Interface must handle errors gracefully and provide meaningful feedback to the user. This ensures a better user experience even in case of failures.
