@@ -8,7 +8,8 @@ workspace "A minimal approach to software architecture documentation" {
 
     views {
         theme default
-        !include views.dsl
+        theme https://static.structurizr.com/themes/amazon-web-services-2020.04.30/theme.json
+#        !include views.dsl
         styles {
             !include styles.dsl
         }

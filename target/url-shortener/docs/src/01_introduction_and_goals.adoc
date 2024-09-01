@@ -1,0 +1,49 @@
+ifndef::imagesdir[:imagesdir: ../images]
+
+[[section-introduction-and-goals]]
+
+== Introduction and Goals
+
+✓ Perform the necessary calculations on a napkin.
+
+✓ Choose and justify the data storage scheme, the process for removing outdated links, the storage/update of statistics, and other necessary functional components.
+
+✓ *Choose and justify the server infrastructure, all necessary components, technologies, and libraries.*
+
+✓ Justify the reliability of the system.
+
+✓ Choose and justify the release scheme and release tools.
+
+✓ Formulate and justify the requirements for the development team.
+
+✓ Choose and justify the environments and tools necessary for development.
+
+✓ Choose and justify the hosting provider, estimate the costs for servers for all environments, including production.
+
+=== Requirements Overview
+
+https://www.systeminterview.com/q=chatsystem&c=loggedin&v=v3&l=long is the original URL. Your service creates an alias with shorter length: https://tinyurl.com/y7keocwj. If you click the alias, it redirects you to the original URL.
+
+
+
+=== Quality Goals
+
+- *QG1:* 1 million new users per year, each user shortens an average of 100 links per year.
+- *QG2:* The shortened links must be stored for 3 years.
+- *QG3:* Redirection to the target address should occur in no more than 0.2 seconds.
+- *QG4:* Click statistics must be tracked.
+- *QG5:* System releases must occur seamlessly.
+- *QG6:* The average link receives 10 visits per day.
+
+*The failure of any two nodes should degrade system performance by no more than 0.1 seconds.*
+
+=== Stakeholders
+
+
+
+[options="header",cols="1,2,2"]
+|===
+|Role/Name|Contact|Expectations
+| _<Role-1>_ | _<Contact-1>_ | _<Expectation-1>_
+| _<Role-2>_ | _<Contact-2>_ | _<Expectation-2>_
+|===
