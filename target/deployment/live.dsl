@@ -8,7 +8,7 @@ awsRegion = deploymentNode "AWS Region" {
     }
 
     analyticsDbNode = deploymentNode "Analytics DB" {
-        analyticsDbInstance = containerInstance clickStat.analyticsDb
+        analyticsDbInstance = containerInstance hitCounter.analyticsDb
     }
 
     readApiNode = deploymentNode "Read API" {
