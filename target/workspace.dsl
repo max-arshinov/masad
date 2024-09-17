@@ -1,6 +1,12 @@
 workspace "A minimal approach to software architecture documentation" {
     !identifiers hierarchical
-
+    properties {
+        "structurizr.groupSeparator" "/"
+    }
+    !script groovy {
+      workspace.model.impliedRelationshipsStrategy = new com.structurizr.model.CreateImpliedRelationshipsUnlessSameRelationshipExistsStrategy()
+    }
+    
     model {
         !include model.dsl
 #        !include deployment.dsl

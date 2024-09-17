@@ -4,21 +4,16 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 == Introduction and Goals
 
-✓ Perform the necessary calculations on a napkin.
+- ✓Спроектировать счетчик посещений для сайта. Посещение - любое событие, происходящее на сайте (переход, нажатие кнопки, и тд).
+- ✓Считать общее количество посетителей, количество уникальных посетителей в разрезах: по часам, дням, неделям, месяцам, по гео положению, по источнику трафика, браузеру, устройству, по utm меткам.
+- ✓Отчеты и графики должны отдаваться не более чем за 1.5 с по любым комбинациям параметров за период не превышающий 3 месяца.
 
-✓ Choose and justify the data storage scheme, the process for removing outdated links, the storage/update of statistics, and other necessary functional components.
+=== Ограничения:
+- Система должна иметь возможность обслуживать все сайты рунета (примерно 100млрд событий в сутки).
+- Допустимы задержки в 50-100 минут от действия пользователя до его отображения в статистике.
+- Данные по сайтам должны храниться “вечно”* 
 
-✓ *Choose and justify the server infrastructure, all necessary components, technologies, and libraries.*
-
-✓ Justify the reliability of the system.
-
-✓ Choose and justify the release scheme and release tools.
-
-✓ Formulate and justify the requirements for the development team.
-
-✓ Choose and justify the environments and tools necessary for development.
-
-✓ Choose and justify the hosting provider, estimate the costs for servers for all environments, including production.
+Комментарий: цифры, указанные в задании, нуждаются в валидации. Возможно, стейкхолдер сформулировал их неадекватно.
 
 === Requirements Overview
 
