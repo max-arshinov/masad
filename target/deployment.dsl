@@ -1,3 +1,3 @@
 liveEnv = deploymentEnvironment "Live" {
-    !include deployment/live.dsl
+    !include url-shortener/deployment/live.dsl
 }

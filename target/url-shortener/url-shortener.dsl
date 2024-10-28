@@ -1,35 +1,31 @@
+!constant WEB_LANG "Go"
 !docs ./docs/src
 
-cache = container "Cache" "Redis"
 group DBs {
-    linkDb = container "Links" "PostgreSQL" "" "Database"
-    userDb = container "Users" "PostgreSQL" "" "Database"
+    linkDb = container "Links" "Stores links." "ScyllaDB" "Database"
+    userDb = container "Users" "Stores user info." "PostgreSQL" "Database"
 }
 
-broker = container "Broker" "NATS" ""
-
 group API {    
-    readApi = container "Read API" {
-        buffer = component "Buffer" "In-Memory"
+    readApi = container "Read API" "Redirects short URLs to long ones." ${WEB_LANG} {
+        cache = component "In-Memory LRU Cache" "In-Memory"
+        urlController = component "UrlController"
+        urlController -> cache "Reads URLs from and writes to"
+        urlController -> linkDb "Reads URLs from"
     }
     
-    authApi = container "Auth" "KeyCloak"
+    authApi = container "Auth & Identity Management" "Provides authentication, user management, and fine-grained authorization." "KeyCloak"
     authApi -> authProviders "Authenticates with" "OAUTH2"
     authApi -> userDb "Auth & Identity management"
     
-    readApi -> cache "Get long link"
-    readApi -> broker "Sends redirect statistics"
-    
-    writeApi = container "Write API"
-    writeApi -> linkDb "Saves new links to the db"
-    writeApi -> cache "Saves new links to the cache"
+    writeApi = container "Write API" "Creates short URLs." ${WEB_LANG} {
+        urlController = component "UrlController"
+        urlController -> linkDb "Saves new links to the db"
+    }   
 }
 
-statService = container "Stat Background Service"
-statService -> broker
-statService -> hitCounter.api "Sends visit statistics"
+readApi.urlController -> hitCounter.writeApi "Sends visit statistics"
 
-
-web = container "Web App"
+web = container "Web App" "Provides the URL shortener functionality to users via their web browsers."
 web -> authApi "Authenticates the user" "HTTPS"
-web -> writeApi "Sends JSON requests" "HTTPS"
+web -> writeApi.urlController "Sends JSON requests" "HTTPS"

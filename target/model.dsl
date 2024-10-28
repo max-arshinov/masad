@@ -3,7 +3,8 @@ hitCounter = softwareSystem "Hit Counter" {
     !include ./hit-counter/hit-counter.dsl
 }
 
-anotherWebsite = softwareSystem "Another Website"
+thirdPartyWebsite = softwareSystem "Third-Party Website"
+thirdPartyWebsite -> hitCounter.writeApi "Sends visit statistics"
 authProviders = softwareSystem "Auth Providers" "Facebook, Google, Linkedin, etc..."
 
 urlShortener = softwareSystem "URL Shortener" {
@@ -13,6 +14,8 @@ urlShortener = softwareSystem "URL Shortener" {
 
 user = person "User"
 user -> urlShortener.web "SignUp/SignIn, Creates short URL" "HTTPS"
-user -> urlShortener.readApi "Visits a short url" "HTTPS"
-user -> anotherWebsite "Redirected to" "HTTPS"
+user -> urlShortener.readApi.urlController "Visits a short url" "HTTPS"
+user -> thirdPartyWebsite "Is redirected to" "HTTPS 302"
 
+analyst = person "Analyst"
+analyst -> hitCounter.spa "Sees the reports"

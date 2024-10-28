@@ -9,7 +9,7 @@ workspace "A minimal approach to software architecture documentation" {
     
     model {
         !include model.dsl
-#        !include deployment.dsl
+        !include deployment.dsl
     }
 
     views {

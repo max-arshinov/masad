@@ -3,5 +3,4 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-architecture-constraints]]
 == Architecture Constraints
 
-
-
+- The failure of any two nodes should degrade system performance by no more than 0.1 seconds.
