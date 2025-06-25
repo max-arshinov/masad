@@ -124,8 +124,10 @@ same way as code together with the arc42 template for software architecture.
 ![docToolChain](https://camo.githubusercontent.com/f7d3f12fc6410a44c138efa595a712187c57df759a7c5909214d9f4ca331e923/68747470733a2f2f646f63746f6f6c636861696e2e6769746875622e696f2f646f63546f6f6c636861696e2f76322e302e782f696d616765732f65612f4d616e75616c2f4f76657276696577322e706e67)
 
 
-
 ### Notes for Confluence users
 
 - If you consider to use confluence, the [asciidoc2confluence](https://github.com/rdmueller/asciidoc2confluence) script
   might be helpful.
+
+## Recommended Architecture Design Process
+![Recommended Architecture Design Process](architecture.png)
