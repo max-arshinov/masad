@@ -24,7 +24,7 @@ container internetBankingSystem "Containers" {
         customer mainframe email
         internetBankingSystem.web
         internetBankingSystem.spa
-        internetBankingSystem.mobile
+        internetBankingSystem.mobileApp
         internetBankingSystem.api
         internetBankingSystem.database
     }
@@ -35,7 +35,7 @@ container internetBankingSystem "Containers" {
 component internetBankingSystem.api "Components" {
     include *
     animation {
-        internetBankingSystem.spa internetBankingSystem.mobile internetBankingSystem.database email mainframe
+        internetBankingSystem.spa internetBankingSystem.mobileApp internetBankingSystem.database email mainframe
         internetBankingSystem.api.signinController internetBankingSystem.api.securityComponent
         internetBankingSystem.api.accountsSummaryController internetBankingSystem.api.mainframeBankingSystemFacade
         internetBankingSystem.api.resetPasswordController internetBankingSystem.api.emailComponent

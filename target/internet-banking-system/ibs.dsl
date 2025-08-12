@@ -1,41 +1,45 @@
 !docs docs/src
 !adrs adrs
 
-database = container "Database" "Stores user registration information, hashed authentication credentials, access logs, etc." "Oracle Database Schema" "Database"
+!const SPRING_BEAN "Spring Bean"
+!const SPRING_MVC "Spring MVC"
+!const REST_CONTROLLER "Spring MVC Rest Controller"
 
-api = container "API Application" "Provides Internet banking functionality via a JSON/HTTPS API." "Java and Spring MVC" {
-    emailComponent = component "E-mail Component" "Sends e-mails to users." "Spring Bean"
+database = oracle "Database" "Stores user registration information, hashed authentication credentials, access logs, etc."
+
+api = springMvc "API Application" "Provides Internet banking functionality via a JSON/HTTPS API." {
+    emailComponent = springBean "E-mail Component" "Sends e-mails to users."
     emailComponent -> email "Sends e-mail using"
 
-    mainframeBankingSystemFacade = component "Mainframe Banking System Facade" "A facade onto the mainframe banking system." "Spring Bean"
-    mainframeBankingSystemFacade -> mainframe "Makes API calls to" "XML/HTTPS"
+    mainframeBankingSystemFacade = springBean "Mainframe Banking System Facade" "A facade onto the mainframe banking system."
+    mainframeBankingSystemFacade --https-> mainframe "Makes API calls to"
 
-    accountsSummaryController = component "Accounts Summary Controller" "Provides customers with a summary of their bank accounts." "Spring MVC Rest Controller"
-    accountsSummaryController -> mainframeBankingSystemFacade "Uses"
+    accountsSummaryController = controller "Accounts Summary Controller" "Provides customers with a summary of their bank accounts."
+    accountsSummaryController -> mainframeBankingSystemFacade
         
-    securityComponent = component "Security Component" "Provides functionality related to signing in, changing passwords, etc." "Spring Bean"
-    securityComponent -> database "Reads from and writes to" "SQL/TCP"
+    securityComponent = springBean "Security Component" "Provides functionality related to signing in, changing passwords, etc."
+    securityComponent --sql-> database "Reads from and writes to"
         
-    signinController = component "Sign In Controller" "Allows users to sign in to the Internet Banking System." "Spring MVC Rest Controller"
-    signinController -> securityComponent "Uses"
+    signinController = controller "Sign In Controller" "Allows users to sign in to the Internet Banking System."
+    signinController -> securityComponent
         
-    resetPasswordController = component "Reset Password Controller" "Allows users to reset their passwords with a single use URL." "Spring MVC Rest Controller"
-    resetPasswordController -> securityComponent "Uses"
-    resetPasswordController -> emailComponent "Uses"
+    resetPasswordController = controller "Reset Password Controller" "Allows users to reset their passwords with a single use URL."
+    resetPasswordController -> securityComponent
+    resetPasswordController -> emailComponent
 }
 
-mobile = container "Mobile" "Provides a limited subset of the Internet banking functionality to customers via their mobile device." "Xamarin" "Mobile"
-mobile -> api.signinController "Makes API calls to" "JSON/HTTPS"
-mobile -> api.accountsSummaryController "Makes API calls to" "JSON/HTTPS"
-mobile -> api.resetPasswordController "Makes API calls to" "JSON/HTTPS"
-customer -> mobile "Views account balances, and makes payments using"
+mobileApp = mobile "Mobile" "Provides a limited subset of the Internet banking functionality to customers via their mobile device." "Xamarin"
+mobileApp --hj-> api.signinController "Makes API calls to"
+mobileApp --hj-> api.accountsSummaryController "Makes API calls to"
+mobileApp --hj-> api.resetPasswordController "Makes API calls to" 
+customer -> mobileApp "Views account balances, and makes payments using"
 
-spa = container "Single-Page Application" "Provides all of the Internet banking functionality to customers via their web browser." "JavaScript and Angular" "Web"
-spa -> api.signinController "Makes API calls to" "JSON/HTTPS"
-spa ->  api.accountsSummaryController "Makes API calls to" "JSON/HTTPS"
-spa ->  api.resetPasswordController "Makes API calls to" "JSON/HTTPS"
+spa = angular "Single-Page Application" "Provides all of the Internet banking functionality to customers via their web browser."
+spa --hj-> api.signinController "Makes API calls to"
+spa --hj->  api.accountsSummaryController "Makes API calls to"
+spa --hj->  api.resetPasswordController "Makes API calls to"
 customer -> spa  "Views account balances, and makes payments using"
 
-web = container "Web Application" "Delivers the static content and the Internet banking single page application." "Java and Spring MVC"
+web = springMvc "Web Application" "Delivers the static content and the Internet banking single page application."
 web -> spa "Delivers to the customer's web browser"
-customer -> web "Visits bigbank.com/ib using" "HTTPS"
+customer --https-> web "Visits bigbank.com/ib using"

@@ -3,6 +3,7 @@ customer = person "Personal Banking Customer" "A customer of the bank, with pers
 customer -> supportStaff "Asks questions to" "Telephone"
 
 group "Big Bank plc" {
+
     mainframe = softwaresystem "Mainframe Banking System" "Stores all of the core banking information about customers, accounts, transactions, etc." "Existing"
     supportStaff -> mainframe "Uses"
 
