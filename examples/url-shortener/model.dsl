@@ -1,5 +1,7 @@
-system = softwareSystem "System" "A system that does something." {
+us = softwareSystem "Url Shortener" "..." {
+    !include us.dsl
 }
 
-person = person "Person" "A person that does something." 
-person --https-> system "Uses the system to do something."
+user = person "User" "A person that clicks on short urls."
+creator = person "Link creator " "..." 
+user --https-> us "."
