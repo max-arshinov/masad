@@ -17,6 +17,7 @@ services:
 #      - "8082:8080"
 
   # Examples
+  # Internet Banking System
   internet-banking-system:
     container_name: internet-banking-system
     image: structurizr/lite
@@ -25,11 +26,13 @@ services:
       - ./examples/internet-banking-system:/usr/local/structurizr
     ports:
       - "8083:8080"
-
-  base:
-    container_name: base-architecture
+  
+  # Examples
+  url-shortener:
+    container_name: url-shortener
     image: structurizr/lite
     volumes:
-      - ./base:/usr/local/structurizr
+      - ./base:/usr/local/base
+      - ./examples/url-shortener:/usr/local/structurizr
     ports:
-      - "8080:8080"        
+      - "8084:8080"
