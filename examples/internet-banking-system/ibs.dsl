@@ -1,6 +1,3 @@
-!docs docs/src
-!adrs adrs
-
 !const SPRING_BEAN "Spring Bean"
 !const SPRING_MVC "Spring MVC"
 !const REST_CONTROLLER "Spring MVC Rest Controller"
