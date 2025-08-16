@@ -1,5 +1,5 @@
 workspace extends ../base/workspace.dsl {
-    name "URL Shortener"
+    name "Analytics System"
     model {
         archetypes {
             !include archetypes.dsl

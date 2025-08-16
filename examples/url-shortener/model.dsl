@@ -3,5 +3,5 @@ us = softwareSystem "Url Shortener" "..." {
 }
 
 user = person "User" "A person that clicks on short urls."
-creator = person "Link creator " "..." 
+creator = person "Link Creator " "..." 
 user --https-> us "."

@@ -1,0 +1,29 @@
+- _See https://docs.arc42.org/home/[arc42 documentation]_.
+- _See https://github.com/arc42/arc42-template/blob/master/EN/asciidoc/src/01_introduction_and_goals.adoc[arc42 template with help] for a version of the template that contains some help and explanations._ 
+
+ifndef::imagesdir[:imagesdir: ../images]
+
+[[section-introduction-and-goals]]
+
+== Introduction and Goals
+
+
+
+=== Requirements Overview
+
+
+
+=== Quality Goals
+
+
+
+=== Stakeholders
+
+
+
+[options="header",cols="1,2,2"]
+|===
+|Role/Name|Contact|Expectations
+| _<Role-1>_ | _<Contact-1>_ | _<Expectation-1>_
+| _<Role-2>_ | _<Contact-2>_ | _<Expectation-2>_
+|===

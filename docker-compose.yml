@@ -28,11 +28,22 @@ services:
       - "8083:8080"
   
   # Examples
-  url-shortener:
-    container_name: url-shortener
+  analytics-platform: 
+    container_name: analytics-platform
     image: structurizr/lite
     volumes:
       - ./base:/usr/local/base
       - ./examples/url-shortener:/usr/local/structurizr
     ports:
-      - "8084:8080"
+      - "8084:8080"  
+  
+  # Examples
+  url-shortener:
+    container_name: url-shortener
+    image: structurizr/lite
+    volumes:
+      - ./base:/usr/local/base
+      - ./analytics-platform:/usr/local/analytics-platform
+      - ./examples/url-shortener:/usr/local/structurizr
+    ports:
+      - "8085:8080"
