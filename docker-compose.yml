@@ -33,7 +33,7 @@ services:
     image: structurizr/lite
     volumes:
       - ./base:/usr/local/base
-      - ./examples/url-shortener:/usr/local/structurizr
+      - ./examples/analytics-platform:/usr/local/structurizr
     ports:
       - "8084:8080"  
   

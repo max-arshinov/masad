@@ -1,21 +1,20 @@
-- _See https://docs.arc42.org/home/[arc42 documentation]_.
-- _See https://github.com/arc42/arc42-template/blob/master/EN/asciidoc/src/01_introduction_and_goals.adoc[arc42 template with help] for a version of the template that contains some help and explanations._ 
-
 ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-introduction-and-goals]]
 
 == Introduction and Goals
 
-
-
 === Requirements Overview
 
-
+- Analytics platform is a system that tracks events from websites: page view, button click, etc.
+- Track the total number of visitors, the number of unique visitors, broken down by: hours, days, weeks, months, geolocation, traffic source, browser, device, and UTM tags.
 
 === Quality Goals
 
-
+- Reports and charts must be delivered within 1.5 seconds for any combination of parameters over a period not exceeding 3 months.
+- The system must be able to serve approximately 100 billion events per day.
+- Delays of 50–100 minutes are acceptable between a user action and its appearance in statistics.
+- Data per website must be stored “forever.”
 
 === Stakeholders
 
@@ -24,6 +23,25 @@ ifndef::imagesdir[:imagesdir: ../images]
 [options="header",cols="1,2,2"]
 |===
 |Role/Name|Contact|Expectations
-| _<Role-1>_ | _<Contact-1>_ | _<Expectation-1>_
-| _<Role-2>_ | _<Contact-2>_ | _<Expectation-2>_
+
+| Executive sponsor and leadership
+| TBD 
+| ROI visibility, roadmap alignment, budget control, risk oversight
+
+| Product, Marketing, and Analytics users 
+| TBD 
+| Accurate and timely reports, self-serve segmentation, UTM/source attribution
+
+| Client website/app owners (tenants)
+| TBD
+| Easy SDK integration, low performance overhead, configurable tracking, SLAs
+
+| Data/platform engineering and backend developers 
+| TBD 
+| Reliable ingestion, scalable storage/queries, clear schemas/APIs, observability
+
+| Security, Legal, and Privacy (DPO) 
+| TBD 
+| GDPR/CCPA compliance, consent and retention controls, auditing
+
 |===

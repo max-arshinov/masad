@@ -1,4 +1,6 @@
-system = softwareSystem "System" "A system that does something." {
+system = softwareSystem "Analytics Platform" "" {
+    !adrs adrs
+    !docs docs/src
 }
 
 person = person "Person" "A person that does something." 
