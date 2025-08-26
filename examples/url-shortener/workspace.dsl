@@ -1,4 +1,4 @@
-workspace extends ../base/workspace.dsl {
+workspace extends ../analytics-platform/workspace.dsl {
     name "URL Shortener"
     model {
         archetypes {

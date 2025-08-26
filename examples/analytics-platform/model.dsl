@@ -1,4 +1,4 @@
-system = softwareSystem "Analytics Platform" "Tracks website/app events (page views, clicks, etc.) and provides reports, segmentation, and attribution." {
+analyticsPlatform = softwareSystem "Analytics Platform" "Tracks website/app events (page views, clicks, etc.) and provides reports, segmentation, and attribution." {
     !adrs adrs
     !docs docs/src
 
@@ -39,16 +39,16 @@ system = softwareSystem "Analytics Platform" "Tracks website/app events (page vi
 }
 
 executive = person "Executive Sponsor & Leadership" "Stakeholders who need ROI visibility, roadmap alignment, budget control, and risk oversight." "Business"
-executive --https-> system "Reviews ROI dashboards and roadmap"
+executive --https-> analyticsPlatform "Reviews ROI dashboards and roadmap"
 
 analyst = person "Product/Marketing/Analytics User" "Users who need accurate and timely reports, segmentation, and UTM/source attribution." "User"
-analyst --https-> system "Explores reports and creates segments"
+analyst --https-> analyticsPlatform "Explores reports and creates segments"
 
 tenantOwner = person "Client Website/App Owner (Tenant)" "Customers integrating the SDK; need easy integration, low overhead, configurable tracking, and SLAs." "Tenant"
-tenantOwner --https-> system "Configures tracking and views site analytics"
+tenantOwner --https-> analyticsPlatform "Configures tracking and views site analytics"
 
 engineer = person "Data/Platform Engineering & Backend Developer" "Engineers who need reliable ingestion, scalable storage/queries, clear schemas/APIs, and observability." "Engineering"
-engineer --https-> system "Operates platform and manages schemas/APIs"
+engineer --https-> analyticsPlatform "Operates platform and manages schemas/APIs"
 
 privacy = person "Security/Legal/Privacy (DPO)" "Ensures GDPR/CCPA compliance, consent/retention controls, and auditing." "Compliance"
-privacy --https-> system "Manages consent, retention, and audits"
+privacy --https-> analyticsPlatform "Manages consent, retention, and audits"

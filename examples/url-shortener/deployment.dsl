@@ -1,7 +1,7 @@
-devEnv = deploymentEnvironment "Development" {
+urlDevEnv = deploymentEnvironment "Development A" {
     !include deployment/dev.dsl
 }
 
-liveEnv = deploymentEnvironment "Live" {
+urlLiveEnv = deploymentEnvironment "Live A" {
     !include deployment/live.dsl
 }

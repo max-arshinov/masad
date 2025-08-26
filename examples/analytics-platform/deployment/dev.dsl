@@ -6,32 +6,32 @@ deploymentNode "Dev Cloud" "" "Public Cloud" {
     deploymentNode "Kubernetes Cluster" "" "Kubernetes" {
         deploymentNode "Namespace: analytics-dev" "" "Kubernetes Namespace" {
             deploymentNode "Web App Pods" "" "Kubernetes Pods" {
-                containerInstance system.web
+                containerInstance analyticsPlatform.web
             }
             deploymentNode "Ingestion API Pods" "" "Kubernetes Pods" {
-                containerInstance system.ingestionApi
+                containerInstance analyticsPlatform.ingestionApi
             }
             deploymentNode "Analytics Query API Pods" "" "Kubernetes Pods" {
-                containerInstance system.queryApi
+                containerInstance analyticsPlatform.queryApi
             }
             deploymentNode "Ingestion Consumer Pods" "" "Kubernetes Pods" {
-                containerInstance system.ingestionConsumer
+                containerInstance analyticsPlatform.ingestionConsumer
             }
         }
     }
     deploymentNode "Managed Kafka (Dev)" "" "Apache Kafka" {
-        containerInstance system.kafka
+        containerInstance analyticsPlatform.kafka
     }
     deploymentNode "Schema Registry (Dev)" "" "Confluent Schema Registry" {
-        containerInstance system.schemaRegistry
+        containerInstance analyticsPlatform.schemaRegistry
     }
     deploymentNode "ClickHouse Cluster (Dev)" "" "ClickHouse" {
         deploymentNode "Server" "" "ClickHouse Server" {
-            containerInstance system.db
+            containerInstance analyticsPlatform.db
         }
     }
     deploymentNode "Object Storage (Dev)" "" "S3-compatible" {
-        containerInstance system.objectStore
+        containerInstance analyticsPlatform.objectStore
     }
 }
 

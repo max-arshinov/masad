@@ -43,7 +43,7 @@ services:
     image: structurizr/lite
     volumes:
       - ./base:/usr/local/base
-      - ./analytics-platform:/usr/local/analytics-platform
+      - ./examples/analytics-platform:/usr/local/analytics-platform
       - ./examples/url-shortener:/usr/local/structurizr
     ports:
       - "8085:8080"
