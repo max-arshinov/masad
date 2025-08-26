@@ -8,22 +8,9 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 === Business Context
 
-image::embed:SystemContext[]
+image::embed:SystemContext-001[]
 
-
-
-**<Diagram or Table>**
-
-**<optionally: Explanation of external domain interfaces>**
 
 === Technical Context
 
-image::embed:Containers[]
-
-
-
-**<Diagram or Table>**
-
-**<optionally: Explanation of technical interfaces>**
-
-**<Mapping Input/Output to Channels>**
+image::embed:Container-001[]

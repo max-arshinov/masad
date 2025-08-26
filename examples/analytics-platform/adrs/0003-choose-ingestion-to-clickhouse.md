@@ -1,4 +1,4 @@
-# 3. Choose ingestion to ClickHouse
+# 3. Choose decoupled Kafka ingestion for ClickHouse
 
 Date: 2025-08-26
 
@@ -9,46 +9,44 @@ Accepted
 ## Context
 
 Business drivers and quality attributes:
-- Scale to ~100B events/day across tenants with 50–100 min ingest-to-availability.
-- Low-latency analytical queries (<= 1.5s) over up to 3 months of data.
-- At-least-once delivery with deduplication; late arrivals and evolving schemas.
-- Cost control, portability, and operational simplicity where feasible.
+- Independent scaling of ingestion and query workloads; predictable performance and cost at ~100B events/day.
+- At-least-once delivery with idempotent writes and deduplication; robust replays/backfills and DLQ flows.
+- Operational simplicity, observability, and safe deployability (blue/green, canary) for ingestion.
+- Portability and low lock-in, keeping ClickHouse self-managed but not overloading it with consumer responsibilities.
 
 Architectural tactics influencing the choice:
-- Durable, replayable buffer for backpressure smoothing and recoverability.
-- Batch-oriented ingestion into column store with rollups via materialized views.
-- Idempotency/dedup using event_id + version with ReplacingMergeTree/AggregatingMergeTree.
-- Schema management via registry (Avro/Protobuf), contracts and validation.
+- Decouple Kafka consumption from ClickHouse nodes; run stateless consumers that can be autoscaled separately.
+- Batch and compress writes over ClickHouse HTTP/native protocol into staging MergeTree tables; transform via MVs.
+- Use Schema Registry (Avro/Protobuf), event_id(+version) for idempotency with Replacing/AggregatingMergeTree.
+- Maintain DLQs and reprocessing pipelines; use S3-staged batch loads for large backfills.
 
 Comparison of alternatives (higher is better):
 
-| Ingestion / Criteria                               | Delivery semantics           | Replay & retention              | Ordering (per key)         | Latency to availability       | Throughput & batching        | Transformations in-flight            | Schema evolution            | Ops complexity                | Cost & lock-in           | Portability/open |
-|----------------------------------------------------|------------------------------|----------------------------------|-----------------------------|-------------------------------|-------------------------------|--------------------------------------|-----------------------------|-------------------------------|--------------------------|------------------|
-| Kafka + CH Kafka Engine + Materialized Views       | ★★★ At-least-once, idempotent| ★★★ Long via Kafka + reconsume  | ★★★ Partition-key ordering  | ★★ Low-minutes with MV        | ★★★ High via consumer batches | ★★★ SQL in MVs, rollups/sketches     | ★★★ With Schema Registry    | ★★ Requires ops for Kafka/CH | ★★ Infra cost, portable  | ★★★ Open source   |
-| Kafka Connect ClickHouse Sink (direct INSERT)      | ★★ At-least-once, idempotent | ★★★ Long via Kafka + reconsume  | ★★★ Partition-key ordering  | ★★ Low-minutes                | ★★ Good, connector dependent  | ★★ Limited; transform SMTs           | ★★★ With Schema Registry    | ★★ Connector mgmt, simpler    | ★★ Infra cost, portable  | ★★★ Open source   |
-| HTTP bulk inserts to ClickHouse (edge -> CH)       | ★ Best-effort unless idempot | ★ Limited, app-managed          | ★ App-managed               | ★★ Seconds-minutes            | ★★ Good with batching         | ★ Basic; push to staging tables       | ★ App-managed               | ★★★ Simple to start           | ★★★ Low lock-in          | ★★★ Open          |
-| S3 staged batch + CH S3Queue/s3() + MVs            | ★★ At-least-once via files   | ★★★ Very long via object store  | ★★ Per-file                 | ★ Batches; slower to minutes  | ★★★ Very high via large files | ★★ Transform in MVs after load        | ★★ Via file schemas         | ★★ Manage compaction/listener | ★★★ Cheap storage         | ★★★ Open          |
-| Managed ingest (CH Cloud Tasks/ETL service)        | ★★ At-least-once, varies     | ★★ Varies by service            | ★★ Varies                   | ★★ Low-minutes                | ★★ Good                       | ★★ Varies; usually limited            | ★★ Varies                   | ★★★ Low ops                   | ★ Lock-in                | ★ Proprietary     |
+| Ingestion / Criteria                                         | Decoupled scaling | Delivery semantics & dedup | Throughput & batching  | Transform flexibility          | Replay/backfill            | Ops complexity            | Cost & lock-in        | Portability/open |
+|--------------------------------------------------------------|-------------------|----------------------------|------------------------|-------------------------------|----------------------------|---------------------------|-----------------------|------------------|
+| ClickHouse Kafka Engine + Materialized Views (ADR-0003)      | ★                 | ★★★ At-least-once, idemp   | ★★★ High via engine    | ★★★ SQL in MVs                | ★★★ Reconsume via Kafka    | ★★ CH+engine specifics   | ★★ Infra cost          | ★★★ Open         |
+| Kafka Connect ClickHouse Sink (direct INSERT)                | ★★                | ★★ At-least-once, idemp    | ★★ Good, task based    | ★★ SMTs limited               | ★★★ Reconsume via Kafka    | ★★ Manage Connect        | ★★ Infra cost          | ★★★ Open         |
+| Custom consumer svc (Go/Java, librdkafka) -> CH HTTP/native  | ★★★               | ★★★ At-least-once, idemp   | ★★★ High, tuned batches| ★★★ In-svc + CH MVs           | ★★★ Reconsume + S3 backfill| ★★ Build/operate svc     | ★★★ Low lock-in        | ★★★ Open         |
+| Stream proc (Flink/Spark) -> CH                              | ★★                | ★★★ Exactly/at-least-once  | ★★★ High               | ★★★ Rich operators            | ★★★ Strong                 | ★ Higher platform ops     | ★★ Platform cost       | ★★ Portable      |
+| Managed ingest (ClickPipes/ETL SaaS)                         | ★★                | ★★ Varies                  | ★★ Good                | ★★ Varies                     | ★★ Varies                  | ★★★ Low (managed)        | ★ Lock-in              | ★ Proprietary    |
 
 Notes:
-- Kafka-based options provide durable buffering, backpressure handling, consumer scaling, and replays. ClickHouse Kafka engine allows SQL-based transformations and materialized views to land into MergeTree tables.
-- HTTP-only ingest is simple but pushes complexity to edge services for retries, idempotency, and replays; riskier at this scale.
-- S3 staged ingest is excellent for backfills and cold path, but latency is higher and operational patterns differ from streaming.
+- A dedicated ingestion service lets us right-size ClickHouse purely for storage/query, while scaling consumers independently and deploying changes safely (canary, blue/green). We retain SQL-based rollups/sketches in MVs on staging→fact tables.
+- Kafka Connect is viable but limits transformations and observability; stream processors add platform overhead.
 
 ## Decision
 
-Use Apache Kafka as the durable ingestion backbone and ingest into ClickHouse via Kafka Engine tables with Materialized Views that transform and load into MergeTree family tables. Events are Avro or Protobuf-encoded with a Schema Registry. Deduplication uses a stable event_id and optional version column with ReplacingMergeTree or AggregatingMergeTree patterns. Partitioning is by tenant and time (e.g., day) to support rollups and merges. Maintain a dead-letter topic for poison messages and validation failures. For large backfills or reprocessing, stage batches to object storage (S3-compatible) and load via S3Queue/s3() into the same tables.
+Adopt decoupled ingestion services that consume Kafka using librdkafka-based clients (e.g., Go or Java), perform validation/enrichment, and write batched, compressed INSERTs to ClickHouse over HTTP/native protocol into staging MergeTree tables. Materialized Views perform rollups and sketch updates into destination tables. Maintain idempotency via event_id(+version) and Replacing/AggregatingMergeTree patterns. Scale consumers independently of ClickHouse; use DLQs and S3-staged batch loads for large backfills/reprocessing. Continue using Schema Registry for Avro/Protobuf event contracts.
+
 
 ## Consequences
 
 Positive:
-- Durable buffer with replay enables recovery, backfills, and smoothing of traffic spikes; consumer scaling matches throughput needs.
-- SQL-based transformations in ClickHouse MVs support rollups, sketches (HLL/TDigest), and schema evolution with minimal extra services.
-- Clear path for exactly-once at query level via idempotent writes and dedup keys; late data handled via partition merges.
-- Portable and cost-efficient; avoids strong vendor lock-in while remaining compatible with managed Kafka/CH offerings if desired.
+- Independent scaling and deployability of ingestion; isolates query workload from consumer throughput and backpressure.
+- High throughput via tuned batching and compression; retains SQL transformations in ClickHouse MVs where beneficial.
+- Clear, portable architecture without engine coupling; easier blue/green, versioned schemas, and observability.
 
 Negative / risks:
-- Operating Kafka and ClickHouse requires tuning (partitions, batch sizes, merges, retention, quotas) and observability.
-- Kafka Engine has caveats (consumer offsets per replica, careful deployment/DDL discipline); needs runbooks and guardrails.
-- S3 staged backfills are a second pattern to maintain; requires coordination to prevent double ingestion without proper dedup.
-
+- Additional service to build and operate; requires careful tuning of producer→consumer→ClickHouse batch sizes.
+- Exactly-once remains at-least-once with dedup at query-time; must test idempotency rigorously.
+- Requires disciplined schema evolution and backfill coordination across consumers and ClickHouse tables.

@@ -12,4 +12,4 @@ workspace extends ../base/workspace.dsl {
     views {
         #!include views.dsl
     }
-}  
+}
