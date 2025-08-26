@@ -3,5 +3,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-architecture-constraints]]
 == Architecture Constraints
 
+Click statistics is handled by a third-party service, so we don't need to implement it ourselves.
+
 
 

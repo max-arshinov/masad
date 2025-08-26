@@ -3,5 +3,5 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-design-decisions]]
 == Architecture Decisions
 
-See link:../decisions/Internet%20Banking%20System[Architecture Decision Records].
-
+- link:../../adrs/0001-record-architecture-decisions.md[1. Record architecture decisions]
+- link:../../adrs/0002-choose-url-shortening-algorithm.md[2. Choose URL shortening algorithm]

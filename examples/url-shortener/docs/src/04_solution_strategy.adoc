@@ -3,5 +3,10 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-solution-strategy]]
 == Solution Strategy
 
+Slug generation
 
-
+- Chosen: Random Base62 token, length 7 (feature-flag to 8), generated with a strong RNG; uniqueness enforced by a DB unique index with retry on conflict. Rationale: unpredictable, even key distribution, simple ops, multi-writer friendly. See link:../../adrs/0002-choose-url-shortening-algorithm.md[ADR 0002].
+- Alternatives considered:
+  * Global counter + Base62 conversion of numeric IDs: shortest possible slugs for a given range but predictable/enumerable; needs central coordination or sharded counters and can create hotspots.
+  * Hash(long URL)+salt truncated to Base62: deterministic per salt; requires collision handling and secret management.
+  * Time-based IDs (Snowflake/KSUID) + Base62: operationally solid but typically longer and partially predictable.
