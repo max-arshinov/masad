@@ -26,7 +26,7 @@ See the https://docs.google.com/spreadsheets/d/1u34s6iZJaoJNX19yvFeGGZwvfviE3WZt
 * Description: Arbitrary filters (UTM, geo, device, browser, custom props) across 3 months can create cardinality explosions.
 * Consequences: Slow queries, timeouts, or expensive compute.
 * Mitigations:
-** Choose storage optimized for time-series/OLAP with ingestion-time rollups and approximate sketches (HLL, TDigest) for uniques.
+** Choose storage optimized for time-series/OLAP with ingestion-time rollups and approximate sketches (HLL, TDigest) for uniques. See link:../../adrs/0002-choose-primary-analytics-database.md[ADR-0002].
 ** Tiered indexes/materialized views for common aggregations; query guards (limits) for pathological requests.
 
 . Storage growth and long-term cost of “forever” retention
