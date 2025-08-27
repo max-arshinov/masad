@@ -3,15 +3,3 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-solution-strategy]]
 == Solution Strategy
 
-- Primary analytics store: ClickHouse for hot/warm data with MergeTree engines, partitioned by time and tenant; approximate algorithms (HLL/TDigest) and S3-compatible tiering for long retention. See link:../../adrs/0002-choose-primary-analytics-database.md[ADR-0002].
- Ingestion: Apache Kafka as durable backbone; decoupled consumer services (librdkafka) write batched, compressed INSERTs into ClickHouse staging MergeTree tables; Materialized Views handle rollups/sketches; Schema Registry; idempotency via event_id(+version); DLQs; S3-staged loads for backfills. See link:../../adrs/0003-choose-ingestion-to-clickhouse.md[ADR-0003].
-- Web API: RESTful HTTP with JSON batch payloads, gzip/br compression, Beacon API with fetch/XHR fallback, 202 accept-and-buffer to Kafka, tenant API keys, schema validation, and idempotency headers. Optional Protobuf endpoint for non-browser clients. See link:../../adrs/0004-design-web-api-for-event-ingestion.md[ADR-0004].
-- Hosting model: Public cloud with Kubernetes for stateless services behind CDN/API gateway; managed Kafka; self-managed ClickHouse on VMs with local NVMe and object storage tiering; all provisioned via IaC in multi-AZ with private networking and centralized observability. See link:../../adrs/0005-choose-hosting-model-for-platform.md[ADR-0005].
-- Implementation tech for Web API: Go (net/http + chi), structured logging and OpenTelemetry, strict limits/validation, and confluent-kafka-go (librdkafka) producer for high-throughput at-least-once delivery. See link:../../adrs/0006-choose-language-and-framework-for-web-api.md[ADR-0006].
-- Observability stack: Grafana OSS (Prometheus/Alertmanager, Loki, Tempo) with OpenTelemetry collectors, exemplars, and SLO-driven alerting; optional managed variants per environment. See link:../../adrs/0007-choose-observability-tools.md[ADR-0007].
-- Frontend: React with Next.js (App Router) and TypeScript; SSR/SSG/ISR for docs and dashboards, streaming for interactive views, and mainstream component/charting libraries. See link:../../adrs/0008-choose-frontend-technology.md[ADR-0008].
-
-Cross-cutting concerns:
-- Observability: metrics, traces, and structured logs across API, ingestion, and ClickHouse; SLOs and alerting.
-- Security & privacy: tenant-scoped auth, least privilege networking, consent-aware collection, and retention controls.
-- Operability: quotas/workload isolation, partitioning/merge tuning, capacity planning, backups/DR, and runbooks.
