@@ -10,7 +10,8 @@
     - DB Advisor
 
 ## TODO:
-- Change Copilot instructions: add all aspects to it
+- Change Copilot instructions: add all aspects to it. Utility Tree example
+- Solution Strategy = ADR VS Utility Tree
 - Rework Analytics System in a separate branch using the new instructions
 - Rework URL Shortener
 - Choose Tasks for the Kata
@@ -19,7 +20,8 @@
 ## Next Versions:
 - XLS/XML Support
 - MCP Servers
-
+- Utility Tree examples
+ 
 - Back-of-the-envelope estimates -> Risks
 
 DB Engine Type -> DB Engine -> Db Engine Scaling -> Ingestion, Scaling ->  Cache, Cache Invalidation -> Web tier -> Web tier scaling
