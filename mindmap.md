@@ -4,7 +4,6 @@ markmap:
   colorFreezeLevel: 1
 ---
 
-
 ## Datastores
 - **DB Engines**
   - RDBMS

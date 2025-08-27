@@ -6,6 +6,8 @@ Date: 2025-08-26
 
 Accepted
 
+Clarified by [3. Choose database engine type](0003-choose-database-engine-type.md)
+
 ## Context
 
 Business drivers and quality attributes:

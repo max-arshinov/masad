@@ -6,6 +6,8 @@ Date: 2023-06-12
 
 Accepted
 
+Amended by [3. Choose database engine type](0003-choose-database-engine-type.md)
+
 ## Context
 
 We need to record the architectural decisions made on this project.

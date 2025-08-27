@@ -3,7 +3,7 @@
 1. Fill all sections in "Introduction and Goals" and "Architecture Constraints" (01_introduction_and_goals.adoc, 02_architecture_constraints.adoc).
 You absolutely need the requirements to validate your design decisions.
 All template sections contain tips and examples. Follow them if you're not sure what to write.
-2. If you have enough time, fill "Quality Requirements" (10_quality_requirements.adoc) and summarize the most important ones in "Quality Goals" (a subsection in 01_introduction_and_goals.adoc).
+2. Fill "Quality Requirements" (10_quality_requirements.adoc) and summarize the most important ones in "Quality Goals" (a subsection in 01_introduction_and_goals.adoc).
 3. Fill "Risks and Technical Debts" (11_technical_risks.adoc).
 4. Use ADD 3.0 to create the architecture model. Start the design with the most risky parts. On each iteration, update
 your model and ADRs accordingly. Use comparison tables to evaluate different design options in your ADRs.
