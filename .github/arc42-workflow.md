@@ -18,7 +18,7 @@ Keep it concise and use as a companion to `copilot-instructions.md`.
 
 3. **Quality Requirements**  
    - File: `10_quality_requirements.adoc`  
-   - Create a utility tree and assign IDs (e.g., P-1, A-2).  
+   - Create a quality tree and assign IDs (e.g., P-1, A-2).  
    - Summarize the most important ones as "Quality Goals" in `01_introduction_and_goals.adoc`.
 
 4. **Risks and Technical Debts**  

@@ -11,10 +11,12 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 === Quality Goals
 
-- Reports and charts must be delivered within 1.5 seconds for any combination of parameters over a period not exceeding 3 months.
-- The system must be able to serve approximately 100 billion events per day.
-- Delays of 50–100 minutes are acceptable between a user action and its appearance in statistics.
-- Data per website must be stored “forever.”
+- Reports and charts must be delivered within 1.5 seconds for any combination of parameters over a period not exceeding 3 months. [QA: P-1]
+- The system must be able to serve approximately 100 billion events per day. [QA: S-1]
+- Delays of 50–100 minutes are acceptable between a user action and its appearance in statistics. [QA: P-2]
+- Data per website must be stored “forever.” [QA: R-1]
+
+See <<section-quality-scenarios,Quality Requirements>> for the Quality Tree and Scenarios.
 
 === Stakeholders
 

@@ -3,15 +3,43 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-quality-scenarios]]
 == Quality Requirements
 
-- _See https://re-magazine.ireb.org/articles/discover-quality-requirements-with-the-mini-qaw[Mini-QAW] for a short and fun elicitation workshop for Agile teams and architects._
-
-
-
 === Quality Tree
 
-- _See an example quality tree in the https://docs.arc42.org/examples/quality-tpu-1/#101-quality-tree[arc42 documentation]._
+[options="header"]
+|===
+| ID | Quality Attribute | Scenario | Description | Priority
+| P-1 | Performance | Report latency | Charts and reports delivered in ≤1.5 seconds for any combination of parameters over a period ≤3 months. | High
+| P-2 | Performance | Data freshness | Accept 50–100 minutes delay between a user action and its appearance in statistics. | Medium
+| S-1 | Scalability | Ingestion throughput | Sustain approximately 100 billion events per day (~1.2 million events/second) across tenants. | High
+| R-1 | Retention | Data retention | Store data per website indefinitely (“forever”), with cost-effective tiering. | High
+|===
 
 === Quality Scenarios
 
-- _See example quality scenarios in the
-https://docs.arc42.org/examples/quality-tpu-1/#102-quality-scenarios[arc42 documentation]._
+==== P-1: Report latency (Performance)
+[options="header"]
+|===
+| Source | Stimulus | Environment | Artifact | Response | Response Measure
+| Analyst user | Requests an interactive chart/report for a website with filters over a period ≤3 months | Normal operations, cache miss allowed, typical concurrent load | Query API, aggregation service, hot storage | Returns chart and data without timeouts | P95 end-to-end server latency ≤1.5 s
+|===
+
+==== S-1: Ingestion throughput (Scalability)
+[options="header"]
+|===
+| Source | Stimulus | Environment | Artifact | Response | Response Measure
+| Website/app SDKs across tenants | Sustained global traffic at ~100B events/day (≈1.2M events/s) for ≥1 hour | Normal operations, multi-tenant, rolling deployments | Ingestion API, queue/stream, storage writers | System scales horizontally with backpressure; no data loss; backlog acceptable | Sustain ≈1.2M events/s with zero data loss; accepts temporary queueing
+|===
+
+==== P-2: Data freshness (Performance)
+[options="header"]
+|===
+| Source | Stimulus | Environment | Artifact | Response | Response Measure
+| Analyst or product user | Produces an event (e.g., page view) and later opens dashboard | Normal operations | Ingestion pipeline, stream processing, aggregators | Event becomes queryable in dashboards and APIs | End-to-end freshness between production and visibility 50–100 minutes (P95 ≤100 min)
+|===
+
+==== R-1: Data retention (Retention)
+[options="header"]
+|===
+| Source | Stimulus | Environment | Artifact | Response | Response Measure
+| Tenant, Compliance/Legal, or Analyst | Query or export requires historical data beyond hot window (e.g., multi-year) | Normal operations with tiered storage | Object store/data lake, cold archives, export jobs | Data remains available without automatic purge; long-range access via tiered storage or batch | Indefinite retention per website; long-range queries may run as batch via tiered storage
+|===
