@@ -1,7 +1,7 @@
 ---
 mode: 'agent'
 model: GPT-5
-description: ''
+description: 'Technical Risks section for arc42 document in AsciiDoc format'
 ---
 
 You are filling out the `11_technical_risks.adoc` section of an arc42 document.  

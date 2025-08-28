@@ -4,7 +4,7 @@ applyTo: "**/adrs/**.md"
 
 # ADR Format
 
-Use **plain text, adr-tools style**:
+Use **markdown text, adr-tools style**:
 
 ```text
 # <Number>. <Title>
@@ -43,6 +43,5 @@ Before making a decision, build a table:
     - 🟨 = medium
     - 🟩 = strong
     - 🌟 = excellent (optional)
-- Always add a **Summary row** highlighting the recommended option.
 
 ---

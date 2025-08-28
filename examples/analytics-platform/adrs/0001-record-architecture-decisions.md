@@ -1,6 +1,6 @@
 # 1. Record architecture decisions
 
-Date: 2023-06-12
+Date: 2025-08-28
 
 ## Status
 
