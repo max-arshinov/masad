@@ -3,35 +3,3 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-technical-risks]]
 == Risks and Technical Debts
 
-=== Technical Risk Register
-
-[options="header"]
-|===
-| ID | Risk | Related QAs | Likelihood | Impact | Mitigations | Triggers / Monitors
-
-| RISK-INGEST-THROUGHPUT | Sustained 1.2M events/s causes backlog growth or data loss | S-1, P-2 | Medium–High | High | Horizontally scalable streaming (e.g., Kafka/Kinesis) with 128–256 partitions; idempotent producers; backpressure and retry policies; autoscale consumers; per-tenant sharding; DLQ for poison events | Ingest lag > 10 min; broker/stream write throttling; DLQ rate spikes; consumer lag SLO breach
-
-| RISK-QUERY-LATENCY | Interactive queries exceed P95 ≤1.5 s due to large scans or cold caches | P-1 | Medium | High | Pre-aggregations/materialized rollups; vectorized OLAP engine with predicate pushdown; query result and fragment cache; guardrails on query complexity; warmup jobs | P95 latency > 1.5 s; cache miss ratio > 40%; scanned rows > 300M per query
-
-| RISK-FRESHNESS | Event-to-dashboard freshness exceeds 100 min under load/backfills | P-2, S-1 | Medium | High | Micro-batch sizing; prioritization of fresh windows; backlog-aware autoscaling; watermarking and late-event re-aggregation; partial results with convergence | End-to-end freshness P95 > 100 min; stream lag rising; backlog drain rate < arrival rate
-
-| RISK-RETENTION-COST | Indefinite retention drives unsustainable storage cost | R-1 | High | Medium–High | Tiered storage (hot/warm/cold); aggressive compression (columnar, ZSTD); lifecycle policies to deep-cold; rollups and downsampling; export/archive for rarely used tenants | Monthly storage growth > forecast; cold retrieval frequency low but costs rising; compaction backlog
-
-| RISK-NOISY-NEIGHBOR | Single tenant’s traffic or queries degrade others | P-1, S-1 | Medium | High | Per-tenant rate limits/quotas; workload isolation (separate pools/queues); admission control; token buckets on API; per-tenant partitions | CPU/memory saturation on shared pools; rate-limit violations; uneven partition utilization
-
-| RISK-PARTITION-SKEW | Hot keys/dimensions overload a subset of partitions | S-1 | Medium | Medium–High | Composite/hashing keys; dynamic partitioning; re-keying pipelines; skew-aware consumers | Partition write rates > 3× median; consumer lag localized to few partitions
-
-| RISK-SCHEMA-EVOLUTION | Breaking changes or invalid events disrupt pipelines | P-2, S-1 | Medium | Medium | Schema registry with compat checks; contract tests; producer validation; DLQ with replay; canary deployments | Schema compatibility failures; DLQ growth; producer error rates
-
-| RISK-MULTI-REGION | Regional outage causes data gaps or SLO breaches | P-2, S-1 | Low–Medium | High | Active-active ingest with regional buffers; cross-region replication; failover runbooks; backfill jobs | Region health alerts; replication lag; failover drills exceed RTO
-
-| RISK-PRIVACY-COMPLIANCE | “Forever” retention conflicts with deletion/consent requirements | R-1 | Medium | High | Per-tenant retention/erasure policies; event-level encryption; subject erasure tooling; audit logs | Erasure request backlog; audit findings; policy drift
-
-| RISK-HOT-TIER-BOLOAT | Hot store growth degrades query performance and costs | P-1 | Medium | Medium | TTL for hot data; strict rollups; index/pruning optimization; capacity alerts | Hot tier > target TB; query scan volumes trending up; storage pressure
-|===
-
-=== Technical Debts (initial)
-
-- Documentation and tooling for backfills and late-arrival corrections
-- Synthetic load testing suite for ingest and query SLOs
-- Runbooks for failover, lag recovery, and hot/cold tier migrations
