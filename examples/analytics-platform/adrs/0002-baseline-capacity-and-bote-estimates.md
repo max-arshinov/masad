@@ -2,7 +2,7 @@
 Date: 2025-08-28
 
 ## Status
-Proposed
+Accepted
 
 ## Context
 This ADR captures baseline assumptions and back-of-the-envelope (BOTE) estimates to validate feasibility and scope future design decisions for the analytics platform.

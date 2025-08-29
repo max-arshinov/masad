@@ -1,6 +1,6 @@
 ---
 mode: 'agent'
-model: GPT-5
+model: 'GPT-5'
 description: 'Create a Quality Tree and Quality Scenarios for the given system.'
 ---
 

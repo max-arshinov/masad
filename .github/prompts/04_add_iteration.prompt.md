@@ -1,6 +1,6 @@
 ---
 mode: 'agent'
-model: GPT-5
+model: 'GPT-5'
 description: 'ADR Iteration'
 ---
 

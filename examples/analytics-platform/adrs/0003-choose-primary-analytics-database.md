@@ -2,7 +2,7 @@
 Date: 2025-08-28
 
 ## Status
-Proposed
+Accepted
 
 ## Context
 - Business drivers: multi-tenant web/app analytics, near-real-time dashboards, cost-efficient scale-out, indefinite retention.

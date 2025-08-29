@@ -2,7 +2,7 @@
 Date: 2025-08-28
 
 ## Status
-Proposed
+Superseded by [0005. Design ClickHouse ingestion mechanism](0005-clickhouse-ingestion-mechanism.md)
 
 ## Context
 Business drivers
@@ -57,4 +57,3 @@ Negative / Risks
 
 Related ADRs
 - ADR-0003: Choose primary analytics database (ClickHouse).
-

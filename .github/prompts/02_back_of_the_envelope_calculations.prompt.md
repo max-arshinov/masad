@@ -1,6 +1,6 @@
 ---
 mode: 'agent'
-model: GPT-5
+model: 'GPT-5'
 description: 'ADR: back-of-the-envelope estimates to identify technical risks'
 ---
 

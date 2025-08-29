@@ -2,7 +2,9 @@
 Date: 2025-08-28
 
 ## Status
-Proposed
+Accepted
+
+Supersedes [0004. ClickHouse Scaling Strategy](0004-clickhouse-scaling.md) 
 
 ## Context
 - Business drivers: multi-tenant web/app analytics, near-real-time dashboards, cost-efficient scale-out, indefinite retention across regions.
