@@ -1,4 +1,4 @@
-#C4
+#Containers
 app = container {
     tag "Application"
 }
@@ -28,6 +28,15 @@ datastore = container {
     tag "Datastore"
 }
 
+broker = container {
+    tag "Broker"
+}
+
+kafka = broker {
+    tag "Broker"
+}
+
+# Components
 controller = component {
     tag "Controller"
 }
@@ -53,6 +62,11 @@ async = -> {
 https = -> {
     technology "HTTPS"
 }
+
+kafka = --async-> {
+    technology "Kafka"
+}
+
 
 hx = --https-> {
     technology "XML/HTTPS"

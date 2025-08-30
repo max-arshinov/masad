@@ -1,6 +1,5 @@
 ---
 mode: 'agent'
-model: 'GPT-5'
 description: 'Technical Risks section for arc42 document in AsciiDoc format'
 ---
 

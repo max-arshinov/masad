@@ -7,11 +7,11 @@ workspace "A minimal approach to software architecture documentation" {
         properties {
             "structurizr.groupSeparator" "/"
         }
-            
         archetypes {
             !include archetypes.dsl
         }
-        
+
+        !include model.dsl        
     }
 
     views {

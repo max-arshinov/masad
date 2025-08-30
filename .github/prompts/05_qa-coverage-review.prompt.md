@@ -1,3 +1,8 @@
+---
+mode: 'agent'
+description: 'ADR Iteration'
+---
+
 You are filling out the `10_quality_requirements.adoc` section of an arc42 document.  
 Follow these rules:
 

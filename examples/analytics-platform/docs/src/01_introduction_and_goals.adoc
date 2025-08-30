@@ -47,3 +47,23 @@ See <<section-quality-scenarios,Quality Requirements>> for the Quality Tree and 
 | GDPR/CCPA compliance, consent and retention controls, auditing
 
 |===
+
+==== Main Actors
+
+[options="header",cols="1,1,3,2,1"]
+|===
+|Actor|Type|Description|Primary Interfaces|Related QAs
+
+| Website visitor
+| Human
+| Generates page views and events while browsing tenant sites; drives ingestion volume.
+| JS SDK, Mobile SDK
+| S-1
+
+| Analyst/Marketer
+| Human
+| Explores reports, segmentation, attribution analysis, and exports.
+| Analytics UI, Query API, Export jobs
+| P-1
+
+|===
