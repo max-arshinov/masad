@@ -9,20 +9,21 @@ and define their interactions with users, each other, and other systems.
 </context>
 
 <instructions>
-Edit `deployment/live.dsl`, add all required `deploymentNode` and other elements.
+- Edit `deployment/live.dsl`. Add all required `deploymentNode` and other deployment-related elements.
+- Make sure to add `instances <NUMBER OF INSTANCES>` to any nodes that should be clustered or load balanced.
 </instructions>
 
 <constraints>
-- Only focus on deployment elements
-- DON'T change `model.dsl` or `views.dsl`
-- NO views or styling commands
-- use `!identifiers hierarchical`: `softwareSystem.containerName` not `containerName` alone
-- Only add a single primary region, don't add failover or DR
-- DON'T add new relationships
+- Focus ONLY on deployment elements.
+- DO NOT change `model.dsl` or `views.dsl`.
+- DO NOT add views or styling commands.
+- Use `!identifiers hierarchical`: e.g. `softwareSystem.containerName`, not just `containerName`.
+- Only add a single primary region (no failover or disaster recovery).
+- DO NOT add any new relationships.
 </constraints>
 
 <formatting>
-- Elements (`deploymentNode`) = singular nouns.
+- Elements (`deploymentNode` and others) = singular nouns.
 - One entity per line.
 - ALWAYS use `lowerCamelCase` for variable names.
 - Don't add descriptions or tags
@@ -47,36 +48,37 @@ liveDc = deploymentNode "Big Bank plc" "" "Big Bank plc data center" {
     }
 }
 
-    liveApiNode = ubuntuNode "bigbank-api***" {
-        instances 8
-        liveWebServer = tomcat "Apache Tomcat" {
-            liveApiApplicationInstance = containerInstance internetBankingSystem.api
-        }
+liveApiNode = ubuntuNode "bigbank-api***" {
+    instances 8
+    liveWebServer = tomcat "Apache Tomcat" {
+        liveApiApplicationInstance = containerInstance internetBankingSystem.api
     }
+}
 
-    liveDbNode = ubuntuNode "bigbank-db01" {
-        primaryDatabaseServer = deploymentNode "Oracle - Primary" "" "Oracle 12c" {
-            livePrimaryDatabaseInstance = containerInstance internetBankingSystem.database
-        }
+liveDbNode = ubuntuNode "bigbank-db01" {
+    primaryDatabaseServer = deploymentNode "Oracle - Primary" "" "Oracle 12c" {
+        livePrimaryDatabaseInstance = containerInstance internetBankingSystem.database
     }
-    
-    liveFailover = ubuntuNode "bigbank-db02" {
+}
+
+liveFailover = ubuntuNode "bigbank-db02" {
+    tag "Failover"
+    secondaryDatabaseServer = ubuntuNode "Oracle - Secondary" {
         tag "Failover"
-        secondaryDatabaseServer = ubuntuNode "Oracle - Secondary" {
-            tag "Failover"
-            liveSecondaryDatabaseInstance = containerInstance internetBankingSystem.database "Failover"
-        }
-        
-        liveDbNode.primaryDatabaseServer -> secondaryDatabaseServer "Replicates data to"
+        liveSecondaryDatabaseInstance = containerInstance internetBankingSystem.database "Failover"
     }
     
-    deploymentNode "bigbank-prod001" "" "" "" {
-        softwareSystemInstance mainframe
-    }
+    liveDbNode.primaryDatabaseServer -> secondaryDatabaseServer "Replicates data to"
+}
+
+deploymentNode "bigbank-prod001" {
+    softwareSystemInstance mainframe
 }
 </example>
 
 <validation>
-- Verify all variable names use lowerCamelCase
-- Make sure you didn't add any new relationships
+- Verify all variable names use lowerCamelCase.
+- Verify no new relationships were added.
+- Verify only deployment elements are included.
+- Veryfy that clastered/load balanced nodes have `instances <NUMBER OF INSTANCES>`.
 </validation>
