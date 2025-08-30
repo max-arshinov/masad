@@ -3,15 +3,3 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-glossary]]
 == Glossary
 
-
-
-[cols="e,2e" options="header"]
-|===
-|Term |Definition
-
-|Slug
-|The short, unique, case-sensitive identifier in the path of a shortened URL (e.g., https://sho.rt/aB3k9ZQ has slug aB3k9ZQ). Used as the primary key to look up the long URL.
-
-|Base62
-|An encoding that uses 62 characters [0-9][A-Z][a-z] to represent numbers or identifiers compactly. Used here for generating short, URL-friendly slugs, including conversion of numeric IDs to shorter strings.
-|===

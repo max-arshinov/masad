@@ -22,15 +22,3 @@ _<explanation>_
 === _<Concept n>_
 
 _<explanation>_
-
-[[concept-slug-generation]]
-=== Slug generation options
-
-We considered several approaches to generate short, unique slugs for URLs:
-
-- Random Base62 token (7–8) + unique index: Generate with a strong RNG using alphabet [0-9A-Za-z]; enforce uniqueness with a DB unique index; retry on conflict. Unpredictable, evenly distributed, simple to operate. Chosen; see link:../../adrs/0002-choose-url-shortening-algorithm.md[ADR 0002].
-- Global counter + Base62 conversion: Allocate a monotonic numeric ID (e.g., sequence/counter) and convert to Base62 for compactness. Shortest for a given range but predictable/enumerable and can create hotspots unless sharded.
-- Hash(long URL) + salt truncated to Base62: Deterministic per salt, uniform; requires collision handling and salt management.
-- Time-based IDs (e.g., Snowflake/KSUID) + Base62: Collision-free by design, time-ordered; typically longer and partially predictable.
-
-See link:../../adrs/0002-choose-url-shortening-algorithm.md[ADR 0002] for the detailed comparison and decision.

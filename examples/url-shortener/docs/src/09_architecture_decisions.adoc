@@ -2,10 +2,3 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-design-decisions]]
 == Architecture Decisions
-
-- link:../../adrs/0001-record-architecture-decisions.md[1. Record architecture decisions]
-- link:../../adrs/0002-choose-url-shortening-algorithm.md[2. Choose URL shortening algorithm]
-- link:../../adrs/0003-choose-database-engine-type.md[3. Choose database engine type]
-- link:../../adrs/0004-choose-distributed-key-value-database-engine.md[4. Choose distributed key-value database engine]
-- link:../../adrs/0005-design-web-api-layer.md[5. Design web API layer]
-- link:../../adrs/0006-web-tier-scaling.md[6. Web tier scaling]
