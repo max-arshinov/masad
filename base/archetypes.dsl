@@ -75,6 +75,10 @@ https = -> {
     technology "HTTPS"
 }
 
+tcp = -> {
+    technology "TCP"
+}
+
 kafka = --async-> {
     technology "Kafka"
 }
