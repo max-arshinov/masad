@@ -4,6 +4,6 @@ websiteVisitor = person "Website Visitor" "Generates page views and events while
 analystMarketer = person "Analyst/Marketer" "Explores reports, segmentation, and attribution analysis."
 websiteOwner = person "Website Owner" "Integrates SDK and configures tracking for their websites."
 
-websiteVisitor -> analyticsPlatform "Generates events via"
-analystMarketer -> analyticsPlatform "Views reports and analytics from"
-websiteOwner -> analyticsPlatform "Integrates SDK and configures"
+websiteVisitor --sdk-> analyticsPlatform "Generates events via"
+analystMarketer --https-> analyticsPlatform "Views reports and analytics from"
+websiteOwner --https-> analyticsPlatform "Integrates SDK and configures"

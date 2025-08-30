@@ -3,6 +3,14 @@ app = container {
     tag "Application"
 }
 
+webApp = app {
+    tag "Application"
+}
+
+api = container {
+    tag "Application"
+}
+
 spa = container {
     technology "JavaScript"
     tag "Web"
@@ -26,6 +34,10 @@ mobile = app {
 
 datastore = container {
     tag "Datastore"
+}
+
+cache = datastore {
+    tag "Cache"
 }
 
 broker = container {

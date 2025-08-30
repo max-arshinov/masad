@@ -1,15 +1,15 @@
 ---
 mode: 'agent'
-description: 'Add software systems and persons to a Structurizr model'
+description: 'Add software systems and persons to the Structurizr model'
 ---
-
-<instructions>
-Edit `model.dsl`, add target software systems, persons, and relationships.
-</instructions>
 
 <context>
 When given a system description, identify the core actors and main system, then define their primary interactions.
 </context>
+
+<instructions>
+Edit `model.dsl`, add target software systems, persons, and relationships.
+</instructions>
 
 <constraints>
 - Use ONLY these three elements: `person`, `softwareSystem`, `relationship`
