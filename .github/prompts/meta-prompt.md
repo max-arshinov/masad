@@ -1,6 +1,6 @@
 ---
 mode: 'agent'
-description: 'Meta-Prompt Formatter'
+description: 'Prompt Formatter'
 ---
 
 <context>
@@ -8,23 +8,74 @@ You are validating and improving prompts written for architecture/system design 
 All prompts must follow the **standard meta-prompt format**:
 
 1. YAML-like header:
----
-   mode: 'agent'
-   description: '<short purpose>'
----   
-2. Body must include **clear sections** (as applicable):
-- `<context>` — background info and scope
-- `<instructions>` — explicit rules for the agent
-- `<constraints hard>` — strict non-negotiable rules
-- `<constraints soft>` — preferences, style guidelines
-- `<formatting>` — required output format
-- `<inputs>` or `## Inputs` — when external files are relevant
-- `<tasks>` or `## Tasks` — numbered list of what to do
-- Optional emoji coding rules (🟥/🟨/🟩/🌟, etc.)
+    ---
+    mode: 'agent'
+    description: '<short purpose>'
+    ---
 
-3. Use **consistent section headings** with angle brackets (`<instructions>`) or markdown H2 (`## Tasks`) depending on context.
+2. Body must include **clear sections** (as applicable):
+
+   ### Required Sections
+   - `<context>` — background info and scope  
+   - `<instructions>` — explicit rules for the agent  
+   - `<constraints>` — strict non-negotiable rules  
+   - `<recommendations>` — preferences, style guidelines  
+   - `<formatting>` — required output format  
+   - `<inputs>` or `## Inputs` — when external files are relevant  
+   - `<tasks>` or `## Tasks` — numbered list of what to do  
+   - `<validation>` — checklist to ensure prompt quality
+   - `<example>` — good and bad input/output examples
+   - Optional emoji coding rules (🟥/🟨/🟩/🌟, etc.)  
+
+   ### <validation>
+   - ✅ Ensure all mandatory sections are present  
+   - ✅ If missing, add `<constraints>` and `<recomendations` by default  
+   - ✅ Confirm `<instructions>` clearly direct the agent  
+   - ✅ Check for consistency of section markers (use `<...>` OR `## ...`, not mixed randomly)  
+   - ✅ If emoji ratings are referenced, include the emoji key  
+
+   ### <example>
+   **Bad input (missing sections):**
+   ```
+Write a risk register with risks, impact, and mitigations.
+   ```
+
+   **Corrected output:**
+   ```
+   ---
+mode: 'agent'
+description: 'Technical Risk Register'
+   ---
+
+   <context>
+   You are filling out the `11_technical_risks.adoc` section of an arc42 document.  
+   </context>
+
+   <instructions>
+   - Create a Technical Risk Register in AsciiDoc table format.  
+   - Include ID, Risk, Related QAs, Likelihood, Impact, Mitigations, and Triggers.  
+   </instructions>
+
+   <constraints>
+   - Follow AsciiDoc table syntax.  
+   - Use explicit column headers.  
+   </constraints>
+
+   <recommendations>
+   - Be concise and professional.  
+   - Use emoji codes for Impact/Likelihood: 🟩 Low, 🟨 Medium, 🟥 High.  
+   </recommendations>
+
+   <formatting>
+   - Section: `=== Technical Risk Register`  
+   </formatting>
+   ```
+   </example>
+
+3. Use **consistent section headings** with angle brackets (`<instructions>`).
 
 4. All outputs must be **concise, professional, and copy-paste ready**.
+
 </context>
 
 <instructions>
@@ -36,14 +87,24 @@ All prompts must follow the **standard meta-prompt format**:
 - Never drop technical detail, only reorganize and clarify.  
 </instructions>
 
-<global_constraints>
+<constraints>
 - Do not invent new requirements.  
 - Always return a single improved prompt in the specified format.  
 - Never output explanations outside the formatted prompt.  
-</global_constraints>
+</constraints>
 
-<constraints>
+<recommendations>
 - Prefer brevity in section titles.  
 - Use emoji color codes where risks, trade-offs, or comparisons are present.  
 - Keep tone directive (for agents), not narrative.  
-</constraints>
+</recommendations>
+
+<validation>
+- ✅ Check if header exists (`--- mode: ... description: ... ---`)  
+- ✅ Ensure all mandatory sections are present or added  
+- ✅ Verify consistency of section markers (<context>, <instructions>, etc.)  
+- ✅ Confirm constraints and recommendations are split correctly.
+- ✅ Confirm formatting rules are explicit if output structure is required  
+- ✅ Ensure description is concise and action-oriented.
+- ✅ Ensure promt doesn't repeat content from `adr.instructions.md`, `arc42.instructions.md`, `structurizr.instructions.md`, or copilot-instructions.md
+</validation>
