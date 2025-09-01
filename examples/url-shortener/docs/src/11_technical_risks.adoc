@@ -4,3 +4,27 @@ ifndef::imagesdir[:imagesdir: ../images]
 == Risks and Technical Debts
 
 === Technical Debts
+
+- Missing comprehensive load testing for peak traffic scenarios (416K RPS)
+- No automated scaling policies for database read replicas
+- Analytics pipeline lacks backpressure handling mechanisms
+- Monitoring dashboards missing for RPS thresholds and DB growth
+- Cache warming strategy undefined for cold starts
+- Data archival automation not implemented for 3-year retention
+- Disaster recovery procedures incomplete for multi-node failures
+- Performance benchmarking absent for CDN cache hit ratios
+
+=== Technical Risk Register
+
+[options="header"]
+|===
+| ID | Risk | Related QAs | Likelihood | Impact | Mitigations | Triggers / Monitors
+
+| RISK-READ-THROUGHPUT | Peak read RPS exceeds capacity (416K RPS by year 5) | P-1, S-3 | High | 🟥 High | CDN caching, read replicas, horizontal scaling | RPS >100K; P95 latency >0.2s
+| RISK-DB-STORAGE | Link database growth (115GB by year 5) | S-2, R-1 | Medium | 🟨 Medium | Database partitioning, archival strategy | DB size >50GB; query time >1s
+| RISK-PEAK-TRAFFIC | 3x traffic spikes overwhelm infrastructure | P-3, A-1 | Medium | 🟥 High | Auto-scaling, load balancers, circuit breakers | CPU >80%; response time >0.5s
+| RISK-CACHE-FAILURE | Cache layer failure impacts redirection latency | P-1, A-1 | Low | 🟥 High | Multi-tier caching, cache warmup, failover | Cache hit rate <90%; latency spikes
+| RISK-ANALYTICS-BACKLOG | Click tracking cannot keep up with volume | M-1, S-3 | Medium | 🟨 Medium | Async processing, batching, separate storage | Queue depth >1M; processing lag >5min
+| RISK-DATA-RETENTION | 3-year retention policy storage explosion | R-1, S-2 | High | 🟨 Medium | Data archival, compression, tiered storage | Storage growth >200GB/year
+| RISK-HOTKEY-CONCENTRATION | Popular links create hotspots | P-1, S-3 | Medium | 🟨 Medium | Consistent hashing, load distribution | Single node >50% traffic
+|===
