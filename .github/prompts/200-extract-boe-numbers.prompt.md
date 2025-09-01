@@ -10,8 +10,8 @@ but you MUST NOT perform any calculations yet.
 </context>
 
 <inputs>
-- `./01_introduction_and_goals.adoc`
-- `./10_quality_requirements.adoc`
+- `../01_introduction_and_goals.adoc`
+- `../10_quality_requirements.adoc`
 </inputs>
 
 <instructions>
