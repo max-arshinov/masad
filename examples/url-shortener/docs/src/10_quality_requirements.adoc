@@ -4,17 +4,20 @@ ifndef::imagesdir[:imagesdir: ../images]
 == Quality Requirements
 
 === Quality Tree
-
-.Quality Tree
 |===
 |ID |Quality Attribute |Scenario |Fit Criteria |Priority
 
-|P-1 |Performance |Fast redirect latency |P95 <= 50 ms; P99 <= 120 ms |High
-|P-2 |Performance |High throughput redirects |Sustain 20k rps, err <0.5%, P95 <= 100 ms |Medium
-|A-1 |Availability |Failover on node/zone loss |RTO < 5 min; SLO >= 99.95% monthly |High
-|S-1 |Security |Block token enumeration |>99.99% attempts throttled/denied; no destination leak |High
-|S-2 |Security |Authorize admin mutations |100% write ops require auth; 0 unauthorized changes |High
-|R-1 |Reliability |No data loss on failure |RPO = 0; redirect path stays >99.9% during event |High
+|P-1 |Performance |URL redirection latency |Response time < 0.2 seconds |High
+|P-2 |Performance |High throughput handling |System handles 1M users creating 100M links/year |High
+|P-3 |Performance |Node failure degradation |Performance degradation < 0.1 seconds with 2 node failures |High
+|A-1 |Availability |System uptime |99.9% availability during peak hours |High
+|A-2 |Availability |Seamless deployments |Zero downtime during releases |High
+|S-1 |Scalability |User growth |Support 1M new users per year |High
+|S-2 |Scalability |Link volume |Handle 100M new links per year |High
+|S-3 |Scalability |Traffic load |Support 10 requests/day per link average |Medium
+|U-1 |Usability |Link creation speed |Link shortened in < 1 second |Medium
+|M-1 |Maintainability |Analytics tracking |Click statistics captured for all redirects |High
+|R-1 |Reliability |Data retention |Links stored for 3 years minimum |High
 |===
 
 === Quality Scenarios
@@ -23,40 +26,75 @@ ifndef::imagesdir[:imagesdir: ../images]
 |===
 |Source |Stimulus |Environment |Artifact |Response |Response Measure
 
-|End user |Clicks a short URL |Production, normal load |Redirect service and cache |Issues 301/302 to target |P95 <= 50 ms; P99 <= 120 ms end-to-end
+|End user |Clicks shortened URL |Production system under normal load |URL redirection service |Redirects to target URL |Response time < 0.2 seconds for 95% of requests
 |===
 
 ==== P-2
 |===
 |Source |Stimulus |Environment |Artifact |Response |Response Measure
 
-|External clients |Traffic spike to 20k redirects/sec |Production, peak hour |Redirect path (LB + service + cache/DB) |Remains stable under load |Sustain 20k rps for 10 min; err <0.5%; P95 <= 100 ms
+|System users |Create 100M links annually |Production system |Link creation service |Processes link creation requests |Sustained throughput of 3,170 links/second peak
+|===
+
+==== P-3
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|Infrastructure |Two nodes fail simultaneously |Production system |Distributed service cluster |Maintains service with degraded performance |Performance degradation < 0.1 seconds added latency
 |===
 
 ==== A-1
 |===
 |Source |Stimulus |Environment |Artifact |Response |Response Measure
 
-|Operations |Single instance or AZ failure |Production |Redirect service and datastore |Automatic failover without manual action |Failover < 5 min; monthly availability >= 99.95%
+|Monitoring system |Measures system availability |Production environment |Complete URL shortener system |Maintains operational status |99.9% uptime during business hours
+|===
+
+==== A-2
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|Development team |Deploys new release |Production environment |Application deployment pipeline |Performs rolling update |Zero service interruption during deployment
 |===
 
 ==== S-1
 |===
 |Source |Stimulus |Environment |Artifact |Response |Response Measure
 
-|Attacker |Enumerates tokens (>=1000 req/sec/IP) |Production |Public redirect endpoint, rate limiter |Throttle/deny enumeration attempts |>99.99% attempts blocked or 429 within 1s; 0 target leaks
+|Business growth |1M new users register annually |Production system |User management service |Accommodates user growth |System supports 1M concurrent active users
 |===
 
 ==== S-2
 |===
 |Source |Stimulus |Environment |Artifact |Response |Response Measure
 
-|Unauthorized user |Attempts to create/update/delete link |Production |Admin/API endpoints |Reject unauthorized mutation |100% writes require auth+ownership; 0 unauthorized changes/month
+|User activity |100M links created annually |Production system |Link storage service |Scales storage capacity |Database handles 100M records with consistent performance
+|===
+
+==== S-3
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|Link usage |10 clicks per link daily average |Production system |URL redirection service |Handles click volume |Processes 1B redirects/year (27K requests/second average)
+|===
+
+==== U-1
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|End user |Submits URL for shortening |Web interface |Link creation API |Creates shortened URL |Link generated and returned in < 1 second
+|===
+
+==== M-1
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|Analytics system |Tracks every link click |Production environment |Click tracking service |Records click statistics |100% of redirects logged with metadata
 |===
 
 ==== R-1
 |===
 |Source |Stimulus |Environment |Artifact |Response |Response Measure
 
-|Platform |Primary DB node failure during writes |Production |Link storage (DB + replicas) |No data loss; fast recovery |RPO = 0; RTO < 10 min; redirects remain >99.9% available
+|Data retention policy |Maintains link data |Production database |Link storage system |Preserves link mappings |Links accessible for minimum 3 years
 |===

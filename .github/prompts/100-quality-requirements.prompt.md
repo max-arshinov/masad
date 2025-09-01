@@ -8,6 +8,11 @@ You are creating quality requirements documentation for arc42 section `10_qualit
 Quality scenarios use the standard architecture evaluation format with measurable criteria.
 </context>
 
+<inputs>
+- `./10_quality_requirements.adoc`
+- `./01_introduction_and_goals.adoc`
+</inputs>
+
 <instructions>
 - Create a Quality Tree table listing all quality attributes with IDs, scenarios, and fit criteria
 - Generate detailed Quality Scenario tables for each Quality Tree entry
@@ -29,7 +34,7 @@ Quality scenarios use the standard architecture evaluation format with measurabl
 <formatting>
 - Quality Tree: AsciiDoc table with `|===` delimiters
 - Quality Scenarios: individual tables under `==== <ID>` headings
-- Use `.Quality Tree` table caption
+- Use `===Quality Tree` table caption
 - Maintain consistent spacing and alignment
 </formatting>
 
@@ -39,7 +44,7 @@ No explanations, comments, or introductory text.
 </output>
 
 <example>
-.Quality Tree
+=== Quality Tree
 |===
 |ID |Quality Attribute |Scenario |Fit Criteria |Priority
 
@@ -47,6 +52,8 @@ No explanations, comments, or introductory text.
 |A-1 |Availability |System recovery |MTTR < 5 min |High
 |S-1 |Security |Login protection |99.9% of brute force attempts blocked |Medium
 |===
+
+=== Quality Secenarios
 
 ==== P-1
 |===
