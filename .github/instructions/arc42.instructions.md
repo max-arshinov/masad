@@ -29,3 +29,8 @@ Audience of the documentation: software architects, developers, project stakehol
 - Use AsciiDoc syntax (`.`, `|===`, etc.) for tables and sections.
 - Always provide cross-references to related ADRs in parentheses, e.g. `(see ADR-003)`.
 </global_formatting>
+
+<global_output>
+Return ONLY ADR text in adr-tools format.  
+No explanations. No calculations. No comments.
+</global_output>

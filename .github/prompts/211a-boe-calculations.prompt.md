@@ -9,12 +9,7 @@ description: 'ADR: perform back-of-the-envelope estimates for technical risks'
 - Use `mcp-server-calculator` for all numeric steps.
 </context>
 
-<instructions>
-- Reuse the assumptions and parameters listed in the previous ADR.
-- Perform explicit step-by-step calculations.
-- Build a **multi-year projection table** (3 years) with numeric values for each parameter.
-- State a confidence level (e.g., conservative, rough order-of-magnitude).
-</instructions>
+
 
 <constraints>
 - Follow ADR format (adr-tools style).
@@ -39,8 +34,3 @@ description: 'ADR: perform back-of-the-envelope estimates for technical risks'
 - Decision: include calculations + projection table.
 - Consequences: highlight risks, feasibility concerns, cost/bottleneck insights.
 </formatting>
-
-<output>
-Return ONLY ADR text in adr-tools format with AsciiDoc table.  
-No explanations. No comments. No introductions.
-</output>
