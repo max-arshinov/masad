@@ -3,15 +3,60 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-quality-scenarios]]
 == Quality Requirements
 
-- _See https://re-magazine.ireb.org/articles/discover-quality-requirements-with-the-mini-qaw[Mini-QAW] for a short and fun elicitation workshop for Agile teams and architects._
-
-
-
 === Quality Tree
 
-- _See an example quality tree in the https://docs.arc42.org/examples/quality-tpu-1/#101-quality-tree[arc42 documentation]._
+.Quality Tree
+|===
+|ID |Quality Attribute |Scenario |Fit Criteria |Priority
+
+|P-1 |Performance |Fast redirect latency |P95 <= 50 ms; P99 <= 120 ms |High
+|P-2 |Performance |High throughput redirects |Sustain 20k rps, err <0.5%, P95 <= 100 ms |Medium
+|A-1 |Availability |Failover on node/zone loss |RTO < 5 min; SLO >= 99.95% monthly |High
+|S-1 |Security |Block token enumeration |>99.99% attempts throttled/denied; no destination leak |High
+|S-2 |Security |Authorize admin mutations |100% write ops require auth; 0 unauthorized changes |High
+|R-1 |Reliability |No data loss on failure |RPO = 0; redirect path stays >99.9% during event |High
+|===
 
 === Quality Scenarios
 
-- _See example quality scenarios in the
-https://docs.arc42.org/examples/quality-tpu-1/#102-quality-scenarios[arc42 documentation]._
+==== P-1
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|End user |Clicks a short URL |Production, normal load |Redirect service and cache |Issues 301/302 to target |P95 <= 50 ms; P99 <= 120 ms end-to-end
+|===
+
+==== P-2
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|External clients |Traffic spike to 20k redirects/sec |Production, peak hour |Redirect path (LB + service + cache/DB) |Remains stable under load |Sustain 20k rps for 10 min; err <0.5%; P95 <= 100 ms
+|===
+
+==== A-1
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|Operations |Single instance or AZ failure |Production |Redirect service and datastore |Automatic failover without manual action |Failover < 5 min; monthly availability >= 99.95%
+|===
+
+==== S-1
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|Attacker |Enumerates tokens (>=1000 req/sec/IP) |Production |Public redirect endpoint, rate limiter |Throttle/deny enumeration attempts |>99.99% attempts blocked or 429 within 1s; 0 target leaks
+|===
+
+==== S-2
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|Unauthorized user |Attempts to create/update/delete link |Production |Admin/API endpoints |Reject unauthorized mutation |100% writes require auth+ownership; 0 unauthorized changes/month
+|===
+
+==== R-1
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|Platform |Primary DB node failure during writes |Production |Link storage (DB + replicas) |No data loss; fast recovery |RPO = 0; RTO < 10 min; redirects remain >99.9% available
+|===

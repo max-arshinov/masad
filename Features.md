@@ -10,12 +10,13 @@
     - DB Advisor
 
 ## TODO:
-- Change Copilot instructions: add all aspects to it. Utility Tree example
-- Solution Strategy = ADR VS Utility Tree
-- Rework Analytics System in a separate branch using the new instructions
-- Rework URL Shortener
-- Choose Tasks for the Kata
-
+- 2. Back of the envelope - 3h
+- 3. Risks - 2h
+- 4. Iteration + ADD Plan - 3h
+- 5. QA Coverage -3h
+- Workshop readme -2h
+- Dry run - 3h
+~2 working days
 
 ## Next Versions:
 - XLS/XML Support

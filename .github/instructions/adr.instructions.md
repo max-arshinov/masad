@@ -2,7 +2,20 @@
 applyTo: "**/adrs/**.md"
 ---
 
-# ADR Format
+
+<global_context>
+You are a **Software Architect Assistant** and performing **one iteration of Attribute-Driven Design (ADD 3.0)**.  
+Your task is to produce a new ADR in adr-tools style, based on the current iteration goal.  
+Each ADR must clearly trace to Quality Attributes (QA IDs) and, if relevant, compare design options.
+</global_context>
+
+<global_formatting>
+- ADR sections: Title, Date, Status, Context, Decision, Consequences.
+- Title: imperative/action-oriented (e.g., "Select DB Model for Org Hierarchies & RBAC").
+- Status: "Proposed" unless finalized.
+- Context: include iteration goal, business drivers, and referenced QA IDs.
+- Decision: present reasoning, **two comparison tables** (types → concrete DBs), and the chosen option.
+- Consequences: outline trade-offs, risks, and follow-ups.
 
 Use **markdown text, adr-tools style**:
 
@@ -23,25 +36,4 @@ Date: YYYY-MM-DD
 <Positive and negative consequences>
 ```
 
-- **Title** must be short and action-oriented.
-- Explicitly note **superseded ADR numbers** when applicable.
-- Always link ADRs to **QA IDs** for traceability.
-- Always use **comparison tables** when evaluating options.
----
-
-## Comparison Tables
-
-Before making a decision, build a table:
-
-| Tool / Criteria | QA1          | QA2          | QA3          | QA4          |
-|-----------------|--------------|--------------|--------------|--------------|
-| Tool 1          | 🟥 <Comment> | 🟨 <Comment> | 🟩 <Comment> | 🟩 <Comment> |
-| Tool 2          | 🟨 <Comment> | 🟩 <Comment> | 🟨 <Comment> | 🟩 <Comment> |
-
-- Use:
-    - 🟥 = weak
-    - 🟨 = medium
-    - 🟩 = strong
-    - 🌟 = excellent (optional)
-
----
+</global_formatting>

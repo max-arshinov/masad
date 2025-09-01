@@ -1,4 +1,5 @@
 analyticsPlatform = softwareSystem "Analytics Platform" "Tracks events from websites and provides analytics reports." {
+    !adrs adrs
     webApp = webApp "Analytics Dashboard" "SPA for exploring reports and analytics." "React"
     ingestionApi = api "Ingestion API" "Receives and validates events from SDKs." "Go"
     readApi = api "Read API" "Serves analytics queries and reports." "Go"

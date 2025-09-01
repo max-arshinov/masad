@@ -11,7 +11,7 @@ You are filling out the `10_quality_requirements.adoc` section of an arc42 docum
 Create a Quality Tree and corresponding Quality Scenarios in AsciiDoc format.
 </instructions>
 
-<constraints hard>
+<constraints>
 - Quality Tree must be a table with the following columns:
   * ID (short code, e.g., P-1, A-2, S-1)
   * Quality Attribute (e.g., Performance, Availability, Scalability)
@@ -31,6 +31,7 @@ Create a Quality Tree and corresponding Quality Scenarios in AsciiDoc format.
 - Output ONLY AsciiDoc format, no Markdown.
 - Prefer concise scenario names.
 - Keep fit criteria measurable, short, and precise.
+</constraints>
 
 <formatting>
 - Quality Tree = AsciiDoc table with `|===` delimiters.
