@@ -33,3 +33,7 @@ description: 'ADR: perform back-of-the-envelope estimates for technical risks'
 - Decision: include calculations + projection table.
 - Consequences: highlight risks, feasibility concerns, cost/bottleneck insights.
 </formatting>
+
+## Decision
+Parameters for estimation: users, links, DB size, write/read RPS, bandwidth, storage.
+
