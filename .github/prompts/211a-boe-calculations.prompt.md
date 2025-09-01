@@ -10,7 +10,6 @@ description: 'ADR: perform back-of-the-envelope estimates for technical risks'
 </context>
 
 
-
 <constraints>
 - Follow ADR format (adr-tools style).
 - Include transparent calculation steps.
