@@ -8,6 +8,11 @@ When given a system description, identity the main technical decisions (technolo
 and define their interactions with users, each other, and other systems.
 </context>
 
+<inputs>
+- ./docs/src/04_solution_strategy.adoc
+- ./adrs/*.md
+</inputs>
+
 <instructions>
 Edit `model.dsl`, add containers and relationships to the target `softwareSystem`.
 </instructions>
