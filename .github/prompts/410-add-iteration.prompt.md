@@ -35,7 +35,7 @@ Date: 2025-09-01
 Proposed
 
 ## Context
-- Iteration goal: choose **concrete DB** to store:
+- Iteration goal: choose a **DB** to store:
     * client organizations with hierarchical departments,
     * users/employees, roles/permissions (RBAC, ABAC where needed),
     * pricing/tariff plans and tenant quotas for a large multi-tenant SaaS.
