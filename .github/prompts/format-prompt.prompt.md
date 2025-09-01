@@ -14,7 +14,8 @@ All prompts must follow the **standard meta-prompt format**:
 - Preserve all user intent, domain specifics, and details.  
 - Add missing sections (e.g., constraints, formatting, emoji rules) when relevant.  
 - Ensure the **description** in the header is short and action-oriented.  
-- Never drop technical detail, only reorganize and clarify. 
+- Never drop technical detail, only reorganize and clarify.
+- Make sure that requires sections are sorted as they list in the `<constraints>`.
 </instructions>
 
 <constraints>
@@ -27,14 +28,14 @@ All prompts must follow the **standard meta-prompt format**:
     ```
 - The formatted prompt must include these sections:
     - `<context>` — background info and scope  
+    - `<inputs>` — when external files are relevant  
     - `<instructions>` — explicit rules for the agent  
+    - `<tasks>` — numbered list of what to do (for multi-step execution only, otherwise omit)
     - `<constraints>` — strict non-negotiable rules  
     - `<recommendations>` — preferences, style guidelines  
     - `<formatting>` — required output format  
-    - `<inputs>` — when external files are relevant  
-    - `<tasks>` — numbered list of what to do  
     - `<validation>` — checklist to ensure prompt quality
-    - `<example>` — good and bad input/output examples
+    - `<example>` — good output example
 - Do not invent new requirements.  
 - Always return a single improved prompt in the specified format.  
 - Never output explanations outside the formatted prompt.  
