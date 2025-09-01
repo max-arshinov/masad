@@ -9,6 +9,11 @@ Your task is to extract and document **assumptions, parameters, and relevant qua
 but you MUST NOT perform any calculations yet.
 </context>
 
+<inputs>
+- `./01_introduction_and_goals.adoc`
+- `./10_quality_requirements.adoc`
+</inputs>
+
 <instructions>
 - Create a new ADR draft in adr-tools style
 - Identify and list all key assumptions (e.g., user growth, actions per user, peak multipliers)
@@ -35,7 +40,7 @@ but you MUST NOT perform any calculations yet.
 </formatting>
 
 <example>
-# ADR-0003: Identify Parameters for Estimation of Technical Risks
+# ADR-0002: Identify Parameters for Estimation of Technical Risks
 
 ## Date
 2025-09-01

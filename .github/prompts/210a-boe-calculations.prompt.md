@@ -9,6 +9,10 @@ description: 'ADR: perform back-of-the-envelope estimates for technical risks'
 - Use `mcp-server-calculator` for all numeric steps.
 </context>
 
+<inputs>
+- `./01_introduction_and_goals.adoc`
+- `./10_quality_requirements.adoc`
+</inputs>
 
 <constraints>
 - Follow ADR format (adr-tools style).
