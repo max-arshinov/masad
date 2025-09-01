@@ -1,43 +1,42 @@
 ---
 mode: 'agent'
-description: 'Create a Quality Tree and Quality Scenarios for the given system.'
+description: 'Generate Quality Tree and Quality Scenarios for arc42 section 10'
 ---
 
 <context>
-You are filling out the `10_quality_requirements.adoc` section of an arc42 document.
+You are creating quality requirements documentation for arc42 section `10_quality_requirements.adoc`.
+Quality scenarios use the standard architecture evaluation format with measurable criteria.
 </context>
 
 <instructions>
-Create a Quality Tree and corresponding Quality Scenarios in AsciiDoc format.
+- Create a Quality Tree table listing all quality attributes with IDs, scenarios, and fit criteria
+- Generate detailed Quality Scenario tables for each Quality Tree entry
+- Use consistent ID referencing between Quality Tree and individual scenarios
+- Apply quantitative, realistic measurements for all fit criteria and response measures
 </instructions>
 
 <constraints>
-- Quality Tree must be a table with the following columns:
-  * ID (short code, e.g., P-1, A-2, S-1)
-  * Quality Attribute (e.g., Performance, Availability, Scalability)
-  * Scenario (short name)
-  * Fit Criteria (measurable)
-  * Priority (High/Medium/Low)
-- For each entry, create a Quality Scenario in AsciiDoc table format with these columns:
-  * Source
-  * Stimulus
-  * Environment
-  * Artifact
-  * Response
-  * Response Measure
-- Use `====` headings for each scenario, matching the ID.
-- Use **realistic, quantitative fit criteria** (latency, throughput, error rate, MTTR, etc.).
-- Each scenario must reference its ID consistently.
-- Output ONLY AsciiDoc format, no Markdown.
-- Prefer concise scenario names.
-- Keep fit criteria measurable, short, and precise.
+- Quality Tree columns: ID, Quality Attribute, Scenario, Fit Criteria, Priority
+- Quality Scenario columns: Source, Stimulus, Environment, Artifact, Response, Response Measure  
+- Use `====` headings for each scenario matching the Quality Tree ID
+- ID format: `X-n` where X = attribute prefix (P=Performance, A=Availability, S=Security, etc.)
+- All fit criteria must be quantitative (latency, throughput, error rate, MTTR, etc.)
+- Scenario names must be concise and descriptive
+- Priority levels: High/Medium/Low only
+- Output ONLY AsciiDoc format, no Markdown
 </constraints>
 
 <formatting>
-- Quality Tree = AsciiDoc table with `|===` delimiters.
-- Quality Scenarios = one table per scenario under an `==== <ID>` heading.
-- IDs = `X-n` where X is an attribute prefix (P=Performance, A=Availability, S=Security, etc.).
+- Quality Tree: AsciiDoc table with `|===` delimiters
+- Quality Scenarios: individual tables under `==== <ID>` headings
+- Use `.Quality Tree` table caption
+- Maintain consistent spacing and alignment
 </formatting>
+
+<output>
+Return complete AsciiDoc content ready for inclusion in arc42 documentation.
+No explanations, comments, or introductory text.
+</output>
 
 <example>
 .Quality Tree
@@ -72,12 +71,9 @@ Create a Quality Tree and corresponding Quality Scenarios in AsciiDoc format.
 </example>
 
 <validation>
-- Verify every Quality Tree entry has a matching scenario.
-- Verify each scenario uses realistic, quantitative measures.
-- Verify AsciiDoc syntax is correct (no Markdown).
+- Every Quality Tree entry has a corresponding scenario section
+- All fit criteria and response measures are quantitative
+- AsciiDoc syntax is valid (no Markdown elements)
+- ID references are consistent between Quality Tree and scenarios
+- Section headings use correct AsciiDoc format (`====`)
 </validation>
-
-<output>
-Return ONLY AsciiDoc (`.adoc`) content.
-No explanations. No comments. No introductions.
-</output>

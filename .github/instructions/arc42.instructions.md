@@ -26,10 +26,9 @@ Audience of the documentation: software architects, developers, project stakehol
 
 <global_formatting>
 - Section headers must follow arc42 numbering (e.g., `=== 3. Context and Scope`).
-- Use AsciiDoc syntax (`.`, `|===`, etc.) for tables and sections.
 - Always provide cross-references to related ADRs in parentheses, e.g. `(see ADR-003)`.
 </global_formatting>
 
 <global_output>
-- Must return AsciiDoc, not Markdown.
+- Must return in the AsciiDoc(.adoc) format.
 </global_output>

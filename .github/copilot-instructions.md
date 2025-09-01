@@ -26,8 +26,7 @@
 - Use consistent tag names and correct spelling; do not introduce new synonyms for tags.
 </global_policy>
 
-<global_tone>
-- Concise, neutral, professional.
+<global_formatting>
+- All outputs must be **concise, neutral, professional, and copy-paste ready**.
 - Avoid adjectives like *easy* / *hard* — prefer measurable language.
-- Do not include methodology explanations inside ADRs — keep them here.
 </global_tone>

@@ -15,7 +15,8 @@ All prompts must follow the **standard meta-prompt format**:
 - Add missing sections (e.g., constraints, formatting, emoji rules) when relevant.  
 - Ensure the **description** in the header is short and action-oriented.  
 - Never drop technical detail, only reorganize and clarify.
-- Make sure that requires sections are sorted as they list in the `<constraints>`.
+- Ensure that the required sections are sorted as they list in the `<constraints>`.
+- Delete duplicated instructions per section if they already appear in `adr.instructions.md`, `arc42.instructions.md`, `structurizr.instructions.md`, or copilot-instructions.md
 </instructions>
 
 <constraints>
@@ -34,8 +35,9 @@ All prompts must follow the **standard meta-prompt format**:
     - `<constraints>` — strict non-negotiable rules  
     - `<recommendations>` — preferences, style guidelines  
     - `<formatting>` — required output format  
-    - `<validation>` — checklist to ensure prompt quality
+    - `<output>` — precise specification of the required final deliverable
     - `<example>` — good output example
+    - `<validation>` — checklist to ensure prompt quality
 - Do not invent new requirements.  
 - Always return a single improved prompt in the specified format.  
 - Never output explanations outside the formatted prompt.  
@@ -55,14 +57,13 @@ All prompts must follow the **standard meta-prompt format**:
 <validation>
 - Check if header exists (`--- mode: ... description: ... ---`)  
 - Ensure all mandatory sections are present or added  
+- If missing, add them
 - Verify consistency of section markers (<context>, <instructions>, etc.)  
 - Confirm constraints and recommendations are split correctly.
 - Confirm formatting rules are explicit if output structure is required  
 - Ensure description is concise and action-oriented.
-- Ensure promt doesn't repeat content from `adr.instructions.md`, `arc42.instructions.md`, `structurizr.instructions.md`, or copilot-instructions.md
-- Ensure all mandatory sections are present
-- If missing, add them
+- Ensure prompt doesn't repeat content from `adr.instructions.md`, `arc42.instructions.md`, `structurizr.instructions.md`, or copilot-instructions.md
 - Confirm `<instructions>` clearly direct the agent
 - Check for consistency of section markers (always use `<...>`)
-- If emoji ratings are referenced, include the emoji key
+- If emoji ratings are referenced, include the emoji key.
 </validation>
