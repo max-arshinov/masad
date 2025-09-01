@@ -39,7 +39,7 @@ This draft serves as preparation before creating ADRs.
 </constraints>
 
 <formatting>
-Output must be a markdown table with 3 columns containing these sections:
+Output must be a markdown table with 3 columns containing these columns:
 1. **Iteration Goal**
 2. **Architectural Drivers** (business drivers, QAs, risks with IDs)
 3. **Quality Tree (if >3 QAs)** — table or tree structure
@@ -50,21 +50,9 @@ Each row must include traceability references (QAR/QAS IDs, Risk IDs) in the thi
 </formatting>
 
 <output>
-Return ONLY the **iteration plan draft** as a markdown table with 3 columns: Section, Content, Traceability.
+Return ONLY the **iteration plan draft** as a markdown table.
 No explanations. No comments. No introductions.
 </output>
-
-<example>
-# ADD Iteration Plan Draft — Iteration 2
-
-| Section                   | Content                                                                                                                                                                                                            | Traceability                                                             |
-|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
-| **Iteration Goal**        | Ensure **scalability and availability** of the event ingestion pipeline under peak load.                                                                                                                           | P-1, A-2, S-1                                                            |
-| **Architectural Drivers** | **Business drivers:** Support 100B events/day with <10 min latency. <br> **QAs:** high-throughput ingestion, high availability, elastic scalability. <br> **Risks:** storage engine may not scale, vendor lock-in. | P-1, A-2, S-1, R-3, R-7                                                  |
-| **Quality Tree**          | - Performance → P-1 (Throughput, High) <br> - Availability → A-2 (Failover, High) <br> - Scalability → S-1 (Linear scaling, High)                                                                                  | P-1, A-2, S-1                                                            |
-| **Candidate Tactics**     | - Sharding/partitioning. <br> - Replication with leader election. <br> - Load balancing with back-pressure. <br> - Cloud-agnostic deployment (Kubernetes).                                                         | P-1, A-2, S-1, R-7                                                       |
-| **Planned ADRs**          | - ADR: Select primary ingestion storage. <br> - ADR: Define replication & failover strategy. <br> - ADR: Define cloud-agnostic deployment baseline.                                                                | ADR-Storage → P-1, S-1, R-3 <br> ADR-Failover → A-2 <br> ADR-Cloud → R-7 |
-</example>
 
 <validation>
 - Verify table includes all required sections

@@ -3,3 +3,53 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-solution-strategy]]
 == Solution Strategy
 
+=== Overall Approach
+
+The URL shortener system adopts a **performance-first, scale-out architecture** designed to handle viral traffic patterns while maintaining sub-200ms response times and 99.9% availability. The strategy prioritizes horizontal scalability, multi-tier caching, and geographic distribution to address projected growth from 1M to 5M users over 5 years, with peak traffic reaching 417K RPS.
+
+Key architectural principles:
+- **Performance isolation** through multi-tier caching (CDN, Redis, application-level)
+- **Elastic scalability** via auto-scaling and consistent hashing distribution
+- **Fault tolerance** through multi-region deployment and circuit breaker patterns
+- **Data lifecycle management** with automated retention and storage tiering
+- **Zero-downtime operations** using blue-green deployments and feature flags
+
+=== Strategic Decisions
+
+==== Performance and Scalability
+- **Multi-tier caching strategy** (ADR-004): CloudFlare CDN → Redis Cluster → Application Cache → Database, addressing P-1 latency requirements and RISK-READ-THROUGHPUT
+- **Geographic load balancing** (ADR-005): Hybrid geo-routing with consistent hashing across 3 regions (US-East, EU-West, Asia-Pacific) for P-1 proximity optimization
+- **Auto-scaling policies** (ADR-006): Multi-metric scaling based on RPS (5K target), response time (<150ms), and CPU (70%) thresholds
+- **Hotkey handling** (ADR-012): Rendezvous hashing with automatic hotkey replication and dedicated cache nodes for viral content distribution
+
+==== Data Architecture
+- **Database partitioning** (ADR-007): Time-based monthly partitions for URLs, daily partitions for clicks, supporting S-2 scale (100M links/year)
+- **Data retention strategy** (ADR-008): Three-tier storage (Hot/Warm/Cold) with PostgreSQL SSD → HDD → S3 progression over 36 months
+- **Analytics architecture** (ADR-009): Event-driven pipeline using Kinesis → ClickHouse for real-time analytics, ensuring M-1 (100% click tracking)
+
+==== High Availability and Fault Tolerance
+- **Multi-region deployment** (ADR-010): Active-Passive setup with us-east-1 primary, us-west-2 secondary, achieving A-1 (99.9% uptime) with <60s RTO
+- **Zero-downtime deployments** (ADR-011): Blue-green pattern on Kubernetes with feature flags for instant rollback capability
+- **Circuit breaker protection** (ADR-012): Database protection during traffic spikes with graceful degradation to cached responses
+
+=== Key Trade-offs
+
+==== Performance vs. Consistency
+- **Accepted**: Eventual consistency across cache tiers and cross-region replication in favor of sub-200ms response times
+- **Mitigation**: Multi-tier cache invalidation strategies and conflict resolution procedures
+
+==== Cost vs. Availability  
+- **Accepted**: Higher infrastructure costs for multi-region deployment and cache replication to achieve 99.9% uptime SLA
+- **Benefit**: Business continuity and user experience maintained during regional failures
+
+==== Complexity vs. Scalability
+- **Accepted**: Operational complexity of managing multiple data systems (PostgreSQL, Redis, ClickHouse, S3) for horizontal scale capability
+- **Benefit**: System scales from current 11.5K RPS to projected 417K peak RPS without architectural changes
+
+==== Storage Cost vs. Query Performance
+- **Accepted**: Three-tier storage strategy with reduced query performance for aged data (24+ months) to optimize storage costs by 70-80%
+- **Benefit**: Maintains fast access for active data while meeting 3-year retention requirements cost-effectively
+
+==== Operational Overhead vs. Zero Downtime
+- **Accepted**: Complex deployment pipeline with blue-green environments and feature flag management for zero-downtime releases
+- **Benefit**: Enables continuous delivery without service interruption, supporting competitive advantage through rapid feature delivery

@@ -35,7 +35,7 @@ Date: 2025-09-01
 Proposed
 
 ## Context
-- Iteration goal: choose **DB model** and **concrete DB** to store:
+- Iteration goal: choose **concrete DB** to store:
     * client organizations with hierarchical departments,
     * users/employees, roles/permissions (RBAC, ABAC where needed),
     * pricing/tariff plans and tenant quotas for a large multi-tenant SaaS.
@@ -44,21 +44,7 @@ Proposed
   P-1 Throughput (read/write), A-1 Availability, C-1 Cost Efficiency, S-1 Scalability (horizontal), D-1 Developer Productivity, I-1 Integrity & ACID, Sec-1 Fine-grained Access Control, MT-1 Multi-tenancy Isolation.
 
 ## Decision
-### Table 1 — Compare **DB Models** against key criteria
-
-| DB Model                      | Modeling Hierarchies | Data Flexibility  | Complex Relational Ops     | Scalability & Perf   | Security/Access    | Consistency/Integrity | Transactions (ACID) | Multi-Tenancy   |
-|-------------------------------|----------------------|-------------------|----------------------------|----------------------|--------------------|-----------------------|---------------------|-----------------|
-| Relational (row-oriented)     | 🟩 via joins/FKs     | 🟩 (JSON/columns) | 🌟 rich joins, constraints | 🟨 vert.+ext. horiz. | 🌟 mature RBAC/RLS | 🌟 strong (ACID)      | 🌟 full ACID        | 🟩 schema/RLS   |
-| Relational (column-oriented)  | 🟨                   | 🟥 rigid          | 🟨                         | 🟩 analytics scale   | 🟨                 | 🟩                    | 🟨 limited          | 🟨              |
-| Document (e.g., MongoDB)      | 🟩 nested docs       | 🌟 flexible       | 🟨 limited joins           | 🟩 horiz.            | 🟨 custom models   | 🟨 eventual (tunable) | 🟨 single-doc ACID  | 🟨 via sharding |
-| Graph (e.g., Neo4j)           | 🌟 native            | 🟩                | 🟩 path queries            | 🟨 horiz. is hard    | 🟨                 | 🟩                    | 🟩                  | 🟨              |
-| Wide-column (e.g., Cassandra) | 🟨 limited           | 🟩 semi-flexible  | 🟥 complex queries         | 🌟 horiz.            | 🟨 basic           | 🟥 eventual           | 🟥 limited          | 🟨 keyspaces    |
-| Search (e.g., Elasticsearch)  | 🟨                   | 🟩 semi-flexible  | 🟥 relational              | 🟩 horiz. queries    | 🟨                 | 🟥 eventual           | 🟥 none             | 🟨 indices      |
-| NewSQL (e.g., CockroachDB)    | 🟩 relational model  | 🟩                | 🌟 rich joins              | 🟩 horiz.            | 🟩 RBAC            | 🌟 strong (ACID)      | 🌟 full ACID        | 🟩 built-in     |
-
-**Shortlist by model:** **Relational (row-oriented)** and **NewSQL** best satisfy Sec-1, I-1, MT-1 and complex relational needs (RBAC, billing, entitlements).
-
-### Table 2 — Compare **Concrete Databases** (from the shortlist)
+### Сompare **Databases** (from the shortlist)
 
 | Database               | Hierarchies       | Relational Ops               | Scalability             | Maintainability   | Security/Access         | Consistency | ACID | Multi-Tenancy     |
 |------------------------|-------------------|------------------------------|-------------------------|-------------------|-------------------------|-------------|------|-------------------|

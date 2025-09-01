@@ -1,4 +1,0 @@
----
-mode: 'agent'
-description: ''
----

@@ -98,3 +98,87 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 |Data retention policy |Maintains link data |Production database |Link storage system |Preserves link mappings |Links accessible for minimum 3 years
 |===
+
+[[section-qa-traceability]]
+=== Traceability of Quality Requirements to Architectural Decisions
+
+This section maps quality attribute requirements to architectural decisions (§9) and identifies coverage gaps and risks (§11).
+
+==== Summary
+High-priority QAs total: 8; Covered: 0; Gaps: 8; Weak coverage: 0
+
+==== Coverage Matrix
+[options="header"]
+|===
+| QA ID | Priority | Covered by (Accepted ADRs) | Partially covered (Proposed ADRs)
+
+| P-1   | High     | —                          | —
+| P-2   | High     | —                          | —
+| P-3   | High     | —                          | —
+| A-1   | High     | —                          | —
+| A-2   | High     | —                          | —
+| S-1   | High     | —                          | —
+| S-2   | High     | —                          | —
+| M-1   | High     | —                          | —
+| R-1   | High     | —                          | —
+| S-3   | Medium   | —                          | —
+| U-1   | Medium   | —                          | —
+|===
+
+==== Gaps & Weak Coverage
+**All quality requirements have gaps:**
+
+* **Gap:** P-1 (High) — URL redirection latency < 0.2s
+* **Gap:** P-2 (High) — High throughput handling (100M links/year)
+* **Gap:** P-3 (High) — Node failure degradation < 0.1s
+* **Gap:** A-1 (High) — 99.9% availability during peak hours
+* **Gap:** A-2 (High) — Zero downtime deployments
+* **Gap:** S-1 (High) — Support 1M new users per year
+* **Gap:** S-2 (High) — Handle 100M new links per year
+* **Gap:** M-1 (High) — Click statistics captured for all redirects
+* **Gap:** R-1 (High) — Links stored for 3 years minimum
+* **Gap:** S-3 (Medium) — Support 10 requests/day per link average
+* **Gap:** U-1 (Medium) — Link shortened in < 1 second
+
+==== Conflicts / Duplicates
+None identified (no ADRs implemented yet).
+
+==== Risk Alignment (High-priority QAs)
+[options="header"]
+|===
+| QA ID | Related Risk IDs | Mitigation present? | Note
+
+| P-1   | —                | No                  | No mapped risk
+| P-2   | —                | No                  | No mapped risk
+| P-3   | —                | No                  | No mapped risk
+| A-1   | —                | No                  | No mapped risk
+| A-2   | —                | No                  | No mapped risk
+| S-1   | —                | No                  | No mapped risk
+| S-2   | —                | No                  | No mapped risk
+| M-1   | —                | No                  | No mapped risk
+| R-1   | —                | No                  | No mapped risk
+|===
+
+==== Recommended Actions
+The following ADRs need to be developed to address quality requirements:
+
+1. **ADR-004:** Choose caching strategy and CDN integration (addresses P-1, P-3)
+2. **ADR-005:** Design load balancing and traffic distribution (addresses P-2, S-3)
+3. **ADR-006:** Define auto-scaling policies and thresholds (addresses S-1, S-2)
+4. **ADR-007:** Choose database partitioning strategy (addresses P-2, S-2)
+5. **ADR-008:** Design data retention and archival system (addresses R-1)
+6. **ADR-009:** Define analytics and click tracking architecture (addresses M-1)
+7. **ADR-010:** Design multi-region deployment and failover (addresses A-1, P-3)
+8. **ADR-011:** Define deployment strategy for zero downtime (addresses A-2)
+9. **ADR-012:** Choose load distribution and hotkey handling (addresses P-1, P-2)
+
+==== Additional actions:
+* Create technical risks documentation (§11) for high-priority QAs
+* Establish monitoring and alerting for availability and performance targets
+* Define comparison tables for conflicting architectural approaches
+
+==== Notes
+* ADR placeholders exist but contain no decisions yet
+* Risk documentation (§11) not available for cross-reference
+* All quality requirements currently lack architectural coverage
+* Superseded ADRs: none identified in current state

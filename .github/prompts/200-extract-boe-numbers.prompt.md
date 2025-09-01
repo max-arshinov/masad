@@ -40,7 +40,7 @@ but you MUST NOT perform any calculations yet.
 </formatting>
 
 <example>
-# ADR-0002: Identify Parameters for Estimation of Technical Risks
+# Identify Parameters for Estimation of Technical Risks
 
 ## Date
 2025-09-01

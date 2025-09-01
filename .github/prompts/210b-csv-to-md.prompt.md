@@ -26,7 +26,7 @@ description: 'Convert CSV BOE calculation file to Markdown table'
 </output>
 
 <example>
-# ADR-003: Estimate System Growth and Technical Risks
+# Estimate System Growth and Technical Risks
 
 Date: 2025-09-01
 Status: Proposed

@@ -72,7 +72,7 @@ description: 'Perform back-of-the-envelope estimates for technical risks'
 </output>
 
 <example>
-# ADR-003: Estimate System Growth and Technical Risks
+# Estimate System Growth and Technical Risks
 
 Date: 2025-09-01
 Status: Proposed
