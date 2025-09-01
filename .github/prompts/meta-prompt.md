@@ -21,8 +21,8 @@ All prompts must follow the **standard meta-prompt format**:
    - `<constraints>` — strict non-negotiable rules  
    - `<recommendations>` — preferences, style guidelines  
    - `<formatting>` — required output format  
-   - `<inputs>` or `## Inputs` — when external files are relevant  
-   - `<tasks>` or `## Tasks` — numbered list of what to do  
+   - `<inputs>` — when external files are relevant  
+   - `<tasks>` — numbered list of what to do  
    - `<validation>` — checklist to ensure prompt quality
    - `<example>` — good and bad input/output examples
    - Optional emoji coding rules (🟥/🟨/🟩/🌟, etc.)  
