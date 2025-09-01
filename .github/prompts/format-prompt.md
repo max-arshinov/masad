@@ -1,6 +1,6 @@
 ---
 mode: 'agent'
-description: 'Prompt Formatter'
+description: 'Format a promt into the standard meta-prompt structure'
 ---
 
 <context>
