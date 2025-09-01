@@ -1,3 +1,18 @@
+---
+mode: 'agent'
+description: 'Impact Assessment Rules for Emoji-Based Risk Marking'
+---
+
+### Scaling Tiers (Reference)
+| Tier            | CPU (RPS) | RAM    | Disk   | Network (aggregate) |
+|-----------------|-----------|--------|--------|---------------------|
+| 🟩Minuscule     | 10        | 128 GB | 1 TB   | 1 Gbps              |
+| 🟩A few         | 100       | 512 GB | 10 TB  | 10 Gbps             |
+| 🟨Something     | 1,000     | 1 TB   | 100 TB | 40 Gbps             |
+| 🟥 A lot        | 10,000    | 10 TB  | 1 PB   | 100 Gbps            |
+| 🟥 OMG          | 100,000   | 100 TB | 10 PB  | 400 Gbps            |
+| 🟥 Mind-blowing | 1,000,000 | 1 PB   | 1 EB   | ≥1 Tbps             |
+
 <impact_rules>
 Scaling Reference Table (use for emoji Impact classification):
 
@@ -23,9 +38,6 @@ Impact Rules:
 
 <instructions>
 - Reuse the assumptions and parameters listed in the previous ADR.
-- Perform explicit step-by-step calculations.
-- Build a **multi-year projection table** (3 years) with numeric values for each parameter.
-- State a confidence level (e.g., conservative, rough order-of-magnitude).
 - In the **Impact Assessment table**, mark risk severity with emojis:
   * 🟩 Low
   * 🟨 Medium

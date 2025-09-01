@@ -1,11 +1,22 @@
 ---
 mode: 'agent'
-description: 'ADR: perform back-of-the-envelope estimates for technical risks'
+description: 'Perform back-of-the-envelope estimates for technical risks'
 ---
 
 <context>
-- You are continuing the ADR started earlier.  
-- Now you must perform transparent back-of-the-envelope calculations for the parameters identified in the previous ADR.  
+- You are continuing the ADR started earlier.
+- Perform transparent back-of-the-envelope calculations for the parameters identified previously.
+- Use the **Scaling Tiers (Reference)** below to classify results and annotate risks without making design decisions.
+
+### Scaling Tiers (Reference)
+| Tier            | CPU (RPS) | RAM    | Disk   | Network (aggregate) |
+|-----------------|-----------|--------|--------|---------------------|
+| 🟩Minuscule     | 10        | 128 GB | 1 TB   | 1 Gbps              |
+| 🟩A few         | 100       | 512 GB | 10 TB  | 10 Gbps             |
+| 🟨Something     | 1,000     | 1 TB   | 100 TB | 40 Gbps             |
+| 🟥 A lot        | 10,000    | 10 TB  | 1 PB   | 100 Gbps            |
+| 🟥 OMG          | 100,000   | 100 TB | 10 PB  | 400 Gbps            |
+| 🟥 Mind-blowing | 1,000,000 | 1 PB   | 1 EB   | ≥1 Tbps             |
 </context>
 
 <inputs>
@@ -15,34 +26,37 @@ description: 'ADR: perform back-of-the-envelope estimates for technical risks'
 </inputs>
 
 <instructions>
-- Follow ADR format (adr-tools style).
-- Perform calculations for parameters: users, links, DB size, write/read RPS, bandwidth, storage.
-- Use transparent calculation steps with `mcp-server-calculator` for all numeric operations.
-- Do NOT make design decisions — only estimates.
+- Read inputs and extract numeric drivers (users, entities, request mix, object sizes, RF).
+- Compute all metrics with `mcp-server-calculator` and **print the steps**.
+- Derive **Bandwidth (GB/s)** from RPS × avg bytes per response/request (convert to GB/s).
+- Add **Network class (Gbps)** using the tier table (1G / 10G / 40G / 100G / 400G / ≥1T).
 </instructions>
 
 <tasks>
-1. Read and analyze the input files to understand system requirements and constraints
-2. Identify the key parameters that need estimation (users, other domain entities, DB size, RPS (write/read), bandwidth, storage)
-3. Use `mcp-server-calculator` to perform all calculations transparently with step-by-step breakdown
-4. Create a comprehensive projection table with all required metrics across 3 years
-5. Generate a complete ADR document following adr-tools format
-6. Include risk assessment and consequences based on calculated values
+1. Parse inputs; enumerate key parameters (users, entities, object sizes, RF, read/write mix).
+2. Compute: users, links, DB size, write/read RPS, **peak** read RPS, storage, **bandwidth (GB/s)**.
+3. Classify each year into **Scaling Tier**; select **Network class**.
+4. Build a 3-year **projection table** including Tier and Network class; annotate risks with emojis.
+5. Generate the ADR document (adr-tools style) with Context, Decision (calculations + table), Consequences (risks, bottlenecks, ops notes).
 </tasks>
 
 <constraints>
 - Output must include a **projection table** with numeric values for:
-  * # of users
-  * DB size (GB/TB)
-  * Write RPS
-  * Read RPS
-  * Peak Read RPS
-  * Storage size
-  * Bandwidth (GB/s)
-  * Other relevant metrics
-- Include transparent calculation steps.
-- Do NOT make design decisions — only estimates.
+  * # of users, DB size (GB/TB), Write RPS, Read RPS, **Peak Read RPS**, Storage size, **Bandwidth (GB/s)**.
+- Show **transparent calculation steps** using `mcp-server-calculator` for all numeric operations.
+- Projection table:
+  * ≥ 3 years; rows = years; columns = parameters.
+  * Include a **Tier** column (derived from RPS/Storage/Network against the Scaling Tiers).
+  * Include a **Network class** column chosen as the **smallest standard tier** whose Gbps ≥ (computed GB/s × 8).
+  * Add risk emojis in relevant cells (🟩 Low, 🟨 Medium, 🟥 High).
+- Do **not** make design decisions — only estimates.
 </constraints>
+
+<recommendations>
+- State and justify any assumptions (e.g., average response bytes, replication factor).
+- Prefer conservative (upper-bound) estimates when uncertain.
+- Keep explanations concise and professional.
+</recommendations>
 
 <formatting>
 - ADR sections: Title, Date, Status, Context, Decision, Consequences.
@@ -52,6 +66,10 @@ description: 'ADR: perform back-of-the-envelope estimates for technical risks'
 - Decision: include calculations + projection table.
 - Consequences: highlight risks, feasibility concerns, cost/bottleneck insights.
 </formatting>
+
+<output>
+- Return only the ADR text (Markdown/adr-tools style), no extra explanations.
+</output>
 
 <example>
 # ADR-003: Estimate System Growth and Technical Risks
@@ -72,13 +90,11 @@ Using mcp-server-calculator:
 
 ### Projection Table
 
-| Year | # of users | User DB size (GB) | # of short links | Link DB size (GB) | RPS Write | RPS Read   | Peak RPS Read | Stat Size (TB) | Bandwidth (GB/s) |
-|------|------------|-------------------|------------------|-------------------|-----------|------------|---------------|----------------|------------------|
-| 1    | 1,000,000  | 0.93              | 100,000,000      | 9.59              | 3.17      | 11,575 🟨  | 34,725 🟥     | 0.36 🟩        | 0.04 🟩          |
-| 2    | 2,000,000  | 1.86              | 300,000,000      | 28.78             | 6.34      | 34,723 🟥  | 104,169 🟥    | 1.07 🟨        | 0.12 🟩          |
-| 3    | 3,000,000  | 2.79              | 600,000,000      | 57.56             | 9.51      | 69,445 🟥  | 208,335 🟥    | 2.13 🟨        | 0.23 🟨          |
-| 4    | 4,000,000  | 3.73              | 900,000,000      | 86.33             | 12.68     | 104,167 🟥 | 312,501 🟥    | 3.20 🟥        | 0.35 🟨          |
-| 5    | 5,000,000  | 4.66              | 1,200,000,000    | 115.11            | 15.85     | 138,889 🟥 | 416,667 🟥    | 4.27 🟥        | 0.47 🟨          |
+| Year | # of users        | DB size (GB)       | RPS Write       | RPS Read           | Peak RPS Read    | Bandwidth (GB/s) | <Other important metrics...> |
+|------|-------------------|--------------------|-----------------|--------------------|------------------|------------------|------------------------------|
+| 1    | <number of users> | <low number> 🟩    | <low number> 🟩 | <medium number> 🟨 | <high number> 🟥 | <low number> 🟩  | ...                          |
+| 2    | <number of users> | <medium number> 🟨 | <low number> 🟩 | <high number> 🟥   | <high number> 🟥 | <low number> 🟩  | ...                          |
+| 3    | <number of users> | <high number> 🟥   | <low number> 🟩 | <high number> 🟥   | <high number> 🟥 | <low number> 🟨  | ...                          |
 
 **Legend:** 🟩 Low · 🟨 Medium · 🟥 High
 
@@ -89,13 +105,9 @@ Using mcp-server-calculator:
 </example>
 
 <validation>
-- All calculations use `mcp-server-calculator` with transparent steps
-- Projection table includes all required metrics (users, DB size, RPS, bandwidth, storage)
-- ADR follows adr-tools format (Title, Date, Status, Context, Decision, Consequences)
-- Title is action-oriented and concise
-- Status is "Proposed"
-- No design decisions made, only estimates provided
-- Consequences section highlights risks and bottlenecks
-- All numeric values are clearly sourced from calculations
-- Risk assessment addresses feasibility concerns
+- All numeric work shown via `mcp-server-calculator`.
+- Projection table includes **Tier** and **Network class** and required metrics.
+- Bandwidth (GB/s) ↔ Network class mapping is consistent (Gbps ≥ GB/s × 8).
+- Emoji risk applied by proximity-to-next-tier rule.
+- No design decisions; Consequences discuss risks/ops complexity only.
 </validation>
