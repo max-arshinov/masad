@@ -78,6 +78,6 @@ Create a Quality Tree and corresponding Quality Scenarios in AsciiDoc format.
 </validation>
 
 <output>
-Return ONLY AsciiDoc (`.adoc`) content.  
+Return ONLY AsciiDoc (`.adoc`) content.
 No explanations. No comments. No introductions.
 </output>

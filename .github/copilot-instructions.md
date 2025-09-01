@@ -3,6 +3,18 @@
 - Any tag whose name starts with "global_" (i.e., `<global_* ...>...</global_*>`) is a **global (repository-wide)** rule.
 - Any tag without the `global_` prefix is a **local (prompt-specific)** rule.
 
+# Predefined Tags
+- `<context>` — background info and scope
+- `<inputs>` — when external files are relevant
+- `<constraints>` — strict non-negotiable rules
+- `<recommendations>` — preferences, style guidelines
+- `<instructions>` — explicit rules for the agent
+- `<tasks>` — numbered list of what to do (for multi-step execution only)
+- `<formatting>` — guidance on structure, layout, or sections
+- `<output>` — precise specification of the required final deliverable
+- `<example>` — good output examples
+- `<validation>` — checklist to ensure prompt quality
+
 # Priority & Conflict Resolution
 1) All `global_*` rules have higher priority than local rules.
 2) Within global_* or within local scope, the **later tag overrides** earlier ones if there is a conflict.

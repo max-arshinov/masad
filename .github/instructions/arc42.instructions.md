@@ -31,6 +31,5 @@ Audience of the documentation: software architects, developers, project stakehol
 </global_formatting>
 
 <global_output>
-Return ONLY ADR text in adr-tools format.  
-No explanations. No calculations. No comments.
+- Must return AsciiDoc, not Markdown.
 </global_output>
