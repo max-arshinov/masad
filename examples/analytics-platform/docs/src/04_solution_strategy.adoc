@@ -3,33 +3,5 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-solution-strategy]]
 == Solution Strategy
 
-=== Architectural Drivers
 
-- Multi-tenant web/app analytics with near-real-time dashboards and indefinite retention
-- Global ingestion and serving with predictable cost and active-active regions
-- Quality goals: P-1 (≤1.5s reports for ≤3 months), P-2 (freshness P95 ≤60 min), S-1 (~100B events/day), R-1 (retain per-website data indefinitely)
 
-=== Key Decisions (see ADRs)
-
-- Primary analytics store: ClickHouse (hot tier) with sharding/replication and object-storage tiering for warm/cold. [ADR-0003, ADR-0004]
-- Ingestion: Stateless HTTP Ingestion API → Event Stream (Kafka) → external shard-aware Writers to ClickHouse; DLQ/replay; idempotency. [ADR-0005, ADR-0006]
-- Serving reads: Stateless REST Read API with deterministic query hashing, CDN/edge caching, budgets/limits, and multi-tenant quotas. [ADR-0007]
-- Materialization: Pre-aggregations/materialized views aligned to common dimensions; fallback to facts when needed. [ADR-0011]
-- Partitioning: Time + tenant partitioning; skip/prune tactics; dictionary dims. [ADR-0012]
-- Multi-region and scale: Active-active web tiers with concurrency-based autoscaling; replication and failover strategies for data plane. [ADR-0009, ADR-0013]
-- Backend language: Go for ingestion/read services. [ADR-0008]
-
-=== High-Level Approach
-
-- Write path: SDKs and S2S sources send batched events to the Ingestion API, which authenticates, validates, rate-limits, and durably enqueues to the Event Stream. External Writers consume, batch, and perform shard-aware inserts into ClickHouse with idempotency and DLQ/replay.
-- Storage: ClickHouse as the hot analytical tier (3-month horizon), partitioned by time and tenant; TTL tiering to object storage for warm/cold; replication and backups for durability.
-- Read path: The Read API serves dashboards/queries from pre-aggregations where possible, enforcing bytes/time budgets; SPA consumes via JSON/HTTPS; CDN/edge caching and ETags reduce tail latency and load.
-- Materialization: Incremental jobs maintain rollups (hour/day and common groupings like geo/source/device/UTM); handle late arrivals within a configured window.
-- Operability: Active-active regions; autoscaling on concurrency; per-tenant quotas; strong observability for ingest lag, merges/parts, scanned bytes, and freshness.
-
-=== Mapping to Quality Goals
-
-- P-1: Pre-aggregations, partition pruning, and cache semantics achieve ≤1.5s P95 for recent windows.
-- P-2: Streaming ingest with external writers and incremental rollups keeps freshness within 50–100 minutes.
-- S-1: Stateless web tiers, Kafka-based buffering, and shard-aware batching scale to ~100B events/day with zero-loss objectives.
-- R-1: TTL tiering to object storage, replication/backups, and deletion/audit workflows maintain indefinite retention and integrity.

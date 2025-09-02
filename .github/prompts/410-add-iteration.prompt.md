@@ -9,14 +9,11 @@ description: 'ADR Iteration'
   * Quality attributes (referenced by ID from the quality tree `10_quality_requirements.adoc`)
   * Architectural tactics addressing these attributes
   * Final design decision
-- If more than 3 critical QAs → build a **quality tree** with IDs.
 - If tool/technology selection is involved → build a **comparison table**.
 - Explicitly link ADRs to **QA IDs** and superseded ADRs.
 </instructions>
 
 <constraints>
-- Follow ADR format (adr-tools style).
-- Title must be short and action-oriented.
 - Always use **comparison tables** when evaluating options.
 - Use rating emojis in tables:
   * 🟥 = weak
@@ -44,7 +41,7 @@ Proposed
   P-1 Throughput (read/write), A-1 Availability, C-1 Cost Efficiency, S-1 Scalability (horizontal), D-1 Developer Productivity, I-1 Integrity & ACID, Sec-1 Fine-grained Access Control, MT-1 Multi-tenancy Isolation.
 
 ## Decision
-### Сompare **Databases** (from the shortlist)
+### Compare **Databases** (from the shortlist)
 
 | Database               | Hierarchies       | Relational Ops               | Scalability             | Maintainability   | Security/Access         | Consistency | ACID | Multi-Tenancy     |
 |------------------------|-------------------|------------------------------|-------------------------|-------------------|-------------------------|-------------|------|-------------------|
@@ -61,7 +58,7 @@ Supersedes: none.
 - ✅ Strong integrity for permissions/billing (I-1, Sec-1), clear tenancy isolation via schemas + RLS (MT-1).
 - ⚠️ Horizontal write scaling requires sharding/partitioning or a managed/Distributed PG (Aurora read scaling; CockroachDB for multi-region writes).
 - Follow-ups: ADRs on sharding strategy, RLS policy design, tenancy keying, and read replica/caching for hot paths.
-  </example>
+</example>
 
 <validation>
 - Verify ADR includes business drivers, QA IDs, one clear decision.

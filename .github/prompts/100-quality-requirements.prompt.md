@@ -38,9 +38,14 @@ Quality scenarios use the standard architecture evaluation format with measurabl
 - Maintain consistent spacing and alignment
 </formatting>
 
+<files>
+- Edit `10_quality_requirements.adoc` only
+- Don't modify or add other files
+</files>
+
 <output>
-Return complete AsciiDoc content ready for inclusion in arc42 documentation.
-No explanations, comments, or introductory text.
+- Return complete AsciiDoc content ready for inclusion in arc42 documentation.
+- No explanations, comments, or introductory text.
 </output>
 
 <example>
@@ -80,7 +85,5 @@ No explanations, comments, or introductory text.
 <validation>
 - Every Quality Tree entry has a corresponding scenario section
 - All fit criteria and response measures are quantitative
-- AsciiDoc syntax is valid (no Markdown elements)
 - ID references are consistent between Quality Tree and scenarios
-- Section headings use correct AsciiDoc format (`====`)
 </validation>

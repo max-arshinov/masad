@@ -49,6 +49,11 @@ Output must be a markdown table with 3 columns containing these columns:
 Each row must include traceability references (QAR/QAS IDs, Risk IDs) in the third column.
 </formatting>
 
+<files>
+- Create a new markdown file one level above the `adrs` folder (e.g., `add-iteration-plan-draft.md`)
+- Don't modify or add other files
+</files>
+
 <output>
 Return ONLY the **iteration plan draft** as a markdown table.
 No explanations. No comments. No introductions.

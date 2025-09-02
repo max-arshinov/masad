@@ -3,7 +3,11 @@ mode: 'agent'
 description: 'Impact Assessment Rules for Emoji-Based Risk Marking'
 ---
 
-### Scaling Tiers (Reference)
+<context>
+## TODO
+- Not ready
+
+### Scaling Tiers
 | Tier            | CPU (RPS) | RAM    | Disk   | Network (aggregate) |
 |-----------------|-----------|--------|--------|---------------------|
 | 🟩Minuscule     | 10        | 128 GB | 1 TB   | 1 Gbps              |
@@ -13,7 +17,7 @@ description: 'Impact Assessment Rules for Emoji-Based Risk Marking'
 | 🟥 OMG          | 100,000   | 100 TB | 10 PB  | 400 Gbps            |
 | 🟥 Mind-blowing | 1,000,000 | 1 PB   | 1 EB   | ≥1 Tbps             |
 
-<impact_rules>
+### Impact Rules
 Scaling Reference Table (use for emoji Impact classification):
 
 | Scale        | CPU (RPS) | RAM    | Disk   | Network  | Architecture Style | Team Seniority | Comments                                     |
@@ -33,8 +37,7 @@ Impact Rules:
 - Architecture: Monolith 🟩, Micro-services <10k RPS 🟨, Micro-services ≥100k RPS 🟥
 - Team: Junior–Senior 🟩, Senior–Expert 🟨, Expert+/God Emperor 🟥
 - Ops Comments: simple 🟩, migrations/backups/SRE 🟨, hyperscale ops 🟥
-  </impact_rules>
-
+</context>
 
 <instructions>
 - Reuse the assumptions and parameters listed in the previous ADR.

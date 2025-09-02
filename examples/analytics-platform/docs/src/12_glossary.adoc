@@ -9,9 +9,6 @@ ifndef::imagesdir[:imagesdir: ../images]
 |===
 |Term |Definition
 
-|HPA (Horizontal Pod Autoscaler)
-|Kubernetes controller that horizontally scales pods based on metrics (CPU and custom/external like in-flight requests or RPS); used in ADR-0009 to bound per-pod concurrency and protect p95/p99 latency in the web tier.
-
 |<Term-1>
 |<definition-1>
 

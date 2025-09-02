@@ -24,7 +24,7 @@ All prompts must follow the **standard meta-prompt format**:
     ```
     ---
     mode: 'agent'
-    description: '<short purpose>'
+    description: '<short purpose: imperative, action-oriented>'
     ---
     ```
 - The formatted prompt must include these sections:

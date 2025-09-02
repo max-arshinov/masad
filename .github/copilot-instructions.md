@@ -5,14 +5,15 @@
 
 # Predefined Tags
 - `<context>` — background info and scope
-- `<inputs>` — when external files are relevant
+- `<inputs>` — additional files to read if not already in context
 - `<constraints>` — strict non-negotiable rules
 - `<recommendations>` — preferences, style guidelines
 - `<instructions>` — explicit rules for the agent
 - `<tasks>` — numbered list of what to do (for multi-step execution only)
+- `<files>` - explicit instructions on file-level I/O in the repo: creation, modification, deletion, etc.
 - `<formatting>` — guidance on structure, layout, or sections
 - `<output>` — precise specification of the required final deliverable
-- `<example>` — good output examples
+- `<example>` — good output example
 - `<validation>` — checklist to ensure prompt quality
 
 # Priority & Conflict Resolution
@@ -24,6 +25,10 @@
 # Missing Info & Consistency
 - If required information is missing, write **TODO** explicitly; do not invent facts.
 - Use consistent tag names and correct spelling; do not introduce new synonyms for tags.
+
+# Placeholders
+- Double curly brackets (e.g.: ``{{Number}}``, ``{{Text}}``, etc...) represent placeholders.
+- Placeholders define text that must later be replaced by concrete values in generated outputs.  
 </global_policy>
 
 <global_formatting>

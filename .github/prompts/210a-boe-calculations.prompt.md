@@ -6,14 +6,14 @@ description: 'Perform back-of-the-envelope estimates for technical risks'
 <context>
 - You are continuing the ADR started earlier.
 - Perform transparent back-of-the-envelope calculations for the parameters identified previously.
-- Use the **Scaling Tiers (Reference)** below to classify results and annotate risks without making design decisions.
+- Use the **Scaling Tiers** below to classify results and annotate risks without making design decisions.
 
-### Scaling Tiers (Reference)
+### Scaling Tiers
 | Tier            | CPU (RPS) | RAM    | Disk   | Network (aggregate) |
 |-----------------|-----------|--------|--------|---------------------|
-| 🟩Minuscule     | 10        | 128 GB | 1 TB   | 1 Gbps              |
-| 🟩A few         | 100       | 512 GB | 10 TB  | 10 Gbps             |
-| 🟨Something     | 1,000     | 1 TB   | 100 TB | 40 Gbps             |
+| 🟩 Minuscule    | 10        | 128 GB | 1 TB   | 1 Gbps              |
+| 🟩 A few        | 100       | 512 GB | 10 TB  | 10 Gbps             |
+| 🟨 Something    | 1,000     | 1 TB   | 100 TB | 40 Gbps             |
 | 🟥 A lot        | 10,000    | 10 TB  | 1 PB   | 100 Gbps            |
 | 🟥 OMG          | 100,000   | 100 TB | 10 PB  | 400 Gbps            |
 | 🟥 Mind-blowing | 1,000,000 | 1 PB   | 1 EB   | ≥1 Tbps             |
@@ -42,13 +42,12 @@ description: 'Perform back-of-the-envelope estimates for technical risks'
 
 <constraints>
 - Output must include a **projection table** with numeric values for:
-  * # of users, DB size (GB/TB), Write RPS, Read RPS, **Peak Read RPS**, Storage size, **Bandwidth (GB/s)**.
-- Show **transparent calculation steps** using `mcp-server-calculator` for all numeric operations.
+  * # of users, DB size (GB/TB), Write RPS, Read RPS, **Peak Write RPS**, **Peak Read RPS**, Storage size, **Bandwidth (GB/s)**.
+- Show **transparent calculation steps** always using `mcp-server-calculator` for all numeric operations.
 - Projection table:
   * ≥ 3 years; rows = years; columns = parameters.
-  * Include a **Tier** column (derived from RPS/Storage/Network against the Scaling Tiers).
-  * Include a **Network class** column chosen as the **smallest standard tier** whose Gbps ≥ (computed GB/s × 8).
-  * Add risk emojis in relevant cells (🟩 Low, 🟨 Medium, 🟥 High).
+  * Add risk emojis in relevant cells (🟩 Low, 🟨 Medium, 🟥 High) according to the Scaling Tiers.
+  * Don't show the Scaling Tiers column itself.
 - Do **not** make design decisions — only estimates.
 </constraints>
 
@@ -90,11 +89,11 @@ Using mcp-server-calculator:
 
 ### Projection Table
 
-| Year | # of users        | DB size (GB)       | RPS Write       | RPS Read           | Peak RPS Read    | Bandwidth (GB/s) | <Other important metrics...> |
-|------|-------------------|--------------------|-----------------|--------------------|------------------|------------------|------------------------------|
-| 1    | <number of users> | <low number> 🟩    | <low number> 🟩 | <medium number> 🟨 | <high number> 🟥 | <low number> 🟩  | ...                          |
-| 2    | <number of users> | <medium number> 🟨 | <low number> 🟩 | <high number> 🟥   | <high number> 🟥 | <low number> 🟩  | ...                          |
-| 3    | <number of users> | <high number> 🟥   | <low number> 🟩 | <high number> 🟥   | <high number> 🟥 | <low number> 🟨  | ...                          |
+| Year | # of users          | DB size (GB)        | RPS Write         | RPS Read             | Peak RPS Read      | Bandwidth (GB/s) | {{Other important metrics...}} |
+|------|---------------------|---------------------|-------------------|----------------------|--------------------|------------------|--------------------------------|
+| 1    | {{number of users}} | <low number}} 🟩    | {{low number}} 🟩 | {{medium number}} 🟨 | {{high number}} 🟥 | <low number}} 🟩 | ...                            |
+| 2    | {{number of users}} | <medium number}} 🟨 | {{low number}} 🟩 | {{high number}} 🟥   | {{high number}} 🟥 | <low number}} 🟩 | ...                            |
+| 3    | {{number of users}} | <high number}} 🟥   | {{low number}} 🟩 | {{high number}} 🟥   | {{high number}} 🟥 | <low number}} 🟨 | ...                            |
 
 **Legend:** 🟩 Low · 🟨 Medium · 🟥 High
 
@@ -106,8 +105,7 @@ Using mcp-server-calculator:
 
 <validation>
 - All numeric work shown via `mcp-server-calculator`.
-- Projection table includes **Tier** and **Network class** and required metrics.
 - Bandwidth (GB/s) ↔ Network class mapping is consistent (Gbps ≥ GB/s × 8).
-- Emoji risk applied by proximity-to-next-tier rule.
+- Emoji risk applied according to Scaling Tiers.
 - No design decisions; Consequences discuss risks/ops complexity only.
 </validation>

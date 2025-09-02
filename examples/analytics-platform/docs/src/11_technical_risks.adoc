@@ -3,33 +3,6 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-technical-risks]]
 == Risks and Technical Debts
 
-=== Technical Risk Register
+- _See https://riskstorming.com/[Risk Storming] for a visual and collaborative risk identification technique_.
 
-[options="header"]
-|===
-| ID | Risk | Related QAs | Likelihood | Impact | Mitigations | Triggers / Monitors
 
-| RISK-INGEST-PEAK | Ingestion backlog/loss at ~3.5M eps peak | S-1, P-2 | Medium–High | High | 512–1024 partitions; autoscale API/ETL; backpressure; DLQ; 2x NIC/LB headroom; per-AZ spread | Ingest 5xx >0.01%; broker lag >10m; partition >80% util; DLQ spikes
-| RISK-FRESHNESS-SLO | End-to-end freshness exceeds P95 ≤60m | P-2, S-1 | Medium | High | Stage budgets; autoscale consumers; priority lanes; compact & watermark; spill to object store | E2E lag >60m (P95); stage lag > budget; age-of-last-event rising
-| RISK-QUERY-LATENCY | Queries exceed P95 ≤1.5s | P-1 | Medium | High | Strong time/tenant partitioning; column pruning; pre-aggregations/cubes; caching; result reuse | P95>1.5s/P99>2.5s; scanned bytes/q >10 GB; cache miss >40%
-| RISK-CONCURRENCY | High concurrency saturates cluster | P-1 | Medium | Medium–High | Admission control; per-tenant concurrency & CPU quotas; resource groups; queue-based scheduling | Query queue depth >N; CPU >80% 5m; throttling rate ↑
-| RISK-HOT-STORAGE | Hot tier capacity/IO bottleneck | P-1, R-1 | Medium | High | Tiering to warm/cold (90d); compaction; compression tuning; partition pruning; SSD sizing | Hot tier >70% full; compaction backlog; IO wait >20%
-| RISK-CARDINALITY | High-cardinality dimensions explode size/latency | P-1, R-1 | Medium | Medium | Dictionary encoding; rollups; dimension caps/quotas; sampling for debug | Segment size ↑ >2x; distinct count > threshold; scan amplification
-| RISK-REGION-FAILOVER | Regional failure causes loss/large lag | S-1, P-2 | Low–Medium | High | Multi-region buffering; async replication with checksums; traffic draining; periodic failover drills | Cross-region lag >15m; failover RTO > target; checksum errors
-| RISK-PARTITIONING | Bad partition sizing (too few/many) | S-1, P-2 | Medium | Medium | Auto-repartitioning; rebalancing; partition key review; consumer group sharding | Hot partitions >5x avg; rebalance thrash; consumer idle >20%
-| RISK-SCHEMA-EVOLVE | Schema evolution breaks pipelines/queries | P-2, R-1 | Medium | Medium | Versioned schemas; compatibility checks in CI; canary ETL; backfill tooling | Schema registry rejects; canary error rate ↑; backfill backlog
-| RISK-COLD-RESTORE | Slow or costly cold-tier restores | R-1 | Low–Medium | Medium | Indexed manifests; selective restore; restore quotas; monthly drills | Restore >24h; retrieval fees > budget; drill failures
-| RISK-DATA-INTEGRITY | Corruption during tiering/restore | R-1 | Low | High | End-to-end checksums; verify-on-write/read; periodic scrubbing; 3x replication | Checksum failures >0; scrub errors; read-after-write mismatch
-| RISK-COST-DRIFT | Infra/storage cost exceeds targets | S-1, R-1 | Medium | Medium | Cost budgets/alerts; storage lifecycle; hot-scan budgets; right-sizing | $/day > budget; hot scan bytes ↑; tiering misses SLAs
-|===
-
-=== Technical Debts
-
-- Synthetic load tests for ingest (~3.5M eps peak) and query SLOs (P95) are missing
-- Automated partition sizing/rebalancing tooling not implemented
-- Runbooks: ingest lag recovery, regional failover, restore from cold tier
-- End-to-end freshness SLO budgets per stage not codified in dashboards
-- Schema evolution guide and CI compatibility checks incomplete
-- Data lifecycle policies (hot→warm→cold) and verification jobs need wiring
-- Cost dashboards/alerts for scan bytes, storage, egress not finalized
-- Chaos/DR drills scheduling and success criteria not established

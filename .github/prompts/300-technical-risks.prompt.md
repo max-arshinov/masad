@@ -55,6 +55,11 @@ This section must document risks, trace them to quality attributes, and capture 
 - Use bullet points (`-`) for Technical Debts.  
 </formatting>
 
+<files>
+- Edit `11_technical_risks.adoc` only
+- Don't modify or add other files
+</files>
+
 <output>
 AsciiDoc text containing a Technical Risk Register table and a Technical Debts subsection.  
 </output>
@@ -77,5 +82,3 @@ AsciiDoc text containing a Technical Risk Register table and a Technical Debts s
 - Runbooks for failover and lag recovery
 - Documentation for late-arrival correction processes
 </example>
-
-</validation>

@@ -3,125 +3,15 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-quality-scenarios]]
 == Quality Requirements
 
+- _See https://re-magazine.ireb.org/articles/discover-quality-requirements-with-the-mini-qaw[Mini-QAW] for a short and fun elicitation workshop for Agile teams and architects._
+
+
+
 === Quality Tree
 
-- Reports and charts must be delivered within 1.5 seconds for any combination of parameters over a period not exceeding 3 months. [QA: P-1]
-- The system must be able to serve approximately 100 billion events per day. [QA: S-1]
-- Delays of 50–100 minutes are acceptable between a user action and its appearance in statistics. [QA: P-2]
-- Data per website must be stored “forever.” [QA: R-1]
-
-[options="header",cols="1,2,2,3,1"]
-|===
-| ID | Quality Attribute | Scenario | Fit Criteria (measurable) | Priority
-| P-1 | Performance | Report latency | P95 ≤1.5s for queries over ≤3 months of data; P99 ≤2.5s; timeout rate <0.1% | High
-| P-2 | Performance | Data freshness | Newly ingested events visible in dashboards ≤100 min end-to-end; P95 ≤60 min | Medium
-| S-1 | Scalability | Ingestion throughput | Sustain ~100B events/day (~1.16M/s avg) with 3x peak for ≥10 min; 0% data loss; write error rate <0.01% | High
-| R-1 | Retention | Data retention | Hot tier retains ≥3 months; warm/cold tier indefinite; restore from cold ≤24h; integrity verified (checksum) | High
-|===
+- _See an example quality tree in the https://docs.arc42.org/examples/quality-tpu-1/#101-quality-tree[arc42 documentation]._
 
 === Quality Scenarios
 
-==== P-1 Report latency
-[options="header",cols="1,4"]
-|===
-| Source | Analyst user
-| Stimulus | Requests a chart/report aggregating up to 3 months of events with filters and grouping
-| Environment | Normal load; cache miss allowed; no precomputed materialization required
-| Artifact | Query API, aggregation service, hot analytical store
-| Response | Execute query and return complete chart data without timeout
-| Response Measure | P95 latency ≤1.5s; P99 ≤2.5s; error rate <0.1%
-|===
-
-==== P-2 Data freshness
-[options="header",cols="1,4"]
-|===
-| Source | Website/app SDKs via ingestion pipeline
-| Stimulus | New events are produced continuously and ingested
-| Environment | Multi-tenant, rolling deploys, normal operations; regional variability allowed
-| Artifact | Ingestion API, queues/stream, ETL/aggregation, serving store
-| Response | Ingest, process, and publish events to the serving store so they become queryable
-| Response Measure | End-to-end freshness P95 ≤60 min, P99 ≤100 min; 0% permanent loss
-|===
-
-==== S-1 Ingestion throughput
-[options="header",cols="1,4"]
-|===
-| Source | Global website/app SDKs and batch importers
-| Stimulus | Sustained traffic of ~100B events/day (~1.16M events/s avg) with bursts up to 3x
-| Environment | Multi-region, autoscaling enabled, occasional node failures and rolling deploys
-| Artifact | Ingestion API, load balancers, message bus/stream, writers
-| Response | Accept and enqueue events with backpressure, scale horizontally, and write to storage without loss
-| Response Measure | Sustain ≥1.16M/s avg and ≥3.0M/s for ≥10 min; 0% data loss; ingest-side error rate <0.01%
-|===
-
-==== R-1 Data retention
-[options="header",cols="1,4"]
-|===
-| Source | Compliance officer or analyst
-| Stimulus | Requests access to event data older than 12 months for a tenant
-| Environment | Normal operations; data resides in warm/cold tier
-| Artifact | Storage subsystem, lifecycle management, restore service
-| Response | Locate and retrieve requested data from warm/cold tier and make it queryable
-| Response Measure | Hot tier keeps ≥3 months; warm/cold retention is indefinite; restore SLA ≤24h; integrity 100% (checksum verified)
-|===
-
-
-=== 10.4 Traceability of Quality Requirements to Architectural Decisions
-
-This section links Quality Requirements to Architecture Decisions (see <<section-design-decisions,Section 9>>) and cross-checks mitigations against risks (see <<section-technical-risks,Section 11>>).
-
-==== QA Set (from Quality Tree)
-- P-1 Performance — Report latency — Priority: High
-- S-1 Scalability — Ingestion throughput — Priority: High
-- R-1 Retention — Data retention — Priority: High
-- P-2 Performance — Data freshness — Priority: Medium
-
-==== ADRs scanned (ID / Title / Status → QAs)
-- ADR-0001 Record architecture decisions — Accepted → —
-- ADR-0002 Baseline capacity and BOTE estimates — Accepted → P-1, P-2, S-1, R-1
-- ADR-0003 Choose primary analytics database — Accepted → P-1, P-2, S-1, R-1
-- ADR-0004 ClickHouse scaling strategy — Superseded by ADR-0005 → P-1, P-2, S-1, R-1
-- ADR-0005 Design ClickHouse ingestion mechanism — Accepted → P-1, P-2, S-1, R-1
-- ADR-0006 Design web tier for write operations — Accepted → S-1, P-2, P-1
-- ADR-0007 Design web tier for read operations — Accepted → P-1, P-2
-- ADR-0008 Choose backend programming language — Accepted → P-1, P-2, S-1
-- ADR-0009 Scale web tier with concurrency-based autoscaling and active-active regions — Accepted → S-1, P-1, P-2
-- ADR-0010 Data lifecycle and integrity verification across tiers — Proposed → R-1, P-1
-- ADR-0011 Query materialization strategy (pre-aggregations/cubes, distinct approximations) — Proposed → P-1
-- ADR-0012 Partitioning standards (tenant/time bucketing, part-size thresholds, auto-rebalancing) — Proposed → P-1, S-1
-- ADR-0013 Multi-region replication and failover posture (stream + ClickHouse) — Proposed → S-1, P-2
-
-==== Summary
-- High-priority QAs total: 3; Covered: 3; Gaps: 0; Weak coverage: 0
-
-==== Coverage Matrix (QA → ADRs)
-[options="header",cols="1,1,3,3"]
-|===
-| QA ID | Priority | Covered by (Accepted ADR IDs) | Partially covered (Proposed ADR IDs)
-| P-1 | High | ADR-0002, ADR-0003, ADR-0005, ADR-0006, ADR-0007, ADR-0008, ADR-0009 | ADR-0010, ADR-0011, ADR-0012
-| S-1 | High | ADR-0002, ADR-0003, ADR-0005, ADR-0006, ADR-0008, ADR-0009 | ADR-0012, ADR-0013
-| R-1 | High | ADR-0002, ADR-0003, ADR-0005 | ADR-0010
-| P-2 | Medium | ADR-0002, ADR-0003, ADR-0005, ADR-0006, ADR-0007, ADR-0008, ADR-0009 | ADR-0013
-|===
-
-==== Gaps & Weak Coverage
-- None. All QAs have coverage by Accepted ADRs.
-
-==== Conflicts / Duplicates
-- None active. ADR-0004 is Superseded by ADR-0005 (ingestion/serving tactics consolidated).
-
-==== Risk Alignment (High-priority QAs)
-[options="header",cols="1,3,1,3"]
-|===
-| QA ID | Related Risk IDs | Mitigation present? | Note
-| S-1 | RISK-INGEST-PEAK, RISK-REGION-FAILOVER, RISK-PARTITIONING, RISK-COST-DRIFT | Yes | Mitigations in ADR-0005, ADR-0006, ADR-0009; ADR-0012 (rebalance/part-size); ADR-0013 (async geo-replication)
-| P-1 | RISK-QUERY-LATENCY, RISK-HOT-STORAGE, RISK-CARDINALITY | Yes | Mitigations in ADR-0003, ADR-0007, ADR-0009; ADR-0010 (policy guardrails); ADR-0011 (rollups/approximations); ADR-0012 (pruning/part-size)
-| R-1 | RISK-HOT-STORAGE, RISK-COLD-RESTORE, RISK-DATA-INTEGRITY, RISK-COST-DRIFT | Yes | Mitigations in ADR-0003, ADR-0005, ADR-0010
-|===
-
-==== Recommended Actions
-- Review & Accept ADR-0010 (Data lifecycle & integrity verification across tiers); implement manifests, scrubbing, and restore drills — targets R-1 and supports P-1.
-- Review & Accept ADR-0011 (Query materialization strategy); implement MVs, routing, and approximation guards — targets P-1.
-- Review & Accept ADR-0012 (Partitioning standards); implement keys, part-size thresholds, and auto-rebalancing — targets S-1 and P-1.
-- Review & Accept ADR-0013 (Multi-region replication/failover posture); implement stream linking, failover drills, RPO/RTO dashboards — targets S-1 and P-2.
-- Update ADR-0007: Document cache invalidation/versioning policy and scanned-bytes guardrails linkage to backend — strengthens P-1.
+- _See example quality scenarios in the
+https://docs.arc42.org/examples/quality-tpu-1/#102-quality-scenarios[arc42 documentation]._

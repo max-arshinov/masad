@@ -14,11 +14,11 @@ _**<Overview Diagram>**_
 
 ==== Development
 
-image::embed:Deployment-001[]
+image::embed:DevelopmentDeployment[]
 
 ==== Live
 
-image::embed:Deployment-002[]
+image::embed:LiveDeployment[]
 
 Motivation::
 

@@ -9,7 +9,6 @@ Always keep consistency with:
 - Architecture Decision Records (ADRs) in `adrs/*.md` (adr-tools style).
 - Quality requirements in `10_quality_requirements.adoc`.
 - Risks in `11_technical_risks.adoc`.
-- C4 diagrams and utility trees if available.
 
 Audience of the documentation: software architects, developers, project stakeholders.
 </global_context>
@@ -32,3 +31,8 @@ Audience of the documentation: software architects, developers, project stakehol
 <global_output>
 - Must return in the AsciiDoc(.adoc) format.
 </global_output>
+
+<global_validation>
+- AsciiDoc syntax is valid (no Markdown elements)
+- Section headings use correct AsciiDoc format (`====`)
+</global_validation>

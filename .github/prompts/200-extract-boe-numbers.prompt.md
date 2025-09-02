@@ -66,14 +66,8 @@ These parameters will guide later sizing estimates and risk analysis.
 </example>
 
 <validation>
-- ADR follows adr-tools structure (Title, Date, Status, Context, Decision, Consequences)
-- Title is action-oriented and specific to parameter identification
-- Status is "Proposed"
-- Context section contains assumptions table with realistic values
-- Context section explicitly references QAR/QAS IDs with thresholds
 - Decision section lists parameters without calculations
 - No projection tables or numeric estimates included
-- All referenced quality attributes have measurable criteria
 - Parameters cover system scale (users, data, throughput, storage)
 - Consequences mention future risk analysis without specifics
 </validation>
