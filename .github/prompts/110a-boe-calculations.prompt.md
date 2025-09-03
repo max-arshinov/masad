@@ -104,8 +104,8 @@ Using mcp-server-calculator:
 </example>
 
 <validation>
-- All numeric work shown via `mcp-server-calculator`.
-- Bandwidth (GB/s) ↔ Network class mapping is consistent (Gbps ≥ GB/s × 8).
-- Emoji risk applied according to Scaling Tiers.
-- No design decisions; Consequences discuss risks/ops complexity only.
+- [] All numeric work shown via `mcp-server-calculator`.
+- [] Bandwidth (GB/s) ↔ Network class mapping is consistent (Gbps ≥ GB/s × 8).
+- [] Emoji risk applied according to Scaling Tiers.
+- [] No design decisions; Consequences discuss risks/ops complexity only.
 </validation>
