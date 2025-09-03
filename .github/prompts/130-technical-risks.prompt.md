@@ -78,7 +78,7 @@ AsciiDoc text containing a Technical Risk Register table and a Technical Debts s
 
 === Technical Debts
 
-- Missing synthetic load tests for ingest/query SLOs
-- Runbooks for failover and lag recovery
-- Documentation for late-arrival correction processes
+- [] Missing synthetic load tests for ingest/query SLOs
+- [] Runbooks for failover and lag recovery
+- [] Documentation for late-arrival correction processes
 </example>

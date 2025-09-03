@@ -11,6 +11,7 @@ Quality scenarios use the standard architecture evaluation format with measurabl
 <inputs>
 - `./10_quality_requirements.adoc`
 - `./01_introduction_and_goals.adoc`
+- `../adrs/**.md`
 </inputs>
 
 <instructions>
@@ -19,6 +20,12 @@ Quality scenarios use the standard architecture evaluation format with measurabl
 - Use consistent ID referencing between Quality Tree and individual scenarios
 - Apply quantitative, realistic measurements for all fit criteria and response measures
 </instructions>
+
+<tasks>
+1. Analyze `1_quality_requirements.adoc`
+2. Analyze related ADRs for quality attributes
+2. Construct the Quality Tree table with columns: ID, Quality Attribute, Scenario, Fit Criteria,
+</tasks>
 
 <constraints>
 - Quality Tree columns: ID, Quality Attribute, Scenario, Fit Criteria, Priority
@@ -83,7 +90,7 @@ Quality scenarios use the standard architecture evaluation format with measurabl
 </example>
 
 <validation>
-- Every Quality Tree entry has a corresponding scenario section
-- All fit criteria and response measures are quantitative
-- ID references are consistent between Quality Tree and scenarios
+- [] Every Quality Tree entry has a corresponding scenario section
+- [] All fit criteria and response measures are quantitative
+- [] ID references are consistent between Quality Tree and scenarios
 </validation>
