@@ -16,7 +16,7 @@ The goal is to capture potential technical risks, their impact, likelihood, and 
 <constraints>
 - Output must be in **AsciiDoc** format (not Markdown).  
 - Risk table must have all required columns: ID, Risk, Related QAs, Likelihood, Impact, Mitigations, Triggers.  
-- Impact and Likelihood must use emoji codes: 🟩 Low, 🟨 Medium, 🟥 High.  
+- Impact and Likelihood must use emoji codes:  Low, 🟨 Medium, 🟥 High.  
 </constraints>
 
 <recommendations>
@@ -61,7 +61,7 @@ The goal is to capture potential technical risks, their impact, likelihood, and 
 |ID |Risk |Related QAs |Likelihood |Impact |Mitigations |Triggers
 
 |RISK-001 |Database latency under high load |P-1, S-1 |🟨 Medium |🟥 High |Introduce caching layer; perform load testing |P95 latency > 200ms
-|RISK-002 |Team lacks runbook for failures |O-3 |🟩 Low |🟨 Medium |Create on-call runbook and automation scripts |On-call engineer escalates without clear steps
+|RISK-002 |Team lacks runbook for failures |O-3 | Low |🟨 Medium |Create on-call runbook and automation scripts |On-call engineer escalates without clear steps
 |===
 
 === Technical Debts
