@@ -28,8 +28,25 @@ description: 'Convert CSV BOE calculation file to Markdown table'
 </inputs>
 
 <instructions>
+- Read the .csv tables in the context
 - Create a new ADR .md file using the converted Markdown table.
 </instructions>
+
+<tasks>
+1. Parse inputs .csv tables
+3. Classify each year into **Scaling Tier**; select **Network class**.
+4. Highlight risks with emojis (🟩 Low, 🟨 Medium, 🟥 High) in relevant cells.
+5. Generate the ADR document (adr-tools style) with Context, Decision (calculations + table), Consequences (risks, bottlenecks, ops notes).
+</tasks>
+
+
+<formatting>
+- ADR sections: Title, Date, Status, Context, Decision, Consequences.
+- Title: short and action-oriented (e.g., "Estimate System Growth and Technical Risks").
+- Status: "Proposed".
+- Decision: include calculations + projection table.
+- Consequences: highlight risks, feasibility concerns, cost/bottleneck insights.
+</formatting>
 
 <output>
 - Return only the ADR text (Markdown/adr-tools style), no extra explanations.
@@ -62,6 +79,6 @@ Status: Proposed
 </example>
 
 <validation>
-- Emoji risk applied by proximity-to-next-tier rule.
-- No design decisions; Consequences discuss risks/ops complexity only.
+- [] Emoji risk applied according to Scaling Tiers.
+- [] No design decisions; Consequences discuss risks/ops complexity only.
 </validation>
