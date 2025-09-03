@@ -1,0 +1,8 @@
+Column,Type,Size (b),n
+Link size,,500.00,
+TimeStamp,time,8.00,
+Ip,inet,19.00,
+UserInfo (multiple columns),varchar(n),255,
+Url,varchar(n),100.00,77.00
+GeoId,bigint,8,
+Utms,varchar(n),10,
