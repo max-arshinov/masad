@@ -41,6 +41,10 @@ Edit `model.dsl`, add containers and relationships to the target `softwareSystem
 - Output order: `elements` then `relationships`.
 </formatting>
 
+<files>
+- Edit `model.dsl`, don't create or modify other files.
+<files>
+
 <example>
 urlShortener = softwareSystem "URL Shortener" "Generates short URLs and redirects." {
     db = datastore "Database" "Stores URL mappings." "PostgreSQL"
@@ -54,7 +58,7 @@ user --https-> urlShortener.api "Creates short link"
 </example>
 
 <validation>
-- Verify all variable names use lowerCamelCase
-- Ensure relationship syntax uses "--protocol->" format
-- Check that descriptions are ≤15 words
+- [] Verify all variable names use lowerCamelCase
+- [] Ensure relationship syntax uses `--protocol->` format
+- [] Check that descriptions are ≤15 words
 </validation>

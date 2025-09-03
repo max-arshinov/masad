@@ -9,6 +9,8 @@ When given a system description, identify the core actors and main system, then 
 
 <inputs>
 - ./docs/src/01_introduction_and_goals.adoc
+- ./docs/src/04_solution_strategy.adoc
+- ./adrs/*.md
 </inputs>
 
 <instructions>
@@ -30,6 +32,10 @@ Edit `model.dsl`, add target software systems, persons, and relationships.
 - Output order: `softwareSystem` first, then `person`, then `relationship`.
 </formatting>
 
+<files>
+- Edit `model.dsl`, don't create or modify other files.
+<files>
+
 <example>
 urlShortener = softwareSystem "URL Shortener" "Generates short URLs and redirects."
 
@@ -41,7 +47,7 @@ administrator --https-> urlShortener "Reviews abuse reports"
 </example>
 
 <validation>
-- Verify all variable names use lowerCamelCase
-- Ensure relationship syntax uses "--protocol->" format
-- Check that descriptions are ≤15 words
+- [] Verify all variable names use lowerCamelCase
+- [] Ensure relationship syntax uses `--protocol->` format
+- [] Check that descriptions are ≤15 words
 </validation>

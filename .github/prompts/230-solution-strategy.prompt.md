@@ -10,9 +10,8 @@ You must summarize all existing ADRs to extract the core architectural strategy.
 </context>
 
 <inputs>
-- `04_solution_strategy.adoc`
-- `adrs/*.md` — Architecture Decision Records in adr-tools format  
-- `10_quality_requirements.adoc` — for mapping strategic drivers (QARs/QASs)  
+- `./adrs/*.md` — Architecture Decision Records in adr-tools format  
+- `./10_quality_requirements.adoc` — for mapping strategic drivers (QARs/QASs)  
 </inputs>
 
 <constraints>
@@ -62,6 +61,10 @@ You must summarize all existing ADRs to extract the core architectural strategy.
 - Use bullet lists for decisions.  
 - Cross-reference ADR IDs where applicable.  
 </formatting>
+
+<files>
+- Edit `04_solution_strategy.adoc` only, don't moldify other files.
+</files>
 
 <output>
 - Return only the AsciiDoc section text (not explanations).  
