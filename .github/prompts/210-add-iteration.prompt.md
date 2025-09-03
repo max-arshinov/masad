@@ -13,6 +13,12 @@ description: 'ADR Iteration'
 - Explicitly link ADRs to **QA IDs** and superseded ADRs.
 </instructions>
 
+<inputs>
+- Quality Attribute Requirements (QARs) and Quality Attribute Scenarios (QASs) documented in `../10_quality_requirements.adoc`  
+- Risks documented in `../11_technical_risks.adoc`
+- Existing ADRs in `./**.md`
+</inputs>
+
 <constraints>
 - Always use **comparison tables** when evaluating options.
 - Use rating emojis in tables:
