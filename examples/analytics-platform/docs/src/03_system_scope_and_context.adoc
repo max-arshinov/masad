@@ -8,7 +8,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 === Business Context
 
-image::embed:SystemContext[]
+image::embed:SystemContext-001[]
 
 
 
@@ -18,7 +18,7 @@ image::embed:SystemContext[]
 
 === Technical Context
 
-image::embed:Containers[]
+image::embed:Container-001[]
 
 
 
