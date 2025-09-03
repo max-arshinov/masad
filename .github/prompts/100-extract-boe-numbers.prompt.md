@@ -55,19 +55,16 @@ Proposed
 | Peak multiplier  | ×3       |
 | Cache miss ratio | 10%      |
 
-Referenced QARs: P-1 (latency ≤50 ms), A-1 (99.95% availability), S-1 (abuse resistance).
-
 ## Decision
 Parameters for estimation: users, links, DB size, write/read RPS, bandwidth, storage.
-
 
 ## Consequences
 These parameters will guide later sizing estimates and risk analysis.
 </example>
 
 <validation>
-- Decision section lists parameters without calculations
-- No projection tables or numeric estimates included
-- Parameters cover system scale (users, data, throughput, storage)
-- Consequences mention future risk analysis without specifics
+- [] Decision section lists parameters without calculations
+- [] No projection tables or numeric estimates included
+- [] Parameters cover system scale (users, data, throughput, storage)
+- [] Consequences mention future risk analysis without specifics
 </validation>
