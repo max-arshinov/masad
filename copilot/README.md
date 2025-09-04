@@ -23,7 +23,13 @@ This directory contains prompts for generating arc42 documentation and C4 models
 - `300-c4-context.prompt.md` - Add persons and software systems
 - `310-c4-container.prompt.md` - Add containers and relationships
 
+## Prompt Engineering
+- https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview
+- https://cookbook.openai.com/examples/gpt-5/gpt-5_prompting_guide
+- meta prompting
+
 ## TODO
-- MCP servers for better decision-making
+- MCP server for GoogleSpreadsheet/Excel
+- MCP servers for making better decisions
 - Optimize prompts
 - Custom company-wide RAG?
