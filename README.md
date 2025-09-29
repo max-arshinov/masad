@@ -123,11 +123,15 @@ same way as code together with the arc42 template for software architecture.
 
 ![docToolChain](https://camo.githubusercontent.com/54ff5bb0df3fd1f3479404a96f86469992b2ecd006932fa3fb7d344a8d473930/68747470733a2f2f646f63746f6f6c636861696e2e6769746875622e696f2f646f63546f6f6c636861696e2f76322e302e782f696d616765732f65612f4d616e75616c2f4f76657276696577322e706e67)
 
+## Recommended Architecture Design Process
+![Recommended Architecture Design Process](architecture.png)
 
-### Notes for Confluence users
+### GitHub Copilot Support
+
+https://sessionize.com/s/max-arshinov/architecture-as-code-decision-making-and-documenta/142047
+
+## Notes for Confluence users
 
 - If you consider to use confluence, the [asciidoc2confluence](https://github.com/rdmueller/asciidoc2confluence) script
   might be helpful.
 
-## Recommended Architecture Design Process
-![Recommended Architecture Design Process](architecture.png)

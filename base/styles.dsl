@@ -1,39 +1,43 @@
-element "Existing" {
+element Existing {
     background #999999
     color #ffffff
 }
 
-element "Container" {
+element Container {
     background #438dd5
     color #ffffff
 }
 
-element "Web" {
+element Web {
     shape WebBrowser
 }
 
-element "Mobile" {
+element Mobile {
     shape MobileDeviceLandscape
 }
 
-element "Database" {
+element Datastore {
     shape Cylinder
 }
 
-element "Component" {
+element Component {
     background #85bbf0
     color #000000
 }
 
-element "Failover" {
+element Broker {
+    shape Pipe
+}
+
+element Failover {
     opacity 25
 }
 
-relationship "Relationship" {
+relationship Relationship {
     style dotted
     color #777777
 }
 
-relationship "Async" {
+relationship Async {
     style dashed
 }

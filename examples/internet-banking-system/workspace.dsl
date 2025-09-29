@@ -1,5 +1,5 @@
 workspace extends ../base/workspace.dsl {
-    name "PROVIDE YOUR WORKSPACE NAME HERE"
+    name "Internet Banking System" 
     model {
         archetypes {
             !include archetypes.dsl
@@ -10,6 +10,6 @@ workspace extends ../base/workspace.dsl {
     }
 
     views {
-        #!include views.dsl
+        !include views.dsl
     }
 }  
