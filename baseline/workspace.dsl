@@ -6,7 +6,6 @@ workspace extends ../base/workspace.dsl {
         }
 
         !include model.dsl
-        !include deployment.dsl
     }
 
     views {
