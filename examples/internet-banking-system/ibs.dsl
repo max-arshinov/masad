@@ -1,7 +1,3 @@
-!const SPRING_BEAN "Spring Bean"
-!const SPRING_MVC "Spring MVC"
-!const REST_CONTROLLER "Spring MVC Rest Controller"
-
 database = oracle "Database" "Stores user registration information, hashed authentication credentials, access logs, etc."
 
 api = springMvc "API Application" "Provides Internet banking functionality via a JSON/HTTPS API." {
@@ -33,9 +29,9 @@ customer -> mobileApp "Views account balances, and makes payments using"
 
 spa = angular "Single-Page Application" "Provides all of the Internet banking functionality to customers via their web browser."
 spa --hj-> api.signinController "Makes API calls to"
-spa --hj->  api.accountsSummaryController "Makes API calls to"
-spa --hj->  api.resetPasswordController "Makes API calls to"
-customer -> spa  "Views account balances, and makes payments using"
+spa --hj-> api.accountsSummaryController "Makes API calls to"
+spa --hj-> api.resetPasswordController "Makes API calls to"
+customer -> spa "Views account balances, and makes payments using"
 
 web = springMvc "Web Application" "Delivers the static content and the Internet banking single page application."
 web -> spa "Delivers to the customer's web browser"
