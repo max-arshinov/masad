@@ -4,20 +4,21 @@ services:
     image: structurizr/lite
     volumes:
       - ./base:/usr/local/base
+      - ./baseline:/usr/local/baseline
       - ./target:/usr/local/structurizr
     ports:
       - "8081:8080"
 
-#  baseline-architecture:
-#    container_name: software-architecture-documentation-baseline
-#    image: structurizr/lite
-#    volumes:
-#      - ./workspace:/usr/local/structurizr
-#    ports:
-#      - "8082:8080"
+  baseline-architecture:
+    container_name: software-architecture-documentation-baseline
+    image: structurizr/lite
+    volumes:
+      - ./base:/usr/local/base
+      - ./baseline:/usr/local/structurizr
+    ports:
+      - "8082:8080"
 
   # Examples
-  # Internet Banking System
   internet-banking-system:
     container_name: internet-banking-system
     image: structurizr/lite
@@ -26,18 +27,16 @@ services:
       - ./examples/internet-banking-system:/usr/local/structurizr
     ports:
       - "8083:8080"
-  
-  # Examples
-  analytics-platform: 
+        
+  analytics-platform:
     container_name: analytics-platform
     image: structurizr/lite
     volumes:
       - ./base:/usr/local/base
       - ./examples/analytics-platform:/usr/local/structurizr
     ports:
-      - "8084:8080"  
+      - "8084:8080"
   
-  # Examples
   url-shortener:
     container_name: url-shortener
     image: structurizr/lite
@@ -46,4 +45,4 @@ services:
       - ./examples/analytics-platform:/usr/local/analytics-platform
       - ./examples/url-shortener:/usr/local/structurizr
     ports:
-      - "8085:8080"
+      - "8085:8080"        

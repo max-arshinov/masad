@@ -1,5 +1,7 @@
-system = softwareSystem "System" "A system that does something." {
+targetSystem = softwareSystem "Taget System" "A system that does something." {
+    !docs ./docs/src
+    !adrs ./adrs
 }
 
-person = person "Person" "A person that does something." 
-person --https-> system "Uses the system to do something."
+targetPerson = person "Person" "A person that does something." 
+targetPerson --https-> targetSystem "Uses the system to do something."

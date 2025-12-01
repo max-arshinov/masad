@@ -1,6 +1,4 @@
-#workspace extends ../base/workspace.dsl {
-# use this if you want to inherit the baseline
-workspace extends ../baseline/workspace.dsl { 
+workspace extends ../base/workspace.dsl {
     name "PROVIDE YOUR WORKSPACE NAME HERE"
     model {
         archetypes {
@@ -8,7 +6,6 @@ workspace extends ../baseline/workspace.dsl {
         }
 
         !include model.dsl
-        !include deployment.dsl
     }
 
     views {
