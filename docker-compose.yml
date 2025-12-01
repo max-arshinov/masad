@@ -36,13 +36,3 @@ services:
       - ./examples/analytics-platform:/usr/local/structurizr
     ports:
       - "8084:8080"
-  
-  url-shortener:
-    container_name: url-shortener
-    image: structurizr/lite
-    volumes:
-      - ./base:/usr/local/base
-      - ./examples/analytics-platform:/usr/local/analytics-platform
-      - ./examples/url-shortener:/usr/local/structurizr
-    ports:
-      - "8085:8080"        
