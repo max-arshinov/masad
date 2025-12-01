@@ -1,0 +1,3 @@
+sdk = -> {
+    technology "SDK/HTTPS"
+}

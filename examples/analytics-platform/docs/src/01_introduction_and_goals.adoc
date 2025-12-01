@@ -1,0 +1,67 @@
+ifndef::imagesdir[:imagesdir: ../images]
+
+[[section-introduction-and-goals]]
+
+== Introduction and Goals
+
+=== Requirements Overview
+
+- Analytics platform is a system that tracks events from websites: page view, button click, etc.
+- Track the total number of visitors, the number of unique visitors, broken down by: hours, days, weeks, months, geolocation, traffic source, browser, device, and UTM tags.
+
+==== Main Actors
+
+[options="header",cols="1,1,3,2,1"]
+|===
+|Actor|Type|Description|Primary Interfaces
+
+| Website visitor
+| Human
+| Generates page views and events while browsing tenant sites; drives ingestion volume.
+| JS SDK, Mobile SDK
+
+| Analyst/Marketer
+| Human
+| Explores reports, segmentation, attribution analysis, and exports.
+| Analytics UI, Query API, Export jobs
+
+|===
+
+=== Quality Goals
+
+- Reports and charts must be delivered within 1.5 seconds for any combination of parameters over a period not exceeding 3 months.
+- The system must be able to serve approximately 100 billion events per day.
+- Delays of 50–100 minutes are acceptable between a user action and its appearance in statistics.
+- Data per website must be stored “forever.”
+
+See <<section-quality-scenarios,Quality Requirements>> for the Quality Tree and Scenarios.
+
+=== Stakeholders
+
+
+
+[options="header",cols="1,2,2"]
+|===
+|Role/Name|Contact|Expectations
+
+| Executive sponsor and leadership
+| TBD 
+| ROI visibility, roadmap alignment, budget control, risk oversight
+
+| Product, Marketing, and Analytics users 
+| TBD 
+| Accurate and timely reports, self-serve segmentation, UTM/source attribution
+
+| Client website/app owners (tenants)
+| TBD
+| Easy SDK integration, low performance overhead, configurable tracking, SLAs
+
+| Data/platform engineering and backend developers 
+| TBD 
+| Reliable ingestion, scalable storage/queries, clear schemas/APIs, observability
+
+| Security, Legal, and Privacy (DPO) 
+| TBD 
+| GDPR/CCPA compliance, consent and retention controls, auditing
+
+|===

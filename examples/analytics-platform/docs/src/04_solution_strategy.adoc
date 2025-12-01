@@ -1,0 +1,75 @@
+ifndef::imagesdir[:imagesdir: ../images]
+
+[[section-solution-strategy]]
+== Solution Strategy
+
+=== Overall Approach
+
+The analytics platform adopts a **horizontally scalable, event-driven architecture** designed to handle massive data volumes (100B+ events/day) while maintaining strict performance requirements (sub-1.5s query response times). The solution strategy emphasizes:
+
+* **Event-driven design** with Apache Kafka as the central nervous system for data ingestion and processing
+* **Tiered storage and processing** to balance performance, cost, and retention requirements  
+* **Privacy by design** with built-in GDPR/CCPA compliance and data anonymization
+* **Hybrid stream-batch processing** for both real-time analytics and complex aggregations
+* **Multi-layer caching and pre-aggregation** to achieve query performance at scale
+
+The architecture follows a **separation of concerns** principle, decoupling ingestion, processing, storage, and query layers to enable independent scaling and optimization.
+
+=== Strategic Decisions
+
+==== Data Ingestion and Messaging
+* **Event streaming with Apache Kafka** (ADR-005) over direct writes or traditional queues for millions of events/sec throughput
+* **Amazon MSK** (ADR-006) for managed Kafka deployment reducing operational overhead while maintaining performance
+* **Composite key partitioning** (ADR-007) using `hash(website_id + timestamp_hour)` with 2000 partitions for load distribution
+* **Multi-tier auto-scaling** (ADR-008) with fast response (seconds), medium response (minutes), and proactive scaling
+
+==== Query and Analytics Engine  
+* **ClickHouse columnar database** (ADR-009) over traditional OLTP or cloud data warehouses for sub-100ms analytical queries
+* **Multi-level pre-aggregation** (ADR-010) with real-time (7 days), hourly, and daily tiers achieving 100x+ storage efficiency
+* **Hybrid caching architecture** (ADR-011) with application, distributed (Redis), and database query caches
+* **Tiered replication topology** (ADR-012) with regional clusters (US, EU, APAC) and edge nodes for global performance
+
+==== Data Processing Pipeline
+* **Apache Kafka Streams** (ADR-013) for real-time stream processing with exactly-once semantics
+* **Hybrid stream-batch processing** (ADR-014) using Kafka Streams for simple aggregations and AWS EMR/Spark for complex analytics
+* **Multi-layer data validation** (ADR-015) across stream (Avro schema), batch (Great Expectations), and storage (ClickHouse) layers
+* **Tiered backup and recovery** (ADR-016) with real-time replication, incremental snapshots, and long-term archives
+
+==== Storage and Cost Management
+* **Time-based tiered storage** (ADR-017) with hot (ClickHouse SSD), warm (S3 Standard), and cold (S3 Glacier) tiers
+* **Multi-tier compression strategy** (ADR-018) optimized per tier: LZ4 for hot, ZSTD for warm, Brotli for cold storage
+* **Automated lifecycle policies** (ADR-019) with time-based transitions and GDPR/CCPA deletion workflows
+* **Multi-layer cost optimization** (ADR-020) with real-time monitoring, predictive controls, and automated resource scaling
+
+==== Security and Compliance
+* **Privacy by design compliance** (ADR-021) with automated data subject request processing and cross-tier data discovery
+* **Hybrid audit trail system** (ADR-022) using Kafka event sourcing, Amazon QLDB, and CloudWatch for immutable compliance records
+* **Layered data anonymization** (ADR-023) with real-time pseudonymization, k-anonymity grouping, and differential privacy
+* **Hybrid SDK security model** (ADR-024) with client-side privacy controls and edge-based validation
+
+=== Key Trade-offs
+
+==== Performance vs. Consistency
+* **Accepted eventual consistency** in ClickHouse and caching layers to achieve sub-1.5s query performance
+* **Mitigated through** multi-layer validation, read-after-write consistency controls, and query result verification
+* **Risk tolerance**: <0.1% variance acceptable for analytical use cases vs. transactional consistency
+
+==== Cost vs. Performance  
+* **Prioritized tiered storage** with 90%+ cost reduction for historical data over uniform high-performance storage
+* **Accepted retrieval delays** for cold storage (5+ minutes) to achieve long-term cost sustainability
+* **Balanced through** intelligent tier routing and pre-aggregation strategies
+
+==== Operational Complexity vs. Scalability
+* **Embraced distributed architecture complexity** with Kafka, ClickHouse clusters, and multi-tier processing
+* **Justified by** horizontal scaling requirements (1.16M+ events/sec, 100K concurrent users)
+* **Mitigated through** managed services (MSK, EMR), automation, and comprehensive monitoring
+
+==== Privacy vs. Analytics Utility
+* **Implemented layered anonymization** rather than complete data isolation for GDPR/CCPA compliance
+* **Preserved analytical relationships** through pseudonymization and k-anonymity techniques
+* **Enabled compliance** while maintaining business value through privacy-preserving analytics
+
+==== Real-time vs. Batch Processing
+* **Adopted hybrid approach** rather than pure real-time or batch processing
+* **Real-time path** handles 80% of queries with 1-minute windows for immediate dashboards
+* **Batch path** processes 20% of complex multi-dimensional analytics with 15-minute cycles

@@ -10,6 +10,8 @@ workspace "A minimal approach to software architecture documentation" {
         archetypes {
             !include archetypes.dsl
         }
+
+        !include model.dsl        
     }
 
     views {

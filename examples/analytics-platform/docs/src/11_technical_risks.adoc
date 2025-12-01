@@ -1,0 +1,37 @@
+ifndef::imagesdir[:imagesdir: ../images]
+
+[[section-technical-risks]]
+== Risks and Technical Debts
+
+=== Technical Risk Register
+
+[options="header"]
+|===
+| ID | Risk | Related QAs | Likelihood | Impact | Mitigations | Triggers / Monitors
+
+| RISK-INGEST-01 | Ingestion pipeline overwhelmed at 1.2M+ events/sec | P-2, S-1 | High | 🟥 High | Auto-scaling consumers, partitioning, DLQ implementation | Queue depth >10k, lag >5min, DLQ rate >1%
+| RISK-QUERY-01 | Query response time exceeds 1.5s SLA | P-1, P-3 | Medium | 🟥 High | Pre-aggregated tables, columnar storage, query caching | P95 >1.5s, cache miss >40%, CPU >80%
+| RISK-STORAGE-01 | Storage costs spiral with 24TB/year growth | S-2, R-1 | High | 🟨 Medium | Tiered storage, compression, lifecycle policies | Cost >budget+20%, growth >projected+30%
+| RISK-SCALE-01 | Database cannot handle 100K concurrent users | P-3, A-2 | Medium | 🟥 High | Read replicas, connection pooling, CDN caching | Connection errors >2%, response time >2s
+| RISK-LATENCY-01 | Processing delay exceeds 100min SLA | A-1 | Medium | 🟨 Medium | Stream processing optimization, monitoring alerts | Lag >90min, backlog growth rate positive
+| RISK-DURABILITY-01 | Data loss during high-volume ingestion | R-1, P-2 | Low | 🟥 High | Multi-region replication, backup validation | Replication lag >1hr, backup failures
+| RISK-CONSISTENCY-01 | Query results inconsistent across replicas | R-2, P-1 | Medium | 🟨 Medium | Read-after-write consistency, monitoring | Variance >0.1%, complaints from analysts
+| RISK-COMPLIANCE-01 | GDPR/CCPA violations from data retention | SE-1 | Medium | 🟥 High | Automated deletion workflows, audit trails | Retention >legal limits, audit findings
+| RISK-PEAK-01 | System fails during 3x traffic spikes | P-2, A-2 | High | 🟥 High | Elastic scaling, load shedding, circuit breakers | Traffic >2.5x baseline, error rate >5%
+| RISK-COST-01 | Infrastructure costs exceed budget projections | S-1, S-2 | High | 🟨 Medium | Cost monitoring, resource optimization | Monthly cost >budget+15%
+|===
+
+=== Technical Debts
+
+- Missing comprehensive load testing for 1.2M+ events/sec sustained throughput
+- Lack of automated failover procedures for ingestion pipeline components  
+- No runbooks for query performance degradation scenarios
+- Missing monitoring dashboards for end-to-end data processing latency
+- Incomplete disaster recovery testing for multi-region data replication
+- No automated cost optimization policies for storage lifecycle management
+- Missing synthetic transaction monitoring for analyst user journeys
+- Lack of automated GDPR/CCPA compliance validation workflows
+- No capacity planning automation for 10% annual growth projections
+- Missing performance regression testing in CI/CD pipeline
+- Incomplete documentation for operational procedures and troubleshooting
+- No automated alerting for query consistency variance detection

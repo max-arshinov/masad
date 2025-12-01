@@ -1,0 +1,186 @@
+ifndef::imagesdir[:imagesdir: ../images]
+
+[[section-quality-scenarios]]
+== Quality Requirements
+
+=== Quality Tree
+
+[options="header",cols="1,2,3,3,1"]
+|===
+|ID |Quality Attribute |Scenario |Fit Criteria |Priority
+
+|P-1 |Performance |Report response time |Reports delivered within 1.5 seconds for 3-month data queries |High
+|P-2 |Performance |High event ingestion throughput |System handles 1.16M events/sec sustained, 3.47M events/sec peak |High
+|P-3 |Performance |Concurrent user load |System supports 100,000 concurrent analysts with sub-2s response |Medium
+|S-1 |Scalability |Event volume growth |System scales to 146B events/day by year 5 with 10% annual growth |High
+|S-2 |Scalability |Storage capacity |System accommodates 24TB/year data growth with "forever" retention |High
+|A-1 |Availability |Data processing latency |Events appear in reports within 50-100 minutes of occurrence |Medium
+|A-2 |Availability |System uptime |System maintains 99.9% availability during business hours |High
+|R-1 |Reliability |Data durability |Zero data loss for ingested events with permanent retention |High
+|R-2 |Reliability |Query consistency |Aggregated reports show consistent data across multiple queries |Medium
+|U-1 |Usability |SDK integration |Website integration completed within 30 minutes using provided SDKs |Medium
+|SE-1 |Security |Data privacy compliance |System maintains GDPR/CCPA compliance with audit trail |High
+|===
+
+=== Quality Scenarios
+
+==== P-1
+[options="header",cols="1,2,2,2,2,2"]
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|Analyst |Requests analytics report for 3-month period with multiple filters |Production with peak load |Analytics UI and Query API |Delivers complete report |Response time ≤ 1.5 seconds for 95% of queries
+|===
+
+==== P-2
+[options="header",cols="1,2,2,2,2,2"]
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|Website visitors |Generate page views and events |Peak traffic conditions |Event ingestion pipeline |Processes events without loss |Sustained 1.16M events/sec, peak 3.47M events/sec
+|===
+
+==== P-3
+[options="header",cols="1,2,2,2,2,2"]
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|100,000 analysts |Submit concurrent report requests |Production during business hours |Analytics platform |Serves all users simultaneously |<2 seconds response time for 90% of concurrent requests
+|===
+
+==== S-1
+[options="header",cols="1,2,2,2,2,2"]
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|Growing user base |Increases event volume by 10% annually |Production over 5-year period |Entire analytics platform |Scales infrastructure automatically |Handles 146B events/day by year 5 without performance degradation
+|===
+
+==== S-2
+[options="header",cols="1,2,2,2,2,2"]
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|Continuous data ingestion |Generates 24TB new data annually |Production with "forever" retention policy |Storage subsystem |Expands storage capacity |Accommodates cumulative 120TB+ over 5 years with query performance maintained
+|===
+
+==== A-1
+[options="header",cols="1,2,2,2,2,2"]
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|Website visitor |Performs tracked action |Production environment |Data processing pipeline |Updates analytics within acceptable delay |Events appear in reports within 50-100 minutes
+|===
+
+==== A-2
+[options="header",cols="1,2,2,2,2,2"]
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|System administrator |Monitors system health |Production during business hours |Analytics platform infrastructure |Maintains service availability |99.9% uptime (max 8.76 hours downtime/year)
+|===
+
+==== R-1
+[options="header",cols="1,2,2,2,2,2"]
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|System failure |Hardware or software component fails |Production with active data ingestion |Data storage and replication system |Preserves all data |Zero data loss, 100% data recovery capability
+|===
+
+==== R-2
+[options="header",cols="1,2,2,2,2,2"]
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|Multiple analysts |Query same data with different aggregations |Production environment |Query processing engine |Returns consistent results |<0.1% variance between equivalent aggregated queries
+|===
+
+==== U-1
+[options="header",cols="1,2,2,2,2,2"]
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|Website developer |Integrates analytics tracking |Development environment |JS SDK and documentation |Completes integration successfully |Full tracking implementation within 30 minutes using provided guides
+|===
+
+==== SE-1
+[options="header",cols="1,2,2,2,2,2"]
+|===
+|Source |Stimulus |Environment |Artifact |Response |Response Measure
+
+|Data protection officer |Requests compliance audit |Production with GDPR/CCPA requirements |Privacy and security controls |Demonstrates full compliance |100% compliance score with complete audit trail for data handling
+|===
+
+=== Traceability of Quality Requirements to Architectural Decisions
+
+This section maps quality attribute requirements to architectural decisions (see <<section-design-decisions>>) and identifies coverage gaps, conflicts, and risk alignments.
+
+==== Summary
+
+High-priority QAs total: 7; Covered: 0; Gaps: 7; Weak coverage: 7
+
+All QAs are currently covered only by Proposed ADRs. No Accepted ADRs address quality requirements beyond the foundational ADR-001.
+
+==== Coverage Matrix
+
+[options="header"]
+|===
+| QA ID | Priority | Covered by (Accepted ADRs) | Partially covered (Proposed ADRs)
+
+| P-1   | High     | —                          | ADR-009, ADR-010, ADR-011
+| P-2   | High     | —                          | ADR-005, ADR-006, ADR-008, ADR-013
+| S-1   | High     | —                          | ADR-004, ADR-005, ADR-008
+| S-2   | High     | —                          | ADR-009, ADR-017, ADR-018, ADR-019
+| A-2   | High     | —                          | ADR-005, ADR-008, ADR-012, ADR-016
+| R-1   | High     | —                          | ADR-005, ADR-016, ADR-021
+| SE-1  | High     | —                          | ADR-021, ADR-022, ADR-023, ADR-024
+| P-3   | Medium   | —                          | ADR-009, ADR-011, ADR-012
+| A-1   | Medium   | —                          | ADR-013, ADR-014, ADR-015
+| R-2   | Medium   | —                          | ADR-009, ADR-011, ADR-012
+| U-1   | Medium   | —                          | ADR-021, ADR-024
+|===
+
+==== Gaps & Weak Coverage
+
+All quality attributes have weak coverage only:
+
+* **High Priority Gaps (7):** P-1, P-2, S-1, S-2, A-2, R-1, SE-1 — No Accepted ADRs
+* **Medium Priority Gaps (4):** P-3, A-1, R-2, U-1 — No Accepted ADRs
+
+All coverage depends on Proposed ADRs requiring approval and implementation.
+
+==== Conflicts / Duplicates
+
+* **Potential Conflict:** P-1 response time vs S-2 storage retention — ADR-009 (analytical DB) vs ADR-017 (tiered storage) may create query performance trade-offs
+* **Overlapping Coverage:** A-2 availability addressed by multiple ADRs (005, 008, 012, 016) with potential coordination gaps
+
+==== Risk Alignment (High-priority QAs)
+
+[options="header"]
+|===
+| QA ID | Related Risk IDs | Mitigation present? | Note
+
+| P-1   | RISK-QUERY-01    | Yes                 | Pre-aggregation, caching, columnar storage
+| P-2   | RISK-INGEST-01, RISK-PEAK-01 | Yes       | Auto-scaling, partitioning, DLQ implementation  
+| S-1   | RISK-SCALE-01, RISK-PEAK-01 | Yes        | Read replicas, connection pooling, elastic scaling
+| S-2   | RISK-STORAGE-01  | Yes                 | Tiered storage, compression, lifecycle policies
+| A-2   | RISK-SCALE-01, RISK-PEAK-01 | Yes        | Load shedding, circuit breakers, failover
+| R-1   | RISK-DURABILITY-01 | Yes               | Multi-region replication, backup validation
+| SE-1  | RISK-COMPLIANCE-01 | Yes               | Automated deletion workflows, audit trails
+|===
+
+==== Recommended Actions
+
+1. **Prioritize ADR approvals** for high-priority QAs: ADR-005 (ingestion), ADR-009 (analytical DB), ADR-021 (compliance)
+2. **Create ADR comparison table** for P-1 vs S-2 trade-offs between query performance and storage costs
+3. **Consolidate availability ADRs** — merge overlapping coverage from ADR-005, ADR-008, ADR-012, ADR-016
+4. **Establish ADR approval pipeline** to convert Proposed status to Accepted with implementation timelines
+5. **Define integration testing strategy** for multi-ADR quality scenarios (P-2 + R-1 for high-volume durability)
+
+==== Notes
+
+* All ADRs except ADR-001 remain in Proposed status — implementation risk for all QAs
+* Risk mitigation strategies identified but depend on ADR implementation
+* Medium-priority QAs grouped due to dependency on high-priority infrastructure decisions
+* Quality scenarios require coordination across multiple ADRs for complete coverage
